@@ -1,0 +1,460 @@
+/* -- Fontes Do Site --------------------------------- */
+    /* Link da fonte Gluten */
+    @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+    /* Link da fonte Fredoka*/
+    @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Fredoka:wght@300..700&family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+/* -- Fim Fontes ------------------------------------- */
+
+
+* {
+    /* Tirando as estilizações padrão do navegador */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* -- Paleta de Cores -------------------------------- */
+    :root {
+        --primaria-amarelo: #FFC300;
+        --secundaria-rosa: #E74880;
+        --terciaria-azul: #0F75BC;
+        --titulo-gluten: "Gluten", cursive;
+        --paragrafo-fredoka: "Fredoka", sans-serif;
+    }
+/* -- Fim Paleta ------------------------------------- */
+
+
+/* -- Gerais ----------------------------------------- */
+body {
+    font-family: var(--paragrafo-fredoka);
+}
+/* -- Fim Gerais ------------------------------------- */
+
+
+/* -- HEADER ------------------------------------------------------ */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 3%;
+    font-family: var(--titulo-gluten);
+    border-bottom: 2px solid black;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    height: 9vh;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    width: 30vw;
+}
+
+.logo > #img-logo {
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/logo-amarela.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all ease-in-out 0.3s;
+}
+
+.logo > #img-logo:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+}
+
+.nav > nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav > nav > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 9vh;
+    border: 2px solid black;
+    border-bottom: none;
+    border-top: none;
+    cursor: none;
+}
+
+.nav > nav > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    width: 180px;
+    height: 9vh;
+    transition: all ease-in-out 0.3s;
+}
+
+#select {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav > nav > a:hover {
+    color: var(--terciaria-azul);
+    transform: scale(1.1);
+}
+
+.nav > nav > .border-none {
+    border-right: none;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 30vw;
+    gap: 30px;
+}
+
+.botoes > button {
+    font-size: 12px;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    background-color: white;
+    padding: 1% 6%;
+    border: 2px solid black;
+    transition: all ease-in-out 0.3s;
+}
+
+.botoes > button:hover {
+    transform: scale(0.95);
+    background-color: black;
+    color: white;
+}
+
+.botoes > button:active {
+    transform: scale(0.9);
+    background-color: white;
+    color: black;
+}
+
+
+/* -- FIM HEADER -------------------------------------------------- */
+
+
+/* -- MAIN -------------------------------------------------------- */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > .container-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.container > .content1 {
+    background-image: url(../img/home-background-image.svg);
+    background-position: 107% center;
+    background-repeat: no-repeat;
+    background-size: 38%;
+    align-items: flex-start;
+    padding: 12%;
+    gap: 8%;
+    height: 100vh;
+}
+
+.container > .content1 > h1 {
+    font-family: var(--titulo-gluten);
+    font-weight: 400;
+    font-size: 32px;
+}
+.container > .content1 > p {
+    max-width: 65%;
+    font-size: 18px;
+}
+
+.container > .content1 > h1 > span {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+hr {
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 10%;
+}
+
+.content1 > button {
+    font-size: 12px;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    background-color: white;
+    padding: 1% 6%;
+    border: 2px solid black;
+    transition: all ease-in-out 0.3s;
+}
+
+.content1 > button:hover {
+    transform: scale(0.95);
+    background-color: black;
+    color: white;
+}
+
+.content1 > button:active {
+    transform: scale(0.9);
+    background-color: white;
+    color: black;
+}
+
+.personagens {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2%;
+    width: 50%;
+}
+
+.ico {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+.ico:hover {
+    transform: scale(1.1);
+}
+
+#connie-ico {
+    background-image: url(../img/home-blanc-connie.svg);
+}
+
+#connie-ico:hover {
+    background-image: url(../img/home-color-connie.svg);
+}
+
+#steven-ico {
+    background-image: url(../img/home-blanc-steven.svg);
+}
+
+#steven-ico:hover {
+    background-image: url(../img/home-color-steven.svg);
+}
+
+#garnet-ico {
+    background-image: url(../img/home-blanc-garnet.svg);
+}
+
+#garnet-ico:hover {
+    background-image: url(../img/home-color-garnet.svg);
+}
+
+#perola-ico {
+    background-image: url(../img/home-blanc-perola.svg);
+}
+
+#perola-ico:hover {
+    background-image: url(../img/home-color-perola.svg);
+}
+
+#ametista-ico {
+    background-image: url(../img/home-blanc-ametista.svg);
+}
+
+#ametista-ico:hover {
+    background-image: url(../img/home-color-ametista.svg);
+}
+
+/* ------------------------ */
+
+.content2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.content2 > .titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 50%;
+    gap: 20px;
+}
+
+.container-content > .titulo > h2 {
+    font-family: var(--titulo-gluten);
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.container-content > .titulo > h2 > span {
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all ease-in-out 0.3s;
+}
+
+.container-content > .titulo> h2 > span:hover {
+    color: var(--terciaria-azul);
+}
+
+.container-content > .titulo > p {
+    font-size: 18px;
+}
+
+.container-content > .titulo > p > span {
+    font-weight: 700;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 50px;
+}
+
+.content2 > .boxes > .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2% 2%;
+    border:  2px solid black;
+    border-radius: 10px;
+    width: 17%;
+    height: auto;
+    text-align: center;
+    gap: 20px;
+    transition: all ease-in-out 0.3s;
+}
+
+.content2 > .boxes > .box:hover {
+    transform: scale(1.1);
+    background-color: #dff1ff;
+}
+
+.boxes > .box > h3 {
+    font-family: var(--titulo-gluten);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.boxes > .box > p {
+    font-size: 14px;
+}
+
+.boxes > .box > div {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100px;
+    height: 100px;
+}
+
+#box-dashboard {
+    background-image: url(../img/home-boxes-dashboard.svg);
+}
+
+#box-personagens {
+    background-image: url(../img/home-boxes-personagens.svg);
+}
+
+#box-forum {
+    background-image: url(../img/home-boxes-forum.svg);
+}
+
+#box-musica {
+    background-image: url(../img/home-boxes-musica.svg);
+}
+
+/* ------------------------ */
+
+.content3 {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.content3 > .boxes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline;
+}
+
+.content3 > .boxes > .box {
+    display: flex;
+    flex-direction: column;
+    max-width: 23%;
+    gap: 20px;
+}
+
+.content3 > .boxes > .box1 {
+    text-align: right;
+}
+
+.content3 > .boxes > .box2 {
+    text-align: left;
+}
+
+.content3 > .boxes > .box > p {
+    font-size: 16px;
+}
+
+.content3 > .boxes > .box > h3 {
+    font-family: var(--titulo-gluten);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.content3 > .boxes > .steven-melancia {
+    background-image: url();
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 70%;
+}
+
+/* -- FIM MAIN ---------------------------------------------------- */
+
+
+/* -- FOOTER ------------------------------------------------------ */
+/* -- FIM FOOTER -------------------------------------------------- */
