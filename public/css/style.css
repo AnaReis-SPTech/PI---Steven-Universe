@@ -44,6 +44,7 @@ header {
     border-bottom: 2px solid black;
     background-color: white;
     position: fixed;
+    z-index: 1000;
     width: 100%;
     height: 9vh;
 }
@@ -163,7 +164,7 @@ main {
     align-items: center;
 }
 
-.container > .container-content {
+.container > .content1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -408,7 +409,7 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 50px;
 }
 
 .content3 > .boxes {
@@ -423,6 +424,11 @@ hr {
     flex-direction: column;
     max-width: 23%;
     gap: 20px;
+    transition: all ease-in-out 0.3s;
+}
+
+.content3 > .boxes > .box:hover {
+    transform: scale(1.1);
 }
 
 .content3 > .boxes > .box1 {
@@ -434,7 +440,7 @@ hr {
 }
 
 .content3 > .boxes > .box > p {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .content3 > .boxes > .box > h3 {
@@ -445,16 +451,217 @@ hr {
 }
 
 .content3 > .boxes > .steven-melancia {
-    background-image: url();
+    background-image: url(../img/home-steven-melancia.svg);
     background-position: center; 
     background-repeat: no-repeat;
     background-size: cover;
-    width: 500px;
-    height: 70%;
+    width: 400px;
+    height: 400px;
+    transition: all ease-in-out 0.3s;
+}
+
+.content3 > .boxes > .steven-melancia:hover {
+    transform: scale(1.1) rotate(-20deg);
+}
+
+/* ------------------------ */
+
+.content4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10% 0px;
+    gap: 30px;
+}
+
+.content4 > .box2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    max-width: 450px;
+    text-align: right;
+}
+
+.content4 > .box2 > h3 {
+    font-family: var(--titulo-gluten);
+    font-size: 34px;
+    max-width: 300px;
+    font-weight: 400;
+}
+
+.content4 > .box2 > p {
+    font-size: 16px;
+}
+
+.content4 > .box2 > button {
+    font-size: 12px;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    background-color: white;
+    padding: 1% 10%;
+    border: 2px solid black;
+    transition: all ease-in-out 0.3s;
+    font-size: 18px;
+}
+
+.content4 > .box2 > button:hover {
+    transform: scale(0.95);
+    background-color: black;
+    color: white;
+}
+
+.content4 > .box2 > button:active {
+    transform: scale(0.9);
+    background-color: white;
+    color: black;
+}
+
+.content4 > .box1 {
+    background-image: url(../img/home-musica-img.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+    height: 225px;
 }
 
 /* -- FIM MAIN ---------------------------------------------------- */
 
 
 /* -- FOOTER ------------------------------------------------------ */
+
+footer {
+    display: flex;
+    width: 100%;
+    height: 280px;
+    background-image: url(../img/footer-background.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+footer > .background {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 8%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+}
+
+footer > .background > .logo {
+    width: 150px;
+    height: 150px;
+    background-image: url(../img/footer-logo.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer > .background > .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer > .background > .textos {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 55%;
+    text-align: center;
+}
+
+footer > .background > .box > .grupo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    gap: 10px;
+}
+
+footer > .background > .box > .grupo > h3 {
+    font-family:  var(--titulo-gluten);
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+footer > .background > .box > .contato > h3 {
+    color: var(--primaria-amarelo);
+}
+
+footer > .background > .box > .navegacao > h3 {
+    color: var(--secundaria-rosa);
+}
+
+footer > .background > .box > .paginas > h3 {
+    color: var(--terciaria-azul);
+}
+
+footer > .background > .box > .grupo > nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+footer > .background > .box > .grupo > nav > a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all ease-in-out 0.3s;
+}
+
+footer > .background > .box > .grupo > nav > a:hover {
+    transform: scale(1.1);
+    color: #FFC300;
+}
+
+footer > .background > .faca-parte {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 150px;
+    gap: 10px;
+}
+
+footer > .background > .faca-parte > h3 {
+    color: white;
+    font-family: var(--titulo-gluten);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+footer > .background > .faca-parte > button {
+    font-size: 12px;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    background-color: white;
+    padding: 4% 10%;
+    border: 2px solid black;
+    transition: all ease-in-out 0.3s;
+}
+
+footer > .background > .faca-parte > button:hover {
+    transform: scale(0.95);
+    background-color: black;
+    color: white;
+}
+
+footer > .background > .faca-parte > button:active {
+    transform: scale(0.9);
+    background-color: white;
+    color: black;
+}
+
 /* -- FIM FOOTER -------------------------------------------------- */
