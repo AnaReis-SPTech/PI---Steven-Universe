@@ -58,7 +58,7 @@ header {
 .logo > #img-logo {
     width: 40px;
     height: 40px;
-    background-image: url(../img/logo-amarela.png);
+    background-image: url(../assets/imgs/logo-amarela.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -130,23 +130,25 @@ header {
     gap: 30px;
 }
 
-.botoes > button {
+.botoes > a {
+    color: black;
     font-size: 12px;
     font-family: var(--titulo-gluten);
     text-transform: uppercase;
+    text-decoration: none;
     background-color: white;
     padding: 1% 6%;
     border: 2px solid black;
     transition: all ease-in-out 0.3s;
 }
 
-.botoes > button:hover {
+.botoes > a:hover {
     transform: scale(0.95);
     background-color: black;
     color: white;
 }
 
-.botoes > button:active {
+.botoes > a:active {
     transform: scale(0.9);
     background-color: white;
     color: black;
@@ -173,7 +175,7 @@ main {
 }
 
 .container > .content1 {
-    background-image: url(../img/home-background-image.svg);
+    background-image: url(../assets/imgs/home-background-image.svg);
     background-position: 107% center;
     background-repeat: no-repeat;
     background-size: 38%;
@@ -250,43 +252,43 @@ hr {
 }
 
 #connie-ico {
-    background-image: url(../img/home-blanc-connie.svg);
+    background-image: url(../assets/imgs/home-blanc-connie.svg);
 }
 
 #connie-ico:hover {
-    background-image: url(../img/home-color-connie.svg);
+    background-image: url(../assets/imgs/home-color-connie.svg);
 }
 
 #steven-ico {
-    background-image: url(../img/home-blanc-steven.svg);
+    background-image: url(../assets/imgs/home-blanc-steven.svg);
 }
 
 #steven-ico:hover {
-    background-image: url(../img/home-color-steven.svg);
+    background-image: url(../assets/imgs/home-color-steven.svg);
 }
 
 #garnet-ico {
-    background-image: url(../img/home-blanc-garnet.svg);
+    background-image: url(../assets/imgs/home-blanc-garnet.svg);
 }
 
 #garnet-ico:hover {
-    background-image: url(../img/home-color-garnet.svg);
+    background-image: url(../assets/imgs/home-color-garnet.svg);
 }
 
 #perola-ico {
-    background-image: url(../img/home-blanc-perola.svg);
+    background-image: url(../assets/imgs/home-blanc-perola.svg);
 }
 
 #perola-ico:hover {
-    background-image: url(../img/home-color-perola.svg);
+    background-image: url(../assets/imgs/home-color-perola.svg);
 }
 
 #ametista-ico {
-    background-image: url(../img/home-blanc-ametista.svg);
+    background-image: url(../assets/imgs/home-blanc-ametista.svg);
 }
 
 #ametista-ico:hover {
-    background-image: url(../img/home-color-ametista.svg);
+    background-image: url(../assets/imgs/home-color-ametista.svg);
 }
 
 /* ------------------------ */
@@ -386,19 +388,19 @@ hr {
 }
 
 #box-dashboard {
-    background-image: url(../img/home-boxes-dashboard.svg);
+    background-image: url(../assets/imgs/home-boxes-dashboard.svg);
 }
 
 #box-personagens {
-    background-image: url(../img/home-boxes-personagens.svg);
+    background-image: url(../assets/imgs/home-boxes-personagens.svg);
 }
 
 #box-forum {
-    background-image: url(../img/home-boxes-forum.svg);
+    background-image: url(../assets/imgs/home-boxes-forum.svg);
 }
 
 #box-musica {
-    background-image: url(../img/home-boxes-musica.svg);
+    background-image: url(../assets/imgs/home-boxes-musica.svg);
 }
 
 /* ------------------------ */
@@ -451,7 +453,7 @@ hr {
 }
 
 .content3 > .boxes > .steven-melancia {
-    background-image: url(../img/home-steven-melancia.svg);
+    background-image: url(../assets/imgs/home-steven-melancia.svg);
     background-position: center; 
     background-repeat: no-repeat;
     background-size: cover;
@@ -521,7 +523,7 @@ hr {
 }
 
 .content4 > .box1 {
-    background-image: url(../img/home-musica-img.svg);
+    background-image: url(../assets/imgs/home-musica-img.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -538,7 +540,7 @@ footer {
     display: flex;
     width: 100%;
     height: 280px;
-    background-image: url(../img/footer-background.svg);
+    background-image: url(../assets/imgs/footer-background.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -557,7 +559,7 @@ footer > .background {
 footer > .background > .logo {
     width: 150px;
     height: 150px;
-    background-image: url(../img/footer-logo.svg);
+    background-image: url(../assets/imgs/footer-logo.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -642,7 +644,7 @@ footer > .background > .faca-parte > h3 {
     text-transform: uppercase;
 }
 
-footer > .background > .faca-parte > button {
+footer > .background > .faca-parte > a {
     font-size: 12px;
     font-family: var(--titulo-gluten);
     text-transform: uppercase;
@@ -650,15 +652,17 @@ footer > .background > .faca-parte > button {
     padding: 4% 10%;
     border: 2px solid black;
     transition: all ease-in-out 0.3s;
+    text-decoration: none;
+    color: black;
 }
 
-footer > .background > .faca-parte > button:hover {
+footer > .background > .faca-parte > a:hover {
     transform: scale(0.95);
     background-color: black;
     color: white;
 }
 
-footer > .background > .faca-parte > button:active {
+footer > .background > .faca-parte > a:active {
     transform: scale(0.9);
     background-color: white;
     color: black;
