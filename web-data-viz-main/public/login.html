@@ -10,17 +10,26 @@
 
     <script src="./js/sessao.js"></script>
 
-  <link rel="shortcut icon" href="../public/assets/icon/favicon-light.ico" type="image/x-icon"media="(prefers-color-scheme: light)">
-  <link rel="shortcut icon" href="../public/assets/icon/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="../public/css/auth.css">
+    <link rel="shortcut icon" href="./assets/icon/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="./assets/icon/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="./css/auth.css">
 </head>
 
 <body id="login">
     <header>
-        <button onclick="window.history.back();"><</button>
+        <a href="index.html"><</a>
     </header>
     <div class="container">
-        <main>
+
+        <!-- Alertas do Web-Data-Viz -->
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <!-- Fim alertas do Web-Data-Viz -->
+
+        <main id="login-main">
             <div>
                 <h1 id="titulo-login">Login</h1>
             </div>
@@ -32,19 +41,19 @@
                     </div>
                     <div class="black">
                         <label for="ipt_senha">Senha: </label>
-                        <input type="text" id="ipt_senha">
+                        <input type="password" id="ipt_senha">
                     </div>
                 </div>
             </div>
             <div class="box-buttons">
                 <button class="principal-login" onclick="entrar()">Entrar</button>
-            <button class="secundario-login">Quero me cadastrar</button>
+                <a class="secundario-login" href="cadastro.html">Quero me cadastrar</a>
 
-            <div id="div_aguardar" class="loading-div">
-                <img src="./assets/circle-loading.gif" id="loading-gif">
-            </div>
+                <div class="loading-div">
+                    <img src="./assets/loading_steven.gif" id="loading-gif">
+                </div>
 
-            <div id="div_erros_login"></div>
+                <div id="div_erros_login"></div>
             </div>
         </main>
     </div>
@@ -58,12 +67,12 @@
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Por favor, preencha todo os campos!";
             finalizarAguardar();
             return false;
         }
@@ -95,11 +104,10 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 2000); // apenas para exibir o loading
 
                 });
 

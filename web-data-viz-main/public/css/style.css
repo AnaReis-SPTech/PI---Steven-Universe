@@ -442,7 +442,7 @@ hr {
 }
 
 .content3 > .boxes > .box > p {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .content3 > .boxes > .box > h3 {
@@ -457,8 +457,8 @@ hr {
     background-position: center; 
     background-repeat: no-repeat;
     background-size: cover;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     transition: all ease-in-out 0.3s;
 }
 

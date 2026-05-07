@@ -1,10 +1,10 @@
 /* -- Fontes Do Site --------------------------------- */
 
-    /* Link da fonte Gluten */
-    @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+/* Link da fonte Gluten */
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
-    /* Link da fonte Fredoka*/
-    @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Fredoka:wght@300..700&family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+/* Link da fonte Fredoka*/
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Fredoka:wght@300..700&family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 /* -- Fim Fontes ------------------------------------- */
 
@@ -16,13 +16,14 @@
 }
 
 /* -- Paleta de Cores -------------------------------- */
-    :root {
-        --primaria-amarelo: #FFC300;
-        --secundaria-rosa: #E74880;
-        --terciaria-azul: #0F75BC;
-        --titulo-gluten: "Gluten", cursive;
-        --paragrafo-fredoka: "Fredoka", sans-serif;
-    }
+:root {
+    --primaria-amarelo: #FFC300;
+    --secundaria-rosa: #E74880;
+    --terciaria-azul: #0F75BC;
+    --titulo-gluten: "Gluten", cursive;
+    --paragrafo-fredoka: "Fredoka", sans-serif;
+}
+
 /* -- Fim Paleta ------------------------------------- */
 
 
@@ -36,20 +37,22 @@ body {
 
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+    gap: 2%;
 }
 
 #cadastro {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),url(../assets/imgs/auth-cadastro-background.jpeg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(../assets/imgs/auth-cadastro-background.jpeg);
 }
 
 #login {
-    background-image:  url(../assets/imgs/auth-login-background.svg);
+    background-image: url(../assets/imgs/auth-login-background.svg);
 }
+
 /* -- Fim Gerais ------------------------------------- */
 
 /* -- HEADER ------------------------------------------------------ */
@@ -62,7 +65,11 @@ header {
     z-index: 10;
 }
 
-header button {
+header a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    justify-content: center;
     width: 5vh;
     height: 5vh;
     background-color: white;
@@ -71,11 +78,12 @@ header button {
     transition: all ease-in-out 0.3s;
 }
 
-header button:hover {
+header a:hover {
     transform: scale(0.9);
     color: white;
     background-color: black;
 }
+
 /* -- FIM HEADER -------------------------------------------------- */
 
 /* -- MAIN -------------------------------------------------------- */
@@ -85,10 +93,14 @@ main {
     justify-content: space-between;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(7px);
     width: 50vw;
     height: 65vh;
     padding: 5%;
+}
+
+#login-main {
+       padding: 5% 5% 1% 5%; 
 }
 
 main h1 {
@@ -134,7 +146,8 @@ main h1 {
 .box-buttons {
     display: flex;
     flex-direction: column;
-    gap: 30%;
+    align-items: center;
+    gap: 20px;
 }
 
 .box-buttons .principal-cad {
@@ -142,19 +155,34 @@ main h1 {
     font-family: var(--titulo-gluten);
     text-transform: uppercase;
     width: 18vw;
-    height: 7vh;
+    height: 5vh;
     border: 2px solid white;
     color: white;
     background-color: transparent;
+    transition: all ease-in-out 0.3s;
+}
+
+.box-buttons .principal-cad:hover {
+    transform: scale(0.95);
+    background-color: white;
+    color: black;
 }
 
 .box-buttons .secundario-cad {
+    text-decoration: none;
+    text-align: center;
     font-size: 20px;
     font-family: var(--titulo-gluten);
     text-transform: uppercase;
     color: white;
     background-color: transparent;
     border: none;
+    transition: all ease-in-out 0.3s;
+}
+
+.box-buttons .secundario-cad:hover {
+    color: var(--primaria-amarelo);
+    transform: scale(1.05);
 }
 
 .box-buttons .principal-login {
@@ -162,19 +190,34 @@ main h1 {
     font-family: var(--titulo-gluten);
     text-transform: uppercase;
     width: 13vw;
-    height: 7vh;
+    height: 5vh;
     border: 2px solid black;
     color: black;
     background-color: white;
+    transition: all ease-in-out 0.3s;
+}
+
+.box-buttons .principal-login:hover {
+    transform: scale(0.95);
+    background-color: black;
+    color: white;
 }
 
 .box-buttons .secundario-login {
+    text-decoration: none;
+    text-align: center;
     font-size: 20px;
     font-family: var(--titulo-gluten);
     text-transform: uppercase;
     color: black;
     background-color: transparent;
     border: none;
+    transition: all ease-in-out 0.3s;
+}
+
+.box-buttons .secundario-login:hover {
+    color: #f10055;
+    transform: scale(1.05);
 }
 
 #titulo-login {
@@ -185,99 +228,67 @@ main h1 {
 
 /* -- STYLES Aquatech --------------------------------------------- */
 .loading-div {
-  width: 50px;
-  display: none;
+    align-self: center;
+    width: 100px;
+    height: 100px;
 }
 
-.loading-div img {
-  height: 50px;
-  width: 50px;
+.loading-div #loading-gif {
+    height: 100px;
+    width: 100px;
+    display: none
 }
 
 #div_erros_login {
-  display: none
+    display: none
 }
 
 /* FORMULARIO */
 
-.alerta_erro{
-  display: flex;
-  justify-content: flex-end;
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .card_erro {
-  display: none;
-  background-color: #fff;
-  color: black;
-  width: 230px;
-  position: fixed;
-  border-radius: 4px;
-  border: #ED145B 3px solid;
-  padding: 10px;
-  margin-right: 10%;
+    display: none;
+    position: fixed;
+    left: 25%;
+    top: 10%;
+    background-color: transparent;
+    color: white;
+    width: 50vw;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(245, 0, 74, 0.719);
+    backdrop-filter: blur(10px);
 }
 
-.card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.loading-div {
-  width: 50px;
-  margin: auto;
-  display: none;
-}
-
-.loading-div img {
-  height: 50px;
-  width: 50px;
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
 }
 
 /* ALERTA */
 
 #alerta {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
-.mensagem-alarme {
-  background-color: white;
-  border-radius: 5px;
-  width: 300px;
-  height: 80px;
-  margin: 10px;
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.mensagem-alarme h3 {
-  font-size: 14px;
-  margin: 0;
-}
-
-.mensagem-alarme .informacao {
-  width: 66%;
-}
-
-.alarme-sino {
-  width: 48px;
-  height: 48px;
-  animation-name: bell;
-  animation-duration: 4s;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
-  background-size: cover;
-  animation-iteration-count: infinite;
-}
-
-@keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
+#div_erros_login {
+    position: fixed;
+    top: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ff0059;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* -- FIM STYLES Aquatech --------------------------------------------- */

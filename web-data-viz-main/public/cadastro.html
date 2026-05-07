@@ -10,16 +10,27 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="shortcut icon" href="../public/assets/icon/favicon-light.ico" type="image/x-icon"media="(prefers-color-scheme: light)">
-  <link rel="shortcut icon" href="../public/assets/icon/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="../public/css/auth.css">
+  <link rel="shortcut icon" href="./assets/icon/favicon-light.ico" type="image/x-icon"
+    media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" href="./assets/icon/favicon-dark.ico" type="image/x-icon"
+    media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="./css/auth.css">
 </head>
 
-<body onload="listar()" id="cadastro">
+<body id="cadastro">
   <header>
-    <button onclick="window.history.back();"><</button>
+    <a href="index.html"><</a>
   </header>
   <div class="container">
+
+    <!-- Alertas do Web-Data-Viz -->
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+    <!-- Fim alertas do Web-Data-Viz -->
+
     <main>
       <div>
         <h1>Cadastre-se</h1>
@@ -56,7 +67,7 @@
       </div>
       <div class="box-buttons">
         <button class="principal-cad" onclick="cadastrar()">Cadastrar</button>
-        <button class="secundario-cad">Já tenho login</button>
+        <a class="secundario-cad" href="login.html">Já tenho login</a>
       </div>
     </main>
   </div>
@@ -74,20 +85,24 @@
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var nomeCompletoVar = ipt_nome_completo.value;
+    var nomeVar = ipt_nome_usuario.value;
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_senha.value;
+    var dtNascVar = ipt_dt_nasc.value;
+    var confirmacaoSenhaVar = ipt_conf_senha.value;
+    // var codigoVar = codigo_input.value;
+    // var idEmpresaVincular
 
     // Verificando se há algum campo em branco
     if (
+      nomeCompletoVar == "" ||
       nomeVar == "" ||
       emailVar == "" ||
+      dtNascVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == ""
+      // codigoVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -99,19 +114,6 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -121,10 +123,12 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
+        nomeCompletoServer: nomeCompletoVar,
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        dtNascServer: dtNascVar
+        // idEmpresaVincularServer: idEmpresaVincular
       }),
     })
       .then(function (resposta) {
@@ -152,26 +156,6 @@
       });
 
     return false;
-  }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
   }
 
   function sumirMensagem() {
