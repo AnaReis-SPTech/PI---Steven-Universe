@@ -75,10 +75,10 @@ FOREIGN KEY (fk_quiz)
 REFERENCES quiz (id)
 );
 
-SELECT * FROM usuario;
-
 INSERT INTO usuario (nome_completo, nome_usuario, email, senha, dt_nasc) VALUES
 ('ADM', 'ADM_Steven', 'steven@gmail.com', 'biscoito_gatinho', '2001-08-15');
+
+SELECT * FROM usuario;
 /*
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,

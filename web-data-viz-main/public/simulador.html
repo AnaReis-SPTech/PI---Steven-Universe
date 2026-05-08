@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="shortcut icon" href="./assets/icon/favicon-light.ico" type="image/x-icon"
+        media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="./assets/icon/favicon-dark.ico" type="image/x-icon"
+        media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="./css/simulador.css">
+
+    <title>Steven Verse | Sorteio</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            < </a>
+    </header>
+
+    <main> <!-- row -->
+        <div class="quadrado extremo"></div>
+
+        <div class="container"> <!-- row -->
+
+            <div class="titulo-simulador">
+                <h1>Simule o Sorteador</h1>
+            </div>
+
+            <div class="container-sorteador quadrado">
+
+                <div class="content-simulador">
+
+                    <iframe class="musica" src="https://www.youtube.com/embed/tia_UIVR-Ww?si=scGqAzfcI2PIT_8I"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+
+                    <div class="botao-personagens"> <!-- colunm -->
+
+                        <div class="personagens"> <!-- colunm -->
+                            <h3>Pesonagens</h3>
+                            <div class="imagem-personagens"> <!-- row -->
+                                <img src="../public/assets/imgs/simulador-steven.svg" alt="Icon Steven">
+                                <img src="../public/assets/imgs/simulador-peridot.svg" alt="Icon Peridot">
+                            </div>
+                        </div>
+
+                        <button onclick="sortear()">Sortear</button>
+                    </div> <!-- row -->
+
+                </div>
+
+                <div class="content-simulador-descricao"> <!-- colunm -->
+                    <h2>Paz na Terra</h2>
+                    <p>A música "Paz na Terra" (Peace and Love on the Planet Earth) é um dos momentos mais doces e
+                        significativos de Steven Universo. Ela marca o início da redenção de Peridot, transformando um
+                        dueto despretensioso em uma lição sobre empatia e a beleza das pequenas coisas.</p>
+                </div>
+
+            </div>
+
+            <p>Cadastre-se no <span>Steven Verse</span> para conseguir sortear músicas diariamente, sem limitações!</p>
+
+        </div>
+
+        <div class="quadrado extremo"></div>
+    </main>
+</body>
+
+<script>
+    function sortear() {
+        let numeroAleatorio = Math.random();
+        let min = 1;
+        let max = 5;
+        let NumIntervalo = parseInt(numeroAleatorio * 10 (min - max) - min);
+    }
+</script>
+
+</html>
