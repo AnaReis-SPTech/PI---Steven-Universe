@@ -299,6 +299,7 @@ hr {
     justify-content: center;
     align-items: center;
     gap: 100px;
+    margin-top: 10%;
 }
 
 .content2 > .titulo {
@@ -353,7 +354,6 @@ hr {
     align-items: center;
     justify-content: center;
     padding: 2% 2%;
-    border:  2px solid black;
     border-radius: 10px;
     width: 17%;
     height: auto;
@@ -442,7 +442,7 @@ hr {
 }
 
 .content3 > .boxes > .box > p {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .content3 > .boxes > .box > h3 {
@@ -454,11 +454,11 @@ hr {
 
 .content3 > .boxes > .steven-melancia {
     background-image: url(../assets/imgs/home-steven-melancia.svg);
-    background-position: center; 
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 450px;
-    height: 0px;
+    width: 25vw;
+    height: 50vh;
     transition: all ease-in-out 0.3s;
 }
 
@@ -474,7 +474,7 @@ hr {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 10% 0px;
+    margin-bottom: 15%;
     gap: 30px;
 }
 
@@ -626,6 +626,11 @@ footer > .background > .box > .grupo > nav > a {
 footer > .background > .box > .grupo > nav > a:hover {
     transform: scale(1.1);
     color: #FFC300;
+}
+
+footer > .background > .box > .grupo > nav > #sem-hover {
+    transform: scale(1);
+    color: white;
 }
 
 footer > .background > .faca-parte {

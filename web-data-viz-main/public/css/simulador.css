@@ -142,6 +142,15 @@ main {
     top: 5%;
 }
 
+.content-simulador {
+    transition: all ease-in-out 0.3s;
+    transform: scale(1);
+}
+
+.mover-esquerda {
+    transform: translateX(-50px);
+}
+
 .content-simulador-descricao {
     display: flex;
     flex-direction: column;
@@ -203,23 +212,17 @@ main {
 .botao-personagens > .personagens {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 27vh;
+    width: 18vw;
+    height: 40vh;
+    gap: 10%;
 }
 
 .botao-personagens > .personagens > h3{
     font-family: var(--titulo-gluten);
     font-size: 30px;
     color: var(--terciaria-azul);
-}
-
-.botao-personagens > .personagens > .imagem-personagens {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 16vw;
 }
 
 .botao-personagens > .personagens > .imagem-personagens > img {
