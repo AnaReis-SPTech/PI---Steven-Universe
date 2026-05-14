@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="./assets/icon/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link rel="shortcut icon" href="./assets/icon/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="./css/auth.css">
+    <link rel="stylesheet" href="./css/gerais.css">
 </head>
 
 <body id="login">
@@ -49,10 +50,9 @@
                 <button class="principal-login" onclick="entrar()">Entrar</button>
                 <a class="secundario-login" href="cadastro.html">Quero me cadastrar</a>
 
-                <div class="loading-div">
+                <div id="div_aguardar" class="loading-div">
                     <img src="./assets/loading_steven.gif" id="loading-gif">
                 </div>
-
                 <div id="div_erros_login"></div>
             </div>
         </main>

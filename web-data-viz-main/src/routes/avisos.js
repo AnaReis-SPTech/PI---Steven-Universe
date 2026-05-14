@@ -11,8 +11,8 @@ router.get("/listar/:idUsuario", function (req, res) {
     avisoController.listarPorUsuario(req, res);
 });
 
-router.get("/pesquisar/:descricao", function (req, res) {
-    avisoController.pesquisarDescricao(req, res);
+router.get("/pesquisar/:mensagem", function (req, res) {
+    avisoController.pesquisarMensagem(req, res);
 });
 
 router.post("/publicar/:idUsuario", function (req, res) {

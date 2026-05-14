@@ -9,7 +9,7 @@ function listar(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        console.log("Houve um erro ao buscar os mensagens: ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -39,10 +39,10 @@ function listarPorUsuario(req, res) {
         );
 }
 
-function pesquisarDescricao(req, res) {
-    var descricao = req.params.descricao;
+function pesquisarMensagem(req, res) {
+    var descricao = req.params.msgforum;
 
-    avisoModel.pesquisarDescricao(descricao)
+    avisoModel.pesquisarMensagem(msgforum)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -54,7 +54,7 @@ function pesquisarDescricao(req, res) {
         ).catch(
             function (erro) {
                 console.log(erro);
-                console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+                console.log("Houve um erro ao buscar os mensagens: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             }
         );
@@ -62,17 +62,17 @@ function pesquisarDescricao(req, res) {
 
 function publicar(req, res) {
     var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
+    var msgforum = req.body.msgforum;
     var idUsuario = req.params.idUsuario;
 
     if (titulo == undefined) {
         res.status(400).send("O título está indefinido!");
-    } else if (descricao == undefined) {
-        res.status(400).send("A descrição está indefinido!");
+    } else if (msgforum == undefined) {
+        res.status(400).send("A mensagem está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        avisoModel.publicar(titulo, msgforum, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -89,10 +89,10 @@ function publicar(req, res) {
 }
 
 function editar(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idAviso = req.params.idAviso;
+    var novaMensagem = req.body.msgforum;
+    var idMensagem = req.params.idMensagem;
 
-    avisoModel.editar(novaDescricao, idAviso)
+    avisoModel.editar(novaMensagem, idMensagem)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -109,9 +109,9 @@ function editar(req, res) {
 }
 
 function deletar(req, res) {
-    var idAviso = req.params.idAviso;
+    var idMensagem = req.params.idMensagem;
 
-    avisoModel.deletar(idAviso)
+    avisoModel.deletar(idMensagem)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -129,7 +129,7 @@ function deletar(req, res) {
 module.exports = {
     listar,
     listarPorUsuario,
-    pesquisarDescricao,
+    pesquisarMensagem,
     publicar,
     editar,
     deletar

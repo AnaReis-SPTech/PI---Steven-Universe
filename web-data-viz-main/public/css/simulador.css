@@ -1,35 +1,5 @@
-/* -- Fontes Do Site --------------------------------- */
-
-/* Link da fonte Gluten */
-@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-
-/* Link da fonte Fredoka*/
-@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Fredoka:wght@300..700&family=Gluten:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-
-/* -- Fim Fontes ------------------------------------- */
-
-* {
-    /* Tirando as estilizações padrão do navegador */
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* -- Paleta de Cores -------------------------------- */
-:root {
-    --primaria-amarelo: #FFC300;
-    --secundaria-rosa: #E74880;
-    --terciaria-azul: #0F75BC;
-    --titulo-gluten: "Gluten", cursive;
-    --paragrafo-fredoka: "Fredoka", sans-serif;
-}
-
-/* -- Fim Paleta ------------------------------------- */
-
-
 /* -- Gerais ----------------------------------------- */
 body {
-    font-family: var(--paragrafo-fredoka);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -38,34 +8,125 @@ body {
 /* -- Fim Gerais ------------------------------------- */
 
 /* -- HEADER ------------------------------------------------------ */
-
 header {
     display: flex;
-    padding: 2%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 3%;
+    font-family: var(--titulo-gluten);
+    border-bottom: 2px solid black;
+    background-color: white;
     position: fixed;
-    width: 100vw;
-    z-index: 10;
+    z-index: 1000;
+    width: 100%;
+    height: 9vh;
 }
 
-header a {
+.logo {
     display: flex;
-    text-decoration: none;
-    color: black;
-    justify-content: center;
-    width: 5vh;
-    height: 5vh;
-    background-color: white;
-    border: 3px solid black;
-    font-size: 30px;
+    justify-content: flex-start;
+    width: 30vw;
+}
+
+.logo > #img-logo {
+    width: 40px;
+    height: 40px;
+    background-image: url(../assets/imgs/logo-amarela.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     transition: all ease-in-out 0.3s;
 }
 
-header a:hover {
-    transform: scale(0.9);
-    color: white;
-    background-color: black;
+.logo > #img-logo:hover {
+    transform: rotate(20deg) scale(1.1);
 }
 
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+}
+
+.nav > nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav > nav > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 9vh;
+    border: 2px solid black;
+    border-bottom: none;
+    border-top: none;
+    cursor: none;
+}
+
+.nav > nav > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    width: 180px;
+    height: 9vh;
+    transition: all ease-in-out 0.3s;
+}
+
+#select {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav > nav > a:hover {
+    color: var(--terciaria-azul);
+    transform: scale(1.1);
+}
+
+.nav > nav > .border-none {
+    border-right: none;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 30vw;
+    gap: 30px;
+}
+
+.botoes > a {
+    color: black;
+    font-size: 12px;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: white;
+    padding: 1% 6%;
+    border: 2px solid black;
+    transition: all ease-in-out 0.3s;
+}
+
+.botoes > a:hover {
+    transform: scale(0.95);
+    background-color: black;
+    color: white;
+}
+
+.botoes > a:active {
+    transform: scale(0.9);
+    background-color: white;
+    color: black;
+}
 /* -- FIM HEADER -------------------------------------------------- */
 
 
@@ -99,7 +160,7 @@ main {
     height: 100vh;
 }
 
-.container > p {
+.container>p {
     text-align: center;
     font-family: var(--paragrafo-fredoka);
     color: white;
@@ -108,7 +169,7 @@ main {
     margin-top: 5%;
 }
 
-.container > p > span {
+.container>p>span {
     color: var(--primaria-amarelo);
     font-weight: 600;
 }
@@ -139,7 +200,7 @@ main {
     text-transform: uppercase;
     padding-left: 20px;
     position: fixed;
-    top: 5%;
+    top: 15%;
 }
 
 .content-simulador {
@@ -158,13 +219,13 @@ main {
     gap: 10%;
 }
 
-.content-simulador-descricao > h2 {
+.content-simulador-descricao>h2 {
     font-family: var(--titulo-gluten);
     font-size: 34px;
     text-transform: uppercase;
 }
 
-.content-simulador-descricao > p {
+.content-simulador-descricao>p {
     font-size: 22px;
 }
 
@@ -176,7 +237,7 @@ main {
     width: 100%;
 }
 
-.content-simulador > .musica {
+.content-simulador>.musica {
     width: 35vw;
     height: 39.4vh;
     background-color: rgb(216, 225, 233);
@@ -191,7 +252,7 @@ main {
     height: 39.4vh;
 }
 
-.botao-personagens > button {
+.botao-personagens>button {
     width: 12vw;
     height: 5vh;
     color: var(--terciaria-azul);
@@ -203,13 +264,13 @@ main {
     transition: all ease-in-out 0.3s;
 }
 
-.botao-personagens > button:hover {
+.botao-personagens>button:hover {
     color: white;
     background-color: var(--terciaria-azul);
     transform: scale(1.1);
 }
 
-.botao-personagens > .personagens {
+.botao-personagens>.personagens {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -219,20 +280,21 @@ main {
     gap: 10%;
 }
 
-.botao-personagens > .personagens > h3{
+.botao-personagens>.personagens>h3 {
     font-family: var(--titulo-gluten);
     font-size: 30px;
     color: var(--terciaria-azul);
 }
 
-.botao-personagens > .personagens > .imagem-personagens > img {
+.botao-personagens>.personagens>.imagem-personagens>img {
     transition: all ease-in-out 0.3s;
 }
 
-.botao-personagens > .personagens > .imagem-personagens > img:hover {
+.botao-personagens>.personagens>.imagem-personagens>img:hover {
     transform: scale(1.1);
     filter: brightness(100%);
     filter: drop-shadow(0 0 2px black) drop-shadow(0 0 2px black);
     -webkit-filter: drop-shadow(-3px 0px 1px rgb(160, 160, 160)) drop-shadow(-3px 0px 1px rgb(160, 160, 160));
 }
+
 /* -- FIM MAIN ---------------------------------------------------- */

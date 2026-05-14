@@ -1,0 +1,225 @@
+/* -- HEADER --------------------------------------- */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 3%;
+    font-family: var(--titulo-gluten);
+    border-bottom: 2px solid black;
+    background-color: white;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 9vh;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    width: 30vw;
+}
+
+.logo > #img-logo {
+    width: 40px;
+    height: 40px;
+    background-image: url(../assets/imgs/logo-amarela.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all ease-in-out 0.3s;
+}
+
+.logo > #img-logo:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+}
+
+.nav > nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav > nav > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 9vh;
+    border: 2px solid black;
+    border-bottom: none;
+    border-top: none;
+    cursor: none;
+}
+
+.nav > nav > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    width: 180px;
+    height: 9vh;
+    transition: all ease-in-out 0.3s;
+}
+
+#select {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav > nav > a:hover {
+    color: var(--terciaria-azul);
+    transform: scale(1.1);
+}
+
+.nav > nav > .border-none {
+    border-right: none;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 30vw;
+    gap: 30px;
+}
+
+.botoes > a {
+    color: black;
+    font-size: 12px;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: white;
+    padding: 1% 6%;
+    border: 2px solid black;
+    transition: all ease-in-out 0.3s;
+}
+
+.botoes > a:hover {
+    transform: scale(0.95);
+    background-color: black;
+    color: white;
+}
+
+.botoes > a:active {
+    transform: scale(0.9);
+    background-color: white;
+    color: black;
+}
+/* -- FIM HEADER ----------------------------------- */
+
+
+/* -- MAIN ----------------------------------------- */
+body {
+    background-color: #0F57BC;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;
+    padding: 0px 13%;
+}
+
+.container1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-bottom: 6%;
+}
+
+.content1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 35vw;
+    align-self: baseline;
+    gap: 4vh;
+}
+
+h2 {
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    font-size: 36px;
+}
+
+.content1 h2 {
+    color: #FFA6BD;
+}
+
+.content1 p {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.img-leao {
+    background-image: url(../assets/imgs/saiba-mais-leao.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35vw;
+    height: 40vh;
+}
+
+/* ------------------------------------------- */
+
+.container2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border: 5px solid black;
+    padding: 4%;
+}
+
+#img-steven-rosa {
+    background-image: url(../assets/imgs/saiba-mais-steven.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 25vw;
+    height: 17vw;
+    border: 5px solid black;
+}
+
+.content2 {
+    max-width: 39vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.content2 h2 {
+    color: #E74880;
+}
+
+.content2 p {
+    font-size: 20px;
+}
+
+/* ------------------------------------------- */
+
+main h2 {
+    color: #FFA6BD;
+    margin: 5% 0px;
+}
+/* -- FIM MAIN ------------------------------------- */
+
+/* -- FOOTER --------------------------------------- */
+/* -- FIM FOOTER ----------------------------------- */

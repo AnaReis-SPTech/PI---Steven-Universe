@@ -14,12 +14,8 @@ dt_cad DATE NOT NULL DEFAULT (CURDATE())
 
 CREATE TABLE mensagem (
 id INT PRIMARY KEY AUTO_INCREMENT,
+titulo VARCHAR(100),
 mensagem VARCHAR(255),
-
-msg_pai INT,
-CONSTRAINT ctfk_mesagem_pai
-FOREIGN KEY (msg_pai)
-REFERENCES mensagem (id),
 
 fk_usuario INT,
 CONSTRAINT ctfk_usuario_mensagem
@@ -76,17 +72,6 @@ REFERENCES quiz (id)
 );
 
 INSERT INTO usuario (nome_completo, nome_usuario, email, senha, dt_nasc) VALUES
-('ADM', 'ADM_Steven', 'steven@gmail.com', 'biscoito_gatinho', '2001-08-15');
+('ADM', 'ADM_Steven', 'steven@gmail.com', '12345678', '2001-08-15');
 
 SELECT * FROM usuario;
-/*
-CREATE TABLE usuario (
-id INT PRIMARY KEY AUTO_INCREMENT,
-nome_completo VARCHAR (100),
-nome_usuario VARCHAR(50) NOT NULL,
-email VARCHAR(255) NOT NULL UNIQUE,
-senha VARCHAR (255) NOT NULL,
-dt_nasc DATE NOT NULL,
-dt_cad DATE NOT NULL DEFAULT (CURRENT_TIME)
-);
-*/
