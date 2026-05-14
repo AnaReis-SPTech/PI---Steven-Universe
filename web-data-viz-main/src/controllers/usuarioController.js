@@ -65,7 +65,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, nomeCompleto, email, senha, dtNasc)
+        usuarioModel.cadastrar(nomeCompleto, nome, email, senha, dtNasc)
             .then(
                 function (resultado) {
                     res.json(resultado);

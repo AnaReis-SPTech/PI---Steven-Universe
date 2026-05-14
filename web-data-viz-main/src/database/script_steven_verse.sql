@@ -75,3 +75,4 @@ INSERT INTO usuario (nome_completo, nome_usuario, email, senha, dt_nasc) VALUES
 ('ADM', 'ADM_Steven', 'steven@gmail.com', '12345678', '2001-08-15');
 
 SELECT * FROM usuario;
+SELECT * FROM mensagem;
