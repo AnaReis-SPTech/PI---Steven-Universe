@@ -84,7 +84,7 @@
                         <label>
                             Descrição (máximo de 250 caracteres):
                             <br>
-                            <textarea id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            <textarea id="textarea_mensagem" maxlength="250" rows="5"></textarea>
                         </label>
                         <br>
                         <button onclick="editar()">Editar</button>
@@ -110,7 +110,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                descricao: textarea_descricao.value
+                msgforum: textarea_mensagem.value
             })
         }).then(function (resposta) {
 

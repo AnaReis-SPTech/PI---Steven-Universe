@@ -627,9 +627,10 @@ footer > .background > .faca-parte > a {
 }
 
 footer > .background > .faca-parte > a:hover {
-    transform: scale(0.95);
+    transform: scale(0.9);
     background-color: black;
     color: white;
+    border: 2px solid white;
 }
 
 footer > .background > .faca-parte > a:active {

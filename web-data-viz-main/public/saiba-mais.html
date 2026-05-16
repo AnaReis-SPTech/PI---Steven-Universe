@@ -31,11 +31,13 @@
         </div>
     </header>
 
+    <div id="1"></div>
     <main>
-        <div class="container1 projeto"> <!-- Row -->
+        <div class="container1"> <!-- Row -->
             <div class="content1 texto">
-                <h2> O que é esse projeto?</h2>
-                <p>O projeto Steven Verse surge a partir de uma oportunidade, a criação de um espaço para interação
+                <h2 class="titulo grande upper"> O que é esse projeto?</h2>
+                <p>
+                    O projeto Steven Verse surge a partir de uma oportunidade, a criação de um espaço para interação
                     entre os fãs da série, que muitas vezes expressam suas opiniões e atualizações quanto a obra em
                     locais distintos, trazendo uma dispersão maior do fandom.
                     <br><br>
@@ -48,11 +50,12 @@
                 </p>
             </div>
             <div class="img-leao"></div>
+            <div id="2"></div>
         </div>
-        <div class="container2 por-que"> <!-- Row -->
+        <div class="container2"> <!-- Row -->
             <div id="img-steven-rosa"></div>
             <div class="content2 texto"> <!-- Row -->
-                <h2>Por que eu escolhi esse tema?</h2>
+                <h2 class="titulo grande upper">Por que eu escolhi esse tema?</h2>
                 <p>
                     O que me cativa muito na obra e me fez escolhe-la como meu desenho favorito e tema desse projeto é a
                     forma como todas as lutas, batalhas e resoluções são conversas, conversas que muitas vezes fazem os
@@ -65,38 +68,83 @@
                 </p>
             </div>
         </div>
-        <h2>Projeto Criado Por:</h2>
+        <div id="3"></div>
+        <br><br>
+        <h2 class="titulo grande upper" id="creditos">Projeto Criado Por:</h2>
         <div class="container3">
             <div class="content3 sobre-mim">
-                <h2>Ana Carolina</h2>
+                <h2 class="titulo grande">Ana Carolina</h2>
                 <div class="content3-infos">
                     <div class="foto"></div>
                     <div class="textos">
-                        <h3>sptech</h3>
-                        <div>Ciências da Computação</div>
-                        <div>1° Semestre</div>
-                        <div>'Frase legal.'</div>
+                        <div class="textos-subtitulo">
+                            <h3 class="titulo upper">sptech</h3>
+                            <div>
+                                <div class="frase">Ciências da Computação</div>
+                                <div id="semestre">1° Semestre</div>
+                            </div>
+                        </div>
+                        <div class="frase">'Frase legal.'</div>
                     </div>
                 </div>
             </div>
-            <div class="content3 links-uteis">
-                <div class="content-github">
-                    <h1>Siga me no github</h1>
-                    <div class="nome-logo">
+            <div class="links-uteis">
+                <div class="content3 caixa-link">
+                    <h1 class="titulo grande upper texto-link">Siga me no github</h1>
+                    <a href="https://github.com/AnaReis-SPTech" class="nome-logo">
                         <div class="circulo-logo"></div>
                         <p>AnaReis-SPTech</p>
-                    </div>
+                    </a>
                 </div>
-                <div class="content-contate-me">
-                    <h1>contate me</h1>
+                <div class="content3 caixa-link">
+                    <h1 class="titulo grande upper texto-link">con<br>tate<br>me</h1>
                     <div class="contato">
-                        <div>Email: ana.reis@sptech.school</div>
-                        <div>Tel: +55 (11) 94680-2764</div>
+                        <a href="mailto:ana.reis@sptech.school" class="caixa-contato">ana.reis@sptech.school</a>
+                        <div class="caixa-contato">+55 (11) 94680-2764</div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer>
+        <div class="background">
+            <div class="box logo">
+                <!-- Logo do site -->
+            </div>
+            <div class="box textos">
+                <div class="grupo contato">
+                    <h3>contato</h3>
+                    <nav>
+                        <a id="sem-hover">(11) 94680-2764</a>
+                        <a href="mailto:ana.reis@sptech.school">ana.reis@sptech.school</a>
+                    </nav>
+                </div>
+                <div class="grupo navegacao">
+                    <h3>navegacão</h3>
+                    <nav>
+                        <a href="#1">O projeto</a>
+                        <a href="#2">Por que esse tema?</a>
+                        <a href="#3">Sobre Mim</a>
+                    </nav>
+                </div>
+                <div class="grupo paginas">
+                    <h3>Páginas</h3>
+                    <nav>
+                        <a href="index.html">Home</a>
+                        <a href="simulador.html">Sortear</a>
+                        <a href="#3">Contato</a>
+                        <a href="login.html">Dashboard</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="box faca-parte">
+                <h3>Faça Parte</h3>
+                <a href="login.html">Login</a>
+                <a href="cadastro.html">Cadastre-se</a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
