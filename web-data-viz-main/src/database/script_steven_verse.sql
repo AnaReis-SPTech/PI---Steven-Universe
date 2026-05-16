@@ -76,3 +76,17 @@ INSERT INTO usuario (nome_completo, nome_usuario, email, senha, dt_nasc) VALUES
 
 SELECT * FROM usuario;
 SELECT * FROM mensagem;
+
+-- Acesso ao BD VM lubuntu
+-- DB_HOST='%'
+-- DB_DATABASE='steven_verse'
+-- DB_USER='lubuntu_steven_verso'
+-- DB_PASSWORD='O1amor@e@conversa'
+-- DB_PORT='3307'
+
+-- Acesso ao BD local
+-- DB_HOST='localhost'
+-- DB_DATABASE='steven_verse'
+-- DB_USER='acesso_steven_verso'
+-- DB_PASSWORD='o_amor_e_conversa'
+-- DB_PORT='3306'
