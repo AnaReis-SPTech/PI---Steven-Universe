@@ -67,7 +67,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/zNy7ANM7ZPs?si=hgunQBjOGTiX9q1T',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -76,7 +76,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/21L7tE7W24Q?si=UcidiOPxKUJKjVM3',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -85,7 +85,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/9Q0eZ6emyZc?si=8XE4apmT9XwLd3Nr',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -94,7 +94,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/FV1IjGeqMKk?si=qkHwik4FRoNwE0CB',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -103,7 +103,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/9iKljVCNaC0?si=qOJK5Uq7f1o0Bvld',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -112,7 +112,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/EOXhe-TENSU?si=Sr9AqZxf961OEepi',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -121,7 +121,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/Kk_VEKnEG3Y?si=S0qKGfMEFHDM5iTC',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -130,7 +130,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/mHCGM-ffqGQ?si=1eeDGU78Z90Nmakh" title="YouTube video player',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -139,25 +139,16 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/QgML6mmdmHk?si=vxEp5a4h3HwVUxk3',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': 'Canção Séria',
+            'titulo': 'Por Que Tão Azul?',
 
             'descricao': '',
 
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': 'Cor em Difusão',
-
-            'descricao': '',
-
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/wvnVPmzx8Dg?si=Obwgqtah4nsrPlqZ',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -166,7 +157,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/1--ZhoC_OC0?si=02keudm-XYKmf2CT',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -175,7 +166,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/urchO-uWg5U?si=VqdxuHxesRbmFURr',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -184,7 +175,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/FPEOGgKDk5U?si=2fxnnBk4UBrZu3fs',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -193,7 +184,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/EZ_4-ZJmABg?si=O-NwL7KIrBxeMBkv',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -202,7 +193,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/6TnuH4-n_20?si=JvCSHOAMRRe95aGT',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -211,7 +202,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/I2Nh3J2ALDg?si=_aL67pbrrxqlWiMb',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -220,7 +211,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/hwyw8c7EKdw?si=jAFEAMTfdtbN5hAu',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -229,7 +220,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/emR-jtBJ07g?si=O-X2MfyXWg8X_D2C',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -238,7 +229,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/Kap8FCUxVBw?si=dwKDA8m8QK5UpJdH',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -247,7 +238,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/D4-E6f-CfUM?si=STSoiL_JRsIX75Cj',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -256,7 +247,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/8lLd49y45oc?si=SmSHx6lnP3SQo7k4',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -265,7 +256,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/xaY3liVp3N4?si=xS3ZUVJOiVf2XJRi',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -274,7 +265,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/jXS0C42b1ro?si=NL1NHCiLMsW6sBSD',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -283,7 +274,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/MnJhQyyLTY8?si=y88_cpyhHvhiaHkV',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -292,7 +283,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/IMupo9x4dIU?si=321jl5mJXvm984tu',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -301,7 +292,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/L_Mc2x-rlWM?si=kWJzTvfD-aod3row',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -310,7 +301,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/X0ZEQBG-jNc?si=C3E_Anu8bEmOjFB1',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -319,7 +310,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/n-DT6xj89VE?si=3Fk3z8lXbSMgM1pN',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -328,16 +319,16 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/vUlFvNfZhCk?si=9aO4iduICayhrmQj',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': 'We Deserve To Shine',
+            'titulo': 'Merecemos Brilhar',
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/EMX30z8Z8f8?si=fKpj_A-8eMopnFMI',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -346,16 +337,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': 'O Conto de Steven',
-
-            'descricao': '',
-
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/EPvjimmv38k?si=cVcuwTg9QDz2FsfO',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -364,7 +346,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/iGG644Oqcac?si=gr2RViQK0FHbosjO',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -373,7 +355,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/OZjOF-nFq4o?si=V1yxDLnc2WGqnx-G',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -382,16 +364,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': 'Pique Steven',
-
-            'descricao': '',
-
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/XDSaiL-3of0?si=vXlIkm3dmbdCxPd-',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -400,7 +373,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/d0n4Vcq9Q3k?si=rsCodlopR0olysO-',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -409,7 +382,7 @@ const musicas = [
 
             'descricao': '',
 
-            'linkMusica': '',
+            'linkMusica': 'https://www.youtube.com/embed/K5_wNFN5PL8?si=OKK_dA9fh9HNrRQw',
 
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
@@ -531,7 +504,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'Sou Uma Estrela',
 
             'descricao': '',
 
@@ -540,7 +513,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'Steven E As Crystal Gems',
 
             'descricao': '',
 
@@ -549,7 +522,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'Ste-Ste-Ste Steven',
 
             'descricao': '',
 
@@ -558,7 +531,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'System/BOOT.pearl final(3).Info',
 
             'descricao': '',
 
@@ -567,7 +540,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'Só Vamos Só Pensar Em Amor',
 
             'descricao': '',
 
@@ -576,7 +549,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'Tema De Encerramento',
 
             'descricao': '',
 
@@ -585,7 +558,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'Torre de Erros',
 
             'descricao': '',
 
@@ -594,7 +567,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'Tô Precisando De Uma Troca',
 
             'descricao': '',
 
@@ -603,7 +576,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'Verdadeiro Amor',
 
             'descricao': '',
 
@@ -612,7 +585,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
+            'titulo': 'É Isso Acabou?',
 
             'descricao': '',
 
@@ -621,97 +594,7 @@ const musicas = [
             'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
         },
         {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
-
-            'descricao': '',
-
-            'linkMusica': '',
-
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-" alt="">']
-        },
-        {
-            'titulo': '',
+            'titulo': 'É Mais Forte Que Você',
 
             'descricao': '',
 

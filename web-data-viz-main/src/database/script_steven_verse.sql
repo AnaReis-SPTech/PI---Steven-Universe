@@ -68,6 +68,21 @@ REFERENCES quiz (id)
 INSERT INTO usuario (nome_completo, nome_usuario, email, senha, dt_nasc) VALUES
 ('ADM', 'ADM_Steven', 'steven@gmail.com', '12345678', '2001-08-15');
 
+INSERT INTO quiz (titulo, tipo, descricao) VALUES
+('Você realmente conhece Steven Universo?', 'Trivia', 'Esse quiz te mostra o quanto você realmente conhece de steven universe, tente a sorte!');
+
+INSERT INTO perguntas (pergunta, alt_1, alt_2, alt_3, alt_4, fk_quiz) VALUES
+('Qual o nome completo de steven?', 'Steven Universo', 'Steven Quartz Universo', 'Steven Quartz', 'Steven Topete', 1),
+('Qual a comida favorita do Steven?', 'Biscoito Gatinho', 'Rosquinha do Big Rosquinha', 'Café da Manhã em Conjunto', 'Pizza', 1),
+('Quais são as duas Gems que se fundem para formar a Garnet?', 'Rubi e Safira', 'Lapis e Jasper', 'Gar e Net', 'Rose Quartz e Safira', 1),
+('Qual o nome da fusão entre Steven e Connie?', 'Stevonnie', 'Connisven', 'Steconnie', 'Conniesteven', 1),
+('O que é a Garnet?', 'Uma fusão entre duas Gems', 'Uma conversa', 'O amor', 'Uma gem', 1),
+('Qual desses personagens fazem parte de "Acampamento dos Corações Apaixonados?"', 'Peridot', 'Percy', 'Stella', 'Oliver', 1),
+('Qual é a última música cantada na série principal?', 'Naquela Praia Distante', 'Familiar', 'Se De Ideia Mudar', 'O Que Posso Fazer Por Você?', 1),
+('Qual era a missão de Peridot quando chegou na Terra?', 'Construir uma Broca', 'Recuperar Lápis Lazule', 'Encontrar as Cristal Gems', 'Parar a Drusa', 1),
+('O que a Diamante Rosa fez com Bismuto', 'Matou-a', 'A levou de volta ao planeta natal', 'Prendeu-a em uma bolha', 'Estilhaçou-a', 1),
+('Qual o nome de Pérola em "Tacada Certeira?"', 'Pearl', 'Earl', 'Bob', 'Rose', 1);
+
 SELECT * FROM usuario;
 SELECT * FROM mensagem;
 
