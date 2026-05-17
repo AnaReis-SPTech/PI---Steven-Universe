@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="shortcut icon" href="./assets/icon/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="./assets/icon/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="./../css/simulador.css">
+    <link rel="stylesheet" href="./../css/gerais.css">
+
+    <title>Steven Verse | Sorteio</title>
+</head>
+
+<body>
+    <main> <!-- row -->
+        <div class="quadrado extremo"></div>
+
+        <div class="container"> <!-- row -->
+
+            <div class="titulo-simulador">
+                <h1>Simule o Sorteador</h1>
+            </div>
+
+            <div class="container-sorteador quadrado">
+
+                <div class="content-simulador" id="fazer_transicao">
+                    <iframe id="id_musica" class="musica" src=""
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+
+                    <div class="botao-personagens"> <!-- colunm -->
+
+                        <div class="personagens"> <!-- colunm -->
+                            <h3>Personagens</h3>
+                            <div class="imagem-personagens" id="id_personagens"> <!-- row -->
+                                <img height="auto" width="180px" src="./../assets/imgs/simulador-silhueta.svg" alt="Icon Peridot">
+                            </div>
+                        </div>
+
+                        <button onclick="sortear_musica()">Sortear</button>
+                    </div> <!-- row -->
+
+                </div>
+
+                <div class="content-simulador-descricao"> <!-- colunm -->
+                    <h2 id="id_titulo">Sorteie para começar</h2>
+                    <p id="id_descricao"></p>
+                </div>
+
+            </div>
+
+            <p>Cadastre-se no <span>Steven Verse</span> para conseguir sortear músicas diariamente, sem limitações!</p>
+
+        </div>
+
+        <div class="quadrado extremo"></div>
+    </main>
+</body>
+<script src="musicas.js"></script>
+
+<script>
+
+    function sortear_musica() {
+        let min = 0;
+        let max = 4;
+        let numero = parseInt(Math.random() * (max - min + 1) + min);
+        let element = document.getElementById('fazer_transicao');
+        
+        console.log(numero);
+        
+        for (let i = 0; i < musicas.length; i++) {
+
+            element.classList.add('mover-esquerda');
+            setTimeout(() => {
+                element.classList.remove('mover-esquerda');
+            }, 300);
+
+            let personagens = musicas[i].personagens;
+            console.log(musicas[i].personagens);
+            
+            
+            if (numero == i) {
+                id_personagens.innerHTML = "";
+                id_titulo.innerHTML = `${musicas[i].titulo}`;
+                id_descricao.innerHTML = `${musicas[i].descricao}`;
+                
+                document.getElementById('id_musica').src = `${musicas[i].linkMusica}`;
+                console.log(musicas[i].linkMusica);
+
+                for (let j = 0; j < personagens.length; j++) {
+                    
+                    id_personagens.innerHTML += `${musicas[i].personagens[j]}`;
+                    console.log(personagens[j]);
+                    
+                }
+            }
+            
+        }
+
+    }
+</script>
+
+</html>

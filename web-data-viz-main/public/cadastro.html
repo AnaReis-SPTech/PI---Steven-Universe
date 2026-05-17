@@ -78,11 +78,7 @@
 
 <script>
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
-
   function cadastrar() {
-    // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -92,8 +88,6 @@
     var senhaVar = ipt_senha.value;
     var dtNascVar = ipt_dt_nasc.value;
     var confirmacaoSenhaVar = ipt_conf_senha.value;
-    // var codigoVar = codigo_input.value;
-    // var idEmpresaVincular
 
     // Verificando se há algum campo em branco
     if (
@@ -103,7 +97,6 @@
       dtNascVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
-      // codigoVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -122,14 +115,11 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeCompletoServer: nomeCompletoVar,
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
         dtNascServer: dtNascVar
-        // idEmpresaVincularServer: idEmpresaVincular
       }),
     })
       .then(function (resposta) {

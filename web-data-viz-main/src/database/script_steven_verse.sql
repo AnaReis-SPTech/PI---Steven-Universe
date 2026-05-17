@@ -28,31 +28,27 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 titulo VARCHAR(100),
 tipo VARCHAR(100),
 descricao VARCHAR(255),
-dt_criacao DATE NOT NULL DEFAULT (CURDATE()),
-dt_inicio DATETIME,
-
-fk_usuario INT,
-CONSTRAINT ctfk_usuario_quiz
-FOREIGN KEY (fk_usuario)
-REFERENCES usuario (id)
+dt_criacao DATE NOT NULL DEFAULT (CURDATE())
 );
 
-CREATE TABLE perguntas_personalidade (
-id INT PRIMARY KEY AUTO_INCREMENT,
-pergunta VARCHAR(200),
-alt_1 VARCHAR(200),
-alt_2 VARCHAR(200),
-alt_3 VARCHAR(200),
-alt_4 VARCHAR(200),
-pts_atributo_1 INT,
-pts_atributo_2 INT,
-pts_atributo_3 INT,
-pts_atributo_4 INT,
-
+CREATE TABLE usuario_quiz (
+fk_usuario INT,
 fk_quiz INT,
-CONSTRAINT ctfk_perguntas_pers_quiz
+
+CONSTRAINT ctpk_usuario_quiz
+PRIMARY KEY (fk_usuario, fk_quiz),
+
+CONSTRAINT ctfk_usuario_uq
+FOREIGN KEY (fk_usuario)
+REFERENCES usuario (id),
+
+CONSTRAINT ctfk_quiz_uq
 FOREIGN KEY (fk_quiz)
-REFERENCES quiz (id)
+REFERENCES quiz (id),
+
+dt_inicio DATE NOT NULL DEFAULT (CURDATE()),
+qtd_acertos INT,
+qtd_erros INT
 );
 
 CREATE TABLE perguntas (
@@ -61,12 +57,10 @@ pergunta VARCHAR(200),
 alt_1 VARCHAR(200),
 alt_2 VARCHAR(200),
 alt_3 VARCHAR(200),
-alt_certa VARCHAR(200),
-tt_acertos INT,
-tt_erros INT,
+alt_4 VARCHAR(200),
 
 fk_quiz INT,
-CONSTRAINT ctfk_perguntas_quiz
+CONSTRAINT ctfk_perguntas_pers_quiz
 FOREIGN KEY (fk_quiz)
 REFERENCES quiz (id)
 );
