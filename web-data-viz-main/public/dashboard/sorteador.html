@@ -68,11 +68,11 @@
 
     function sortear_musica() {
         let min = 0;
-        let max = 4;
+        let max = 66;
         let numero = parseInt(Math.random() * (max - min + 1) + min);
         let element = document.getElementById('fazer_transicao');
         
-        console.log(numero);
+        console.log(musicas.length);
         
         for (let i = 0; i < musicas.length; i++) {
 

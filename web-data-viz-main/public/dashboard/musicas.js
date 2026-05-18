@@ -60,7 +60,7 @@ const musicas = [
 
             'linkMusica': 'https://www.youtube.com/embed/9pjST3xnj6k?si=gKH8EzFrK8mGM-J3',
 
-            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador.svg" alt="">']
+            'personagens': ['<img height="auto" width="180px" src="./../assets/imgs/simulador-pequeno-mordomo.svg" alt="">']
         },
         {
             'titulo': 'Abertura de Steven Universe Futuro',
