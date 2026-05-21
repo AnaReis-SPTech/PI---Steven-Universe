@@ -1,17 +1,17 @@
 // Variável que puxa os itens do quizModel
-var quizModel = require("../models/quizModel");
+var perguntasModel = require("../models/perguntasModel");
 
-function listarQuiz(req, res) {
-    quizModel.listarQuiz().then(function(resultado){
+function listarPerguntas(req, res) {
+    perguntasModel.listarPerguntas().then(function(resultado){
         // precisamos informar que o resultado voltará para o front-end como uma resposta em json
-        console.log("Puxei os quizes" + resultado)
+        console.log("Puxei as perguntas" + resultado)
         res.status(200).json(resultado);
     }).catch(function(erro){
-        console.erro("Erro ao listarQuiz quiz: ", erro)
+        console.erro("Erro ao listar perguntas: ", erro)
         res.status(500).json(erro.sqlMessage);
     })
 }
 
 module.exports = {
-    listarQuiz
+    listarPerguntas
 }

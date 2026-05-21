@@ -1,3 +1,4 @@
+/* Estilização do Início */
 main {
     width: 100%;
     height: 100vh;
@@ -7,15 +8,16 @@ main {
     justify-content: center;
 }
 
-.bg-color {
+/* .bg-color {
     background-color: var(--primaria-amarelo);
-}
+} */
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: baseline;
-    justify-content: center;    width: 60vw;
+    justify-content: center;    
+    width: 60vw;
     height: 60vh;
 }
 
@@ -44,15 +46,297 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: baseline;
     padding: 5%;
 }
 
 .imagem {
     background-image: url(../assets/imgs/quiz-bg-principal.svg);
-    background-position: 0px 50px;
+    background-position: -160px center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 350px;
     height: 350px;
+    align-self: center;
 }
 
+.content-textos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 55%;
+    width: 55%;
+    height: 100%;
+}
+
+#botao {
+    background-color: white;
+    width: 15vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    color: black;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 400;
+    transition: all ease-in-out 0.3s;
+}
+
+#botao:hover {
+    background-color: black;
+    color: white;
+    transform: scale(0.9);
+}
+
+#botao:active {
+    transform: scale(1);
+}
+
+.content-textos-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 35%;
+}
+
+/* Estilização das perguntas */
+.container-p-titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+}
+
+.container-p-titulo .titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+    text-transform: none;
+}
+
+.container-p-titulo .numero_quest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-family: var(--titulo-gluten);
+}
+
+.alternativas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 10vh;
+    border: 4px solid black;
+    color: black;
+    font-family: var(--titulo-gluten);
+    font-size: 20px;
+}
+
+.botoes_alternativas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 20%;
+
+}
+
+.container-alt {
+    gap: 10%;
+}
+
+.content-alt {
+    background-color: var(--primaria-amarelo);
+    height: 70%;
+}
+
+/* Estilização dos resultados */
+.container-resultados {
+    width: 75%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-gif {
+    background-image: url(../assets/imgs/quiz-resultados-bg-gif.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 550px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gif {
+    width: 85%;
+    height: 85%;
+    border: 4px solid black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.url-imagem {
+    background-image: url(../assets/imgs/quiz-results-max.gif);
+}
+
+.content-resultados {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-between;
+    max-width: 40vw;
+    height: 100%;
+}
+
+.resultados-titulo {
+    font-family: var(--titulo-gluten);
+    font-size: 40px;
+    max-width: 85%;
+}
+
+.resultados-titulo span {
+    color: var(--secundaria-rosa-forte);
+}
+
+.resultados-cards {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 70%;
+    width: 100%;
+}
+
+.card-erros {
+    background-color: black;
+    color: white;
+}
+
+.card-acertos {
+    background-color: white;
+    border: 3px solid black;
+}
+
+.card {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3%;
+}
+
+.card p {
+    padding: 0px 5% 20% 5%;
+}
+
+.card h3 {
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+}
+
+.card-erros h3 {
+    color: rgb(255, 12, 73);
+}
+
+.resultados-imagem {
+    width: 155px;
+    height: 155px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.card-erros .resultados-imagem {
+    background-color: rgb(255, 12, 73);
+    background-image: url(../assets/imgs/quiz-resultados-id_erros.svg);
+    background-position: center top 15px;
+}
+
+.card-acertos .resultados-imagem {
+    background-color: rgb(24, 223, 180);
+    background-image: url(../assets/imgs/quiz-resultados-id_acertos.png);
+}
+
+.card-central {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+}
+
+.resultados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 115px;
+    font-size: 65px;
+    font-family: var(--titulo-gluten);
+    font-weight: 700;
+}
+
+#id_acertos {
+    background-color: rgb(24, 223, 180);
+    color: white;
+    align-self: flex-end;
+}
+
+#id_erros {
+    background-color: rgb(255, 12, 73);
+    color: black;
+    align-self: flex-start;
+}
+
+#id_porcentagem {
+    font-size: 65px;
+    font-family: var(--titulo-gluten);
+    font-weight: 700;
+    color: rgb(24, 223, 180);
+}
+
+.btn-continuar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    width: 12vw;
+    height: 5vh;
+    font-family: var(--titulo-gluten);
+    font-size: 20px;
+    position: fixed;
+    top: 85%;
+    left: 75.5%;
+    font-weight: 700;
+    transition: all ease-in-out 0.3s;
+}
+
+.btn-continuar:hover {
+    background-color: black;
+    color: white;
+    transform: scale(0.9);
+}

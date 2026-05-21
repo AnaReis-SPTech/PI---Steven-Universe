@@ -10,263 +10,178 @@
 </head>
 
 
-<body onload="/*validarSessao(),*/ receberPerguntas()">
-    
+<body onload="/*validarSessao(),*/ receberQuiz()">
+
     <main id="main-background" class="bg-color">
-        <div class="container">
-            <div id="elemento1" class="container-titulo">
+        <div class="container" id="container">
+            <!-- <div id="elemento1" class="container-titulo">
                 <h2 class="titulo">quiz</h2>
             </div>
             <div id="elemento2" class="container-content">
-                <div>
-                    <h2 class="titulo">Titulo</h2>
-                    <p class="descricao">Esse quiz te mostra o quanto você realmente conhece de steven universe, tente a sorte!</p>
-                    <button onclick="iniciarQuiz()">iniciar</button>
+                <div class="content-textos">
+                    <div class="content-textos-div">
+                        <h2 class="titulo" id="id_titulo">Titulo</h2>
+                        <p class="descricao" id="id_desc">Descrição</p>
+                    </div>
+                    <button onclick="iniciarQuiz()" id="botao">iniciar</button>
                 </div>
-                <div class="imagem"></div> <!-- Div que recebe a imagem do quiz -->
+                <div class="imagem"></div> Div que recebe a imagem do quiz
+            </div> -->
+        
+            <div class="container-gif">
+                <div class="gif url-imagem"></div>
+            </div>
+            <div class="content-resultados">
+                <h2 class="resultados-titulo">Pérola ficaria orgulhosa de você <span>usuário XPTO</span></h2>
+                <div class="resultados-cards">
+                    <div class="card card-erros">
+                        <h3>erros</h3>
+                        <div class="resultados-imagem ametista"></div>
+                        <p>Os erros podem ser difíceis de aceitar, mas para evoluir é preciso aceitar seus ‘defeitos’.</p>
+                    </div>
+                    <div class="card-central">
+                        <div id="id_acertos" class="resultados">9</div>
+                        <div id="id_porcentagem">90%</div>
+                        <div id="id_erros" class="resultados">1</div>
+                    </div>
+                    <div class="card card-acertos">
+                        <h3>acertos</h3>
+                        <div class="resultados-imagem perola"></div>
+                        <p>Parabéns, seus acertos são o símbolo do seu esforço. Pode descansar agora.</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <button class="btn-continuar">Continuar</button>
     </main>
-        
+
 </body>
 
 </html>
 <script>
+    let div1 = document.getElementById('elemento1');
+    let div2 = document.getElementById('elemento2');
+    let container = document.getElementById('container');
+
+    container.classList.add('container-resultados');
+
+    async function receberQuiz() {
+        // Código para receber quiz
+        const retornoQuiz = await fetch('../quiz/listarQuiz');
+        const retornoQuizConvertido = await retornoQuiz.json();
+        const quiz = retornoQuizConvertido;
+
+        console.log("Retorno Quiz: ", retornoQuizConvertido);
+
+        id_titulo.innerHTML = `${quiz[0].titulo}`;
+
+        id_desc.innerHTML = `${quiz[0].descricao}`;
+
+        // const idQuiz = quiz[0].id
+
+        // return idQuiz;
+    }
+
+
 
     async function receberPerguntas() {
 
-        const retornoPerguntas = await fetch('../quiz/listar');
+        // Código para receber perguntas
+        const retornoPerguntas = await fetch('../perguntas/listarPerguntas');
         const retornoPerguntasConvertido = await retornoPerguntas.json();
         const perguntas = retornoPerguntasConvertido;
-    
-        console.log("Retorno da API: ",retornoPerguntasConvertido);
+
+        console.log("Retorno Peguntas: ", retornoPerguntasConvertido);
+
+        return perguntas;
     }
 
-    let bgAmarelo = true;
 
-    function iniciarQuiz() {
+
+    async function iniciarQuiz() {
+
+        let perguntas = await receberPerguntas();
+
         let fundo = document.getElementById('main-background');
 
-        if (bgAmarelo) {
-            fundo.classList.remove('bg-color');
-            bgAmarelo = false;
-        } else {
-            fundo.classList.add('bg-color');
-            bgAmarelo = true;
-        }
+        fundo.classList.remove('bg-color');
+
+
+        let div1 = document.getElementById('elemento1');
+        let div2 = document.getElementById('elemento2');
+        let container = document.getElementById('container');
+
+        div1.classList.remove('container-titulo');
+        div1.classList.add('container-p-titulo');
+
+        div1.innerHTML = `
+            <h2 class="numero_quest">${perguntas[0].id}</h2>
+            <h2 class="titulo">${perguntas[0].pergunta}</h2>
+            `;
+
+        container.classList.add('container-alt');
+
+        div2.classList.add('content-alt');
+
+        div2.innerHTML = `
+            <div class="botoes_alternativas">        
+                <button class="alternativas" onclick="proximaQuestao('alt_1')">${perguntas[0].alt_1}</button>
+                <button class="alternativas" onclick="proximaQuestao('alt_2')">${perguntas[0].alt_2}</button>
+            </div>
+            <div class="botoes_alternativas">         
+                <button class="alternativas" onclick="proximaQuestao('alt_3')">${perguntas[0].alt_3}</button>
+                <button class="alternativas" onclick="proximaQuestao('alt_4')">${perguntas[0].alt_4}</button>
+            </div>
+            `;
+        
     }
 
-    // const listaDeQuestoes = [
+    let num_alt = 0;
+    let qtd_acertos = 0;
+    let qtd_erros = 0;
 
-    //     {
-    //         pergunta: "Qual mês tem 30 dias?",
-    //         alternativaA: "Janeiro",
-    //         alternativaB: "Dezembro",
-    //         alternativaC: "Junho",
-    //         alternativaD: "Agosto",
-    //         alternativaCorreta: "alternativaC"
-    //     },
+    async function proximaQuestao(alternativa) {
 
-    //     {
-    //         pergunta: "Quantas horas tem em um dia?",
-    //         alternativaA: "30 horas",
-    //         alternativaB: "38 horas",
-    //         alternativaC: "48 horas",
-    //         alternativaD: "24 horas",
-    //         alternativaCorreta: "alternativaD"
-    //     },
+        let perguntas = await receberPerguntas();
 
-    //     {
-    //         pergunta: "Qual destes números é ímpar?",
-    //         alternativaA: "Dez",
-    //         alternativaB: "Doze",
-    //         alternativaC: "Oito",
-    //         alternativaD: "Onze",
-    //         alternativaCorreta: "alternativaD"
-    //     }
+        let div1 = document.getElementById('elemento1');
+        let div2 = document.getElementById('elemento2');
 
-    // ]
+        if (alternativa == perguntas[num_alt].alt_correta) {
+            qtd_acertos += 1;
+            num_alt += 1;
+        } else {
+            qtd_erros += 1;
+            num_alt += 1;
+        }
 
-    // // variáveis globais    
-    // let numeroDaQuestaoAtual = 0
-    // let pontuacaoFinal = 0
-    // let tentativaIncorreta = 0
-    // let certas = 0
-    // let erradas = 0
-    // let quantidadeDeQuestoes = listaDeQuestoes.length
-    // // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+        div1.innerHTML = `
+        <h2 class="numero_quest">${perguntas[num_alt].id}</h2>
+        <h2 class="titulo">${perguntas[num_alt].pergunta}</h2>
+        `;
 
-    // function onloadEsconder() {
-    //     document.getElementById('pontuacao').style.display = "none"
-    //     document.getElementById('jogo').style.display = "none"
-    // }
+        div2.innerHTML = `
+        <div class="botoes_alternativas">        
+            <button class="alternativas" onclick="proximaQuestao('alt_1')">${perguntas[num_alt].alt_1}</button>
+            <button class="alternativas" onclick="proximaQuestao('alt_2')">${perguntas[num_alt].alt_2}</button>
+        </div>
+        <div class="botoes_alternativas">         
+            <button class="alternativas" onclick="proximaQuestao('alt_3')">${perguntas[num_alt].alt_3}</button>
+            <button class="alternativas" onclick="proximaQuestao('alt_4')">${perguntas[num_alt].alt_4}</button>
+        </div>
+        `;
 
-    // function iniciarQuiz() {
-    //     document.getElementById('pontuacao').style.display = "flex"
-    //     document.getElementById('jogo').style.display = "flex"
-    //     document.getElementById('btnIniciarQuiz').style.display = "none"
+        console.log("Número da Questão: ", num_alt);
+        console.log("QTD Acertos: ", qtd_acertos);
+        console.log("QTD Erros: ", qtd_erros);
 
-    //     document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+        if (num_alt = perguntas.length) {
+            resultadoQuiz();
+        }
 
-    //     preencherHTMLcomQuestaoAtual(0)
+    }
 
-    //     btnSubmeter.disabled = false
-    //     btnProx.disabled = true
-    //     // btnConcluir.disabled = true
-    //     btnTentarNovamente.disabled = true
-    // }
+    function resultadosQuiz() {
 
-    // function preencherHTMLcomQuestaoAtual(index) {
-    //     habilitarAlternativas(true)
-    //     const questaoAtual = listaDeQuestoes[index]
-    //     numeroDaQuestaoAtual = index
-    //     console.log("questaoAtual")
-    //     console.log(questaoAtual)
-    //     document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
-    //     document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
-    //     document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
-    //     document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
-    //     document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-    //     document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
-    // }
-
-    // function submeter() {
-    //     const options = document.getElementsByName("option"); // recupera alternativas no html
-
-    //     let hasChecked = false
-    //     for (let i = 0; i < options.length; i++) {
-    //         if (options[i].checked) {
-    //             hasChecked = true
-    //             break
-    //         }
-    //     }
-
-    //     if (!hasChecked) {
-    //         alert("Não há alternativas escolhidas. Escolha uma opção.")
-    //     } else {
-    //         btnSubmeter.disabled = true
-    //         btnProx.disabled = false
-
-    //         habilitarAlternativas(false)
-
-    //         checarResposta()
-    //     }
-    // }
-
-    // function habilitarAlternativas(trueOrFalse) {
-    //     let opcaoEscolhida = trueOrFalse ? false : true
-
-    //     primeiraOpcao.disabled = opcaoEscolhida
-    //     segundaOpcao.disabled = opcaoEscolhida
-    //     terceiraOpcao.disabled = opcaoEscolhida
-    //     quartaOpcao.disabled = opcaoEscolhida
-
-    // }
-
-    // function avancar() {
-    //     btnProx.disabled = true
-    //     btnSubmeter.disabled = false
-
-    //     desmarcarRadioButtons()
-
-    //     if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
-    //         preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-    //     } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-    //         alert("Atenção... a próxima é a ultima questão!")
-    //         preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-    //     } else {
-    //         finalizarJogo()
-    //     }
-    //     limparCoresBackgroundOpcoes()
-    // }
-
-    // function tentarNovamente() {
-    //     // atualiza a página
-    //     window.location.reload()
-    // }
-
-    // function checarResposta() {
-    //     const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
-    //     const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
-
-    //     const options = document.getElementsByName("option"); // recupera alternativas no html
-
-    //     let alternativaCorreta = null // variável para armazenar a alternativa correta
-
-    //     options.forEach((option) => {
-    //         if (option.value === respostaQuestaoAtual) {
-    //             console.log("alternativaCorreta está no componente: " + alternativaCorreta)
-    //             alternativaCorreta = option.labels[0].id
-    //         }
-    //     })
-
-    //     // verifica se resposta assinalada é correta
-    //     options.forEach((option) => {
-    //         if (option.checked === true && option.value === respostaQuestaoAtual) {
-    //             document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-    //             pontuacaoFinal++
-    //             certas++
-    //             document.getElementById("spanCertas").innerHTML = certas
-    //             numeroDaQuestaoAtual++
-    //         } else if (option.checked && option.value !== respostaQuestaoAtual) {
-    //             const wrongLabelId = option.labels[0].id
-
-    //             document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
-    //             document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-    //             tentativaIncorreta++
-    //             erradas++
-    //             document.getElementById("spanErradas").innerHTML = erradas
-    //             numeroDaQuestaoAtual++
-    //         }
-    //     })
-    // }
-
-    // function limparCoresBackgroundOpcoes() {
-    //     const options = document.getElementsByName("option");
-    //     options.forEach((option) => {
-    //         document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
-    //         document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
-    //     })
-    // }
-
-    // function desmarcarRadioButtons() {
-    //     const options = document.getElementsByName("option");
-    //     for (let i = 0; i < options.length; i++) {
-    //         options[i].checked = false;
-    //     }
-    // }
-
-    // function finalizarJogo() {
-    //     let textoParaMensagemFinal = null
-    //     let classComCoresParaMensagemFinal = null
-    //     const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
-
-    //     if (porcentagemFinalDeAcertos <= 0.3) {
-    //         textoParaMensagemFinal = "Parece que você não estudou..."
-    //         classComCoresParaMensagemFinal = "text-danger-with-bg"
-    //     }
-    //     else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-    //         textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
-    //         classComCoresParaMensagemFinal = "text-warning-with-bg"
-    //     }
-    //     else if (porcentagemFinalDeAcertos >= 0.9) {
-    //         textoParaMensagemFinal = "Uau, parabéns!"
-    //         classComCoresParaMensagemFinal = "text-success-with-bg"
-    //     }
-
-    //     textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
-
-
-    //     document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-    //     document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
-    //     document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
-
-    //     document.getElementById('jogo').classList.add("text-new-gray") 
-
-    //     btnProx.disabled = true
-    //     btnSubmeter.disabled = true
-    //     // btnConcluir.disabled = true
-    //     btnTentarNovamente.disabled = false
-
-    // }
+    }
 </script>

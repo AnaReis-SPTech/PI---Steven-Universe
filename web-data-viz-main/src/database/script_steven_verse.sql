@@ -87,6 +87,13 @@ INSERT INTO perguntas (pergunta, alt_1, alt_2, alt_3, alt_4, alt_correta, fk_qui
 SELECT * FROM usuario;
 SELECT * FROM mensagem;
 
+
+-- Select listar() perguntas
+SELECT id, pergunta, alt_1, alt_2, alt_3, alt_4, alt_correta, fk_quiz FROM perguntas WHERE fk_quiz = 1;
+
+-- Select listar() quiz
+SELECT id, titulo, tipo, descricao FROM quiz;
+
 -- Acesso ao BD VM lubuntu
 -- DB_HOST='%'
 -- DB_DATABASE='steven_verse'
