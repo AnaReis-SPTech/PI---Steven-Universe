@@ -8,9 +8,9 @@ main {
     justify-content: center;
 }
 
-/* .bg-color {
+.bg-color {
     background-color: var(--primaria-amarelo);
-} */
+}
 
 .container {
     display: flex;
@@ -197,8 +197,16 @@ main {
     background-size: cover;
 }
 
-.url-imagem {
+.url-imagem-positivo {
     background-image: url(../assets/imgs/quiz-results-max.gif);
+}
+
+.url-imagem-comum {
+    background-image: url(../assets/imgs/quiz-results-comum.gif);
+}
+
+.url-imagem-negativo {
+    background-image: url(../assets/imgs/quiz-results-zerado.gif);
 }
 
 .content-resultados {
@@ -212,8 +220,7 @@ main {
 
 .resultados-titulo {
     font-family: var(--titulo-gluten);
-    font-size: 40px;
-    max-width: 85%;
+    font-size: 36px;
 }
 
 .resultados-titulo span {
@@ -316,7 +323,18 @@ main {
     font-size: 65px;
     font-family: var(--titulo-gluten);
     font-weight: 700;
+}
+
+.resultado-positivo {
     color: rgb(24, 223, 180);
+}
+
+.resultado-negativo {
+    color: rgb(255, 12, 73);
+}
+
+.resultado-comum {
+    color: rgb(103, 103, 110);
 }
 
 .btn-continuar {
@@ -339,4 +357,12 @@ main {
     background-color: black;
     color: white;
     transform: scale(0.9);
+}
+
+.classe-destaque {
+    width: 130px;
+    height: 145px;
+    font-size: 80px;
+    font-family: var(--titulo-gluten);
+    font-weight: 700;
 }

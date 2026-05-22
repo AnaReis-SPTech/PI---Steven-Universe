@@ -14,7 +14,7 @@
 
     <main id="main-background" class="bg-color">
         <div class="container" id="container">
-            <!-- <div id="elemento1" class="container-titulo">
+            <div id="elemento1" class="container-titulo">
                 <h2 class="titulo">quiz</h2>
             </div>
             <div id="elemento2" class="container-content">
@@ -25,36 +25,10 @@
                     </div>
                     <button onclick="iniciarQuiz()" id="botao">iniciar</button>
                 </div>
-                <div class="imagem"></div> Div que recebe a imagem do quiz
-            </div> -->
-        
-            <div class="container-gif">
-                <div class="gif url-imagem"></div>
-            </div>
-            <div class="content-resultados">
-                <h2 class="resultados-titulo">Pérola ficaria orgulhosa de você <span>usuário XPTO</span></h2>
-                <div class="resultados-cards">
-                    <div class="card card-erros">
-                        <h3>erros</h3>
-                        <div class="resultados-imagem ametista"></div>
-                        <p>Os erros podem ser difíceis de aceitar, mas para evoluir é preciso aceitar seus ‘defeitos’.</p>
-                    </div>
-                    <div class="card-central">
-                        <div id="id_acertos" class="resultados">9</div>
-                        <div id="id_porcentagem">90%</div>
-                        <div id="id_erros" class="resultados">1</div>
-                    </div>
-                    <div class="card card-acertos">
-                        <h3>acertos</h3>
-                        <div class="resultados-imagem perola"></div>
-                        <p>Parabéns, seus acertos são o símbolo do seu esforço. Pode descansar agora.</p>
-                    </div>
-                </div>
+                <div class="imagem"></div>
             </div>
         </div>
-        <button class="btn-continuar">Continuar</button>
     </main>
-
 </body>
 
 </html>
@@ -62,8 +36,6 @@
     let div1 = document.getElementById('elemento1');
     let div2 = document.getElementById('elemento2');
     let container = document.getElementById('container');
-
-    container.classList.add('container-resultados');
 
     async function receberQuiz() {
         // Código para receber quiz
@@ -132,8 +104,7 @@
                 <button class="alternativas" onclick="proximaQuestao('alt_3')">${perguntas[0].alt_3}</button>
                 <button class="alternativas" onclick="proximaQuestao('alt_4')">${perguntas[0].alt_4}</button>
             </div>
-            `;
-        
+        `;
     }
 
     let num_alt = 0;
@@ -143,6 +114,7 @@
     async function proximaQuestao(alternativa) {
 
         let perguntas = await receberPerguntas();
+        console.log("Número da Alternativa: ", num_alt + 1);
 
         let div1 = document.getElementById('elemento1');
         let div2 = document.getElementById('elemento2');
@@ -150,9 +122,19 @@
         if (alternativa == perguntas[num_alt].alt_correta) {
             qtd_acertos += 1;
             num_alt += 1;
+            console.log('Adicionei 1')
         } else {
             qtd_erros += 1;
             num_alt += 1;
+            console.log('Tirei 1')
+        }
+
+        let erros = qtd_erros;
+        let acertos = qtd_acertos;
+
+        if (num_alt == perguntas.length) {
+            resultadoQuiz(acertos, erros);
+            return
         }
 
         div1.innerHTML = `
@@ -170,18 +152,109 @@
             <button class="alternativas" onclick="proximaQuestao('alt_4')">${perguntas[num_alt].alt_4}</button>
         </div>
         `;
+    }
 
-        console.log("Número da Questão: ", num_alt);
-        console.log("QTD Acertos: ", qtd_acertos);
-        console.log("QTD Erros: ", qtd_erros);
+    async function resultadoQuiz(acertos, erros) {
+        console.log("QTD Acertos: ", acertos);
+        console.log("QTD Erros: ", erros);
 
-        if (num_alt = perguntas.length) {
-            resultadoQuiz();
+        let perguntas = await receberPerguntas();
+
+        let porcentagem = (acertos * 100) / perguntas.length;
+
+        container.classList.add('container-resultados');
+
+        let classeCor = '';
+        let gifResultado = '';
+        let fraseFinal = '';
+
+        if (porcentagem >= 70) {
+            fraseFinal = 'Pérola ficaria orgulhosa de você <span>usuário XPTO</span>! Continue assim, seu resultado é fruto do seu esforço.';
+            classeCor = 'resultado-positivo';
+            gifResultado = 'positivo';
+        } else if (porcentagem >= 50) {
+            fraseFinal = 'Seu resultado foi mediano. Mas continue tentando e nunca desista de melhorar <span>usuário XPTO</span>!';
+            gifResultado = 'comum';
+            classeCor = 'resultado-comum';
+        } else {
+            fraseFinal = 'Tudo bem errar, os erros lhe mostram que existe espaço pra melhorar, continue tentando <span>usuário XPTO</span>!';
+            gifResultado = 'negativo';
+            classeCor = 'resultado-negativo';
         }
 
+        container.innerHTML = `
+        <div class="container-gif">
+                <div class="gif url-imagem-${gifResultado}"></div>
+            </div>
+            <div class="content-resultados">
+                <h2 class="resultados-titulo">${fraseFinal}</h2>
+                <div class="resultados-cards">
+                    <div class="card card-erros">
+                        <h3>erros</h3>
+                        <div class="resultados-imagem ametista"></div>
+                        <p>Os erros podem ser difíceis de aceitar, mas para evoluir é preciso aceitar seus ‘defeitos’.</p>
+                    </div>
+                    <div class="card-central">
+                        <div id="id_acertos" class="resultados">${acertos}</div>
+                        <div id="id_porcentagem" class="${classeCor}">${porcentagem}%</div>
+                        <div id="id_erros" class="resultados">${erros}</div>
+                    </div>
+                    <div class="card card-acertos">
+                        <h3>acertos</h3>
+                        <div class="resultados-imagem perola"></div>
+                        <p>Parabéns, seus acertos são o símbolo do seu esforço. Pode descansar agora.</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        let main = document.getElementById('main-background');
+        console.log("QTD_ACERTOS: ", acertos);
+        
+
+        main.innerHTML += `<button class="btn-continuar" onclick="finalizarQuiz(${acertos}, ${erros})">Continuar</button>`
+
+        if (porcentagem >= 70) {
+            let acertos = document.getElementById('id_acertos');
+            acertos.classList.add('classe-destaque');
+        } else if (porcentagem < 50) {
+            let erros = document.getElementById('id_erros');
+            erros.classList.add('classe-destaque');
+        }
     }
 
-    function resultadosQuiz() {
+    async function finalizarQuiz(acertos, erros) {
 
+
+        console.log("Entrei no finalizar quiz!!");
+        
+        console.log("ACERTOS: ", acertos);
+        console.log("ERROS: ", erros);
+
+        let quiz = await fetch('../quiz/listarQuiz');
+
+        fetch("/usuario_quiz/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                errosServer: acertos,
+                acertosServer: erros
+            }),
+        })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log("DEU CERTO!!!");
+            } else {
+                throw "DEU ERRADO =[";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
     }
+
 </script>

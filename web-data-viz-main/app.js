@@ -23,6 +23,7 @@ var aquariosRouter = require("./src/routes/aquarios");
 var empresasRouter = require("./src/routes/empresas");
 var perguntasRouter = require("./src/routes/perguntas");
 var quizRouter = require("./src/routes/quiz");
+var usuario_quizRouter = require("./src/routes/usuario_quiz");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -38,6 +39,7 @@ app.use("/aquarios", aquariosRouter);
 app.use("/empresas", empresasRouter);
 app.use("/perguntas", perguntasRouter);
 app.use("/quiz", quizRouter);
+app.use("/usuario_quiz", usuario_quizRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
