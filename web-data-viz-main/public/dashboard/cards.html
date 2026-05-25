@@ -6,11 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>Steven Verse | Início</title>
 
 
-    <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="./../css/gerais.css" />
+    <link rel="stylesheet" href="./../css/inicio.css" />
+    <link rel="stylesheet" href="./../css/menu-hamburguer.css" />
 
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
@@ -20,75 +21,120 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(),  atualizacaoPeriodica()">
+<body onload="validarSessao()">
 
     <div class="janela">
 
-        <div class="header-left dash-header">
+        <div class="header-left dash-header" id="header">
 
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            <div class="menu" onclick="abrirMenu()">
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
             </div>
 
-            <div class="btn-nav">
-                <h3>Aquários</h3>
+            <div class="itens-nav">
+                <div class="btn-nav">
+                    <a href="cards.html">
+                        <img src="../assets/icon/inicio.svg" alt="">
+                        <h3 class="textos-nav esconder">Início</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./dashboard.html">
+                        <img src="../assets/icon/dashboard.svg" alt="">
+                        <h3 class="textos-nav esconder">Dashboard</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./quiz.html">
+                        <img src="../assets/icon/quiz.svg" alt="">
+                        <h3 class="textos-nav esconder">Quiz</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./mural.html">
+                        <img src="../assets/icon/forum.svg" alt="">
+                        <h3 class="textos-nav esconder">Fórum</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./sorteador.html">
+                        <img src="../assets/icon/musicas.svg" alt="">
+                        <h3 class="textos-nav esconder">Sorteador</h3>
+                    </a>
+                </div>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <img src="./../assets/icon/sair.svg" alt="">
             </div>
 
         </div>
 
-        <div class="dash">
-            <div id="alerta">
-            </div>
-            <div class="area-parametros-alerta">
-                <p class="titulo-legenda">
-                    Legenda - Parâmetros para Alertas
-                </p>
-                <div class="parametros-alerta">
-                    <div class="item-regua perigo-frio">
-                        <p>Perigo</p>
-                        <p>&lt;=5°C</p>
-                    </div>
-                    <div class="item-regua alerta-frio">
-                        <p>Alerta</p>
-                        <p>&lt;=10°C</p>
-                    </div>
-                    <div class="item-regua ideal">
-                        <p>Ideal</p>
-                        <p>20°C</p>
-                    </div>
-                    <div class="item-regua alerta-quente">
-                        <p>Alerta</p>
-                        <p>&gt;=22°C</p>
-                    </div>
-                    <div class="item-regua perigo-quente">
-                        <p>Perigo</p>
-                        <p>&gt;=23°C</p>
-                    </div>
+        <div class="container"> <!-- Row -->
+            <div class="content"> <!-- Colunm-->
+                <div class="content-titulo"> <!-- Colunm-->
+                    <h2>Bem-Vindo <span id="b_usuario">Usuário XPTO</span></h2>
+                    <p>Seja bem vindo de volta, aproveite mais um pouco do ambiente de Steven Verse, fique o tempo que
+                        quiser!</p>
                 </div>
+                <div class="content-infos"> <!-- Row -->
+                    <div class="infos-usuario">
+                        <div class="info-titulo">
+                            <h3>Suas Informações</h3>
+                        </div>
+
+                        <div class="info nome">
+                            <h3>NOME</h3>
+                            <p>Nome Completo Teste</p>
+                        </div>
+
+                        <div class="info usuario">
+                            <h3>USUÁRIO</h3>
+                            <p>usuario_teste</p>
+                        </div>
+
+                        <div class="info idade">
+                            <h3>IDADE</h3>
+                            <p>18</p>
+                        </div>
+                    </div>
+
+                    <div class="infos-personagem"> <!-- Colunm -->
+                        <h3>Favorito</h3>
+                        <div class="personagem-atributos"> <!-- Row -->
+                            <div class="imagem-favorito"></div>
+                            <div class="box-atributos">
+                                <div class="atributo">
+                                    <h3>Carisma</h3>
+                                    <p>10</p>
+                                </div>
+                                <div class="atributo">
+                                    <h3>Sabedoria</h3>
+                                    <p>7</p>
+                                </div>
+                                <div class="atributo">
+                                    <h3>Força</h3>
+                                    <p>5</p>
+                                </div>
+                                <div class="atributo">
+                                    <h3>Intelecto</h3>
+                                    <p>7</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
             </div>
-
-            <div class="cards" id="cardAquarios">
-
-            </div>
-
+            <div class="imagem"></div>
         </div>
 
     </div>
@@ -96,25 +142,35 @@
 </body>
 
 <script>
+    let sem_alteracoes = false;
 
-    // function exibirAquarios() {
-    //     JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
-    //         document.getElementById("cardAquarios").innerHTML += `
-    //                 <div class="card-aquario">
-    //                     <div class="title-aquario">
-    //                         <h1>${item.descricao}</h1>
-    //                     </div>
-    //                     <div class="desc-aquario">
-    //                     <div class="temperatura">
-    //                         <p id="temp_aquario_${item.id}">-°C</p>
-    //                     </div>
-    //                     <div class="cor-alerta" id="card_${item.id}"></div>
-    //                 </div>
-    //                 </div>
-    //                 `
-    //     });
-    // }
+    function abrirMenu() {
+        let elementos = document.getElementsByClassName('textos-nav');
+        let header = document.getElementById('header');
 
+        if (sem_alteracoes) {
+            console.log('ENTREI IF')
+
+            header.classList.remove('header-aberto');
+
+            for (let i = 0; i < elementos.length; i++) {
+                elementos[i].classList.add('esconder');
+            }
+            sem_alteracoes = false;
+
+        } else if (!sem_alteracoes) {
+            console.log('ENTREI ELSE IF')
+
+            header.classList.add('header-aberto');
+
+            setTimeout(() => {
+                for (let i = 0; i < elementos.length; i++) {
+                    elementos[i].classList.remove('esconder');
+                }
+            }, 300);
+            sem_alteracoes = true;
+        }
+    }
 </script>
 
 </html>

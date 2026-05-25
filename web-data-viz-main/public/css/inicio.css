@@ -1,0 +1,143 @@
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-left: 10%;
+}
+
+.imagem {
+    background-image: url(./../assets/imgs/inicio-background.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30vw;
+    height: 68vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 70%;
+    max-width: 50%;
+}
+
+.content > .content-titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    max-width: 70%;
+}
+
+.content > .content-titulo > h2 {
+    font-family: var(--titulo-gluten);
+    font-size: 64px;
+}
+
+.content > .content-titulo > h2 > span {
+    color: var(--terciaria-azul);
+}
+
+.content > .content-titulo > p {
+    font-family: var(--paragrafo-fredoka);
+    font-size: 24px;
+}
+
+.content-infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 4px solid black;
+    width: 40vw;
+    height: 40vh;
+}
+
+.infos-usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 50%;
+    border-right: 4px solid black;
+    height: 100%;
+    padding-bottom: 5%;
+}
+
+.info-titulo {
+    background-color: black;
+    color: white;
+    width: 100%;
+    font-family: var(--titulo-gluten);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.info {
+    padding-left: 10%;
+    font-size: 20px;
+}
+
+.infos-personagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    height: 100%;
+    padding: 3% 0px;
+    gap: 10%;
+}
+
+.infos-personagem > h3 {
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.personagem-atributos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70%;
+    gap: 30px;
+}
+
+.imagem-favorito {
+    background-image: url(./../assets/imgs/simulador-steven.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 180px;
+    height: 100%;
+}
+
+.box-atributos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.atributo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.atributo h3 {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.atributo 

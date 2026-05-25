@@ -7,47 +7,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steven Verse | Fórum</title>
-
-    <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="./../css/gerais.css">
+    <link rel="stylesheet" href="./../css/menu-hamburguer.css"/>
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
 
-    <div class="janela">
+        <div class="header-left dash-header" id="header">
 
-
-        <div class="header-left">
-
-            <h1>Steven Verse</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            <div class="menu" onclick="abrirMenu()">
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
-                </a>
+            <div class="itens-nav">
+                <div class="btn-nav">
+                    <a href="cards.html">
+                        <img src="../assets/icon/inicio.svg" alt="">
+                        <h3 class="textos-nav esconder">Início</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./dashboard.html">
+                        <img src="../assets/icon/dashboard.svg" alt="">
+                        <h3 class="textos-nav esconder">Dashboard</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./quiz.html">
+                        <img src="../assets/icon/quiz.svg" alt="">
+                        <h3 class="textos-nav esconder">Quiz</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./mural.html">
+                        <img src="../assets/icon/forum.svg" alt="">
+                        <h3 class="textos-nav esconder">Fórum</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./sorteador.html">
+                        <img src="../assets/icon/musicas.svg" alt="">
+                        <h3 class="textos-nav esconder">Sorteador</h3>
+                    </a>
+                </div>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Mural de Avisos</h3>
-            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <img src="./../assets/icon/sair.svg" alt="">
             </div>
 
         </div>
@@ -190,6 +205,8 @@
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
 
+                        let usuario = sessionStorage.ID_USUARIO;
+
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
@@ -197,16 +214,20 @@
                         var spanNome = document.createElement("span");
                         var divMsgforum = document.createElement("div");
                         var divButtons = document.createElement("div");
-                        var btnEditar = document.createElement("button");
-                        var btnDeletar = document.createElement("button");
+                        if (usuario == idMensagem) {
+                            var btnEditar = document.createElement("button");
+                            var btnDeletar = document.createElement("button");
+                        }
 
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idMensagem + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divMsgforum.innerHTML = "Descrição: <b>" + publicacao.msgforum + "</b>";
-                        btnEditar.innerHTML = "Editar";
-                        btnDeletar.innerHTML = "Deletar";
+                        if(usuario == idMensagem) {
+                            btnEditar.innerHTML = "Editar";
+                            btnDeletar.innerHTML = "Deletar";
+                        }
 
                         divPublicacao.className = "publicacao";
                         spanTitulo.id = "inputNumero" + publicacao.idMensagem;
@@ -216,21 +237,26 @@
 
                         divButtons.className = "div-buttons"
 
-                        btnEditar.className = "publicacao-btn-editar"
-                        btnEditar.id = "btnEditar" + publicacao.idMensagem;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idMensagem})`);
+                        if(usuario == idMensagem) {
+                            btnEditar.className = "publicacao-btn-editar"
+                            btnEditar.id = "btnEditar" + publicacao.idMensagem;
+                            btnEditar.setAttribute("onclick", `editar(${publicacao.idMensagem})`);
+    
+                            btnDeletar.className = "publicacao-btn-editar"
+                            btnDeletar.id = "btnDeletar" + publicacao.idMensagem;
+                            btnDeletar.setAttribute("onclick", `deletar(${publicacao.idMensagem})`);
+                        }
 
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idMensagem;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idMensagem})`);
 
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divMsgforum);
                         divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
+                        if (usuario == idMensagem) {
+                            divButtons.appendChild(btnEditar);
+                            divButtons.appendChild(btnDeletar);
+                        }
                         feed.appendChild(divPublicacao);
                     }
 

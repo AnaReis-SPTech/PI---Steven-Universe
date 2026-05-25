@@ -1,0 +1,88 @@
+.janela {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.header-left {
+    box-shadow: 2px 2px 20px 2px rgb(190, 190, 190);
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    position: fixed;
+    flex-direction: column;
+    height: 100vh;
+    width: 7vw;
+    justify-content: space-between;
+    padding: 2% 2%;
+    transition: all ease-in-out 0.3s;
+    background-color: white;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 5vw;
+    height: 3vw;
+    gap: 10%;
+    cursor: pointer;
+}
+
+.linha {
+    background-color: var(--primaria-amarelo);
+    width: 2.5vw;
+    height: 0.8vh;
+    border-radius: 50px;
+}
+
+.btn-nav a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: black;
+    gap: 30px;
+    font-size: 20px;
+    font-family: var(--titulo-gluten);
+}
+
+.btn-nav a img {
+    width: 50px;
+}
+
+.itens-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between; 
+    height: 60%;
+}
+
+.separacao-itens {
+    width: 100%;
+    height: 2px;
+    background-color: rgb(204, 204, 204);
+    align-self: center;
+}
+    
+.esconder {
+    display: none;
+}
+
+.header-aberto {
+    width: 17vw;
+}
+
+.btn-logout img {
+    width: 40px;
+}
+
+.btn-logout {
+    cursor: pointer;
+}

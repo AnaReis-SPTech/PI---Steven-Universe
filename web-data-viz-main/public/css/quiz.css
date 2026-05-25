@@ -1,3 +1,25 @@
+.voltar a {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    text-decoration: none;
+    color: black;
+    justify-content: center;
+    width: 5vh;
+    height: 5vh;
+    background-color: white;
+    border: 3px solid black;
+    font-size: 30px;
+    transition: all ease-in-out 0.3s;
+}
+
+.voltar a:hover {
+    transform: scale(0.9);
+    color: white;
+    background-color: black;
+}
+
 /* Estilização do Início */
 main {
     width: 100%;
@@ -147,6 +169,12 @@ main {
     color: black;
     font-family: var(--titulo-gluten);
     font-size: 20px;
+    transition: all ease-in-out 0.3s;
+}
+
+.alternativas:hover {
+    border-left: 25px solid black;
+    transform: scale(0.95);
 }
 
 .botoes_alternativas {
@@ -156,7 +184,6 @@ main {
     align-items: center;
     height: 100%;
     gap: 20%;
-
 }
 
 .container-alt {

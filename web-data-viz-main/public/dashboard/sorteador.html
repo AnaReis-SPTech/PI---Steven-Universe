@@ -12,10 +12,16 @@
     <link rel="stylesheet" href="./../css/simulador.css">
     <link rel="stylesheet" href="./../css/gerais.css">
 
+    <script src="../js/sessao.js"></script>
+    <script src="../js/alerta.js"></script>
+
     <title>Steven Verse | Sorteio</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
+    <div class="voltar">
+        <a onclick="history.back()"><</a>
+    </div>
     <main> <!-- row -->
         <div class="quadrado extremo"></div>
 
@@ -62,7 +68,7 @@
         <div class="quadrado extremo"></div>
     </main>
 </body>
-<script src="musicas.js"></script>
+<script src="../js/musicas.js"></script>
 
 <script>
 

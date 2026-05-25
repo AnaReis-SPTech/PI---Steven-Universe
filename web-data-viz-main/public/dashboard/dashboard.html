@@ -8,10 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Dashboards</title>
 
-    
-    <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="./../css/gerais.css">
     <script src="../js/sessao.js"></script>
+    <link rel="stylesheet" href="./../css/menu-hamburguer.css"/>
     <script src="./../js/alerta.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,51 +27,61 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body>
+<body onload="validarSessao(), atualizacaoPeriodica()">
 
     <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
 
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+        <div class="header-left dash-header" id="header">
+
+            <div class="menu" onclick="abrirMenu()">
+                <div class="linha"></div>
+                <div class="linha"></div>
+                <div class="linha"></div>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
+            <div class="itens-nav">
+                <div class="btn-nav">
+                    <a href="cards.html">
+                        <img src="../assets/icon/inicio.svg" alt="">
+                        <h3 class="textos-nav esconder">Início</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./dashboard.html">
+                        <img src="../assets/icon/dashboard.svg" alt="">
+                        <h3 class="textos-nav esconder">Dashboard</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./quiz.html">
+                        <img src="../assets/icon/quiz.svg" alt="">
+                        <h3 class="textos-nav esconder">Quiz</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./mural.html">
+                        <img src="../assets/icon/forum.svg" alt="">
+                        <h3 class="textos-nav esconder">Fórum</h3>
+                    </a>
+                </div>
+                <div class="separacao-itens"></div>
+                <div class="btn-nav">
+                    <a href="./sorteador.html">
+                        <img src="../assets/icon/musicas.svg" alt="">
+                        <h3 class="textos-nav esconder">Sorteador</h3>
+                    </a>
+                </div>
             </div>
 
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <img src="./../assets/icon/sair.svg" alt="">
             </div>
 
         </div>
-
-        <div class="dash">
-            <div id="alerta">
-            </div>
-
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            </div>
-            <div id="graficos">
-            </div>
-        </div>
-    </div>
 
 
 </body>

@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/quiz.css">
     <link rel="stylesheet" href="../css/gerais.css">
+
+    <script src="../js/sessao.js"></script>
+
     <title>Steven Verse | Quiz</title>
 </head>
 
 
-<body onload="/*validarSessao(),*/ receberQuiz()">
+<body onload="receberQuiz(), validarSessao()">
+
+    <div class="voltar">
+        <a onclick="history.back()"><</a>
+    </div>
 
     <main id="main-background" class="bg-color">
         <div class="container" id="container">
