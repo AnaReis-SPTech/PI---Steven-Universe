@@ -32,11 +32,9 @@ dt_criacao DATE NOT NULL DEFAULT (CURDATE())
 );
 
 CREATE TABLE usuario_quiz (
+id_usuario_quiz INT PRIMARY KEY AUTO_INCREMENT,
 fk_usuario INT,
 fk_quiz INT,
-
-CONSTRAINT ctpk_usuario_quiz
-PRIMARY KEY (fk_usuario, fk_quiz),
 
 CONSTRAINT ctfk_usuario_uq
 FOREIGN KEY (fk_usuario)
@@ -48,7 +46,8 @@ REFERENCES quiz (id),
 
 dt_inicio DATE NOT NULL DEFAULT (CURDATE()),
 qtd_acertos INT,
-qtd_erros INT
+qtd_erros INT,
+personagem VARCHAR(45)
 );
 
 CREATE TABLE perguntas (
@@ -86,16 +85,18 @@ INSERT INTO perguntas (pergunta, alt_1, alt_2, alt_3, alt_4, alt_correta, fk_qui
 
 SELECT * FROM usuario;
 SELECT * FROM mensagem;
-
+SELECT * FROM usuario_quiz;
 
 -- Select listarPerguntas() perguntas
-SELECT id, pergunta, alt_1, alt_2, alt_3, alt_4, alt_correta, fk_quiz FROM perguntas WHERE fk_quiz = 1;
+-- SELECT id, pergunta, alt_1, alt_2, alt_3, alt_4, alt_correta, fk_quiz FROM perguntas WHERE fk_quiz = 1;
 
 -- Select listarQuiz() quiz
-SELECT id, titulo, tipo, descricao FROM quiz;
+-- SELECT id, titulo, tipo, descricao FROM quiz;
 
--- Select cadastrar() usuario_quiz resultados
-INSERT INTO usuario_quiz (qtd_acertos, qtd_erros, fk_usuario, fk_quiz) VALUES ( 9, 1, 1, 1);
+-- Insert para cadastrar() usuario_quiz resultados
+-- INSERT INTO usuario_quiz (qtd_acertos, qtd_erros, fk_usuario, fk_quiz) VALUES ( 9, 1, 1, 1);
+
+SELECT id, nome_usuario AS nome, email, senha , nome_completo, TIMESTAMPDIFF(YEAR, dt_nasc, CURDATE()) AS idade FROM usuario WHERE email = '${email}' AND senha = '${senha}';
 
 -- Acesso ao BD VM lubuntu
 -- DB_HOST='%'

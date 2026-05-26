@@ -16,7 +16,7 @@
 <body onload="receberQuiz(), validarSessao()">
 
     <div class="voltar">
-        <a onclick="history.back()"> < </a>
+        <a onclick="history.back()"><</a>
     </div>
 
     <main id="main-background" class="bg-color">
@@ -45,7 +45,6 @@
     let container = document.getElementById('container');
 
     async function receberQuiz() {
-        
         // Código para receber quiz
         const retornoQuiz = await fetch('../quiz/listarQuiz');
         const retornoQuizConvertido = await retornoQuiz.json();
@@ -53,11 +52,9 @@
 
         console.log("Retorno Quiz: ", retornoQuizConvertido);
 
-        id_titulo.innerHTML = `${quiz[0].titulo}`;
+        id_titulo.innerHTML = `${quiz[1].titulo}`;
 
-        id_desc.innerHTML = `${quiz[0].descricao}`;
-
-        return quiz;
+        id_desc.innerHTML = `${quiz[1].descricao}`;
     }
 
 
@@ -65,7 +62,7 @@
     async function receberPerguntas() {
 
         // Código para receber perguntas
-        const retornoPerguntas = await fetch('../perguntas/listarPerguntas');
+        const retornoPerguntas = await fetch('../perguntasP/listarPerguntas');
         const retornoPerguntasConvertido = await retornoPerguntas.json();
         const perguntas = retornoPerguntasConvertido;
 
@@ -93,7 +90,7 @@
         div1.classList.add('container-p-titulo');
 
         div1.innerHTML = `
-            <h2 class="numero_quest">${perguntas[0].id}</h2>
+            <h2 class="numero_quest">${num_alt + 1}</h2>
             <h2 class="titulo">${perguntas[0].pergunta}</h2>
             `;
 
@@ -103,73 +100,84 @@
 
         div2.innerHTML = `
             <div class="botoes_alternativas">        
-                <button class="alternativas" onclick="proximaQuestao('alt_1')">${perguntas[0].alt_1}</button>
-                <button class="alternativas" onclick="proximaQuestao('alt_2')">${perguntas[0].alt_2}</button>
+                <button class="alternativas" onclick="proximaQuestao('coracao')">${perguntas[1].alt_1}</button>
+                <button class="alternativas" onclick="proximaQuestao('mente')">${perguntas[1].alt_2}</button>
             </div>
             <div class="botoes_alternativas">         
-                <button class="alternativas" onclick="proximaQuestao('alt_3')">${perguntas[0].alt_3}</button>
-                <button class="alternativas" onclick="proximaQuestao('alt_4')">${perguntas[0].alt_4}</button>
+                <button class="alternativas" onclick="proximaQuestao('vontade')">${perguntas[1].alt_3}</button>
+                <button class="alternativas" onclick="proximaQuestao('espirito')">${perguntas[1].alt_4}</button>
             </div>
         `;
     }
 
     let num_alt = 0;
-    let qtd_acertos = 0;
-    let qtd_erros = 0;
+
+    let coracao = 0;
+    let mente = 0;
+    let vontade = 0;
+    let espirito = 0;
 
     async function proximaQuestao(alternativa) {
-
+        
         let perguntas = await receberPerguntas();
         console.log("Número da Alternativa: ", num_alt + 1);
-
+        
         let div1 = document.getElementById('elemento1');
         let div2 = document.getElementById('elemento2');
+        
+        if (alternativa == 'coracao') {
+            coracao++
+            console.log('+coracao')
+            num_alt++
 
-        if (alternativa == perguntas[num_alt].alt_correta) {
-            qtd_acertos += 1;
-            num_alt += 1;
-            console.log('Adicionei 1')
-        } else {
-            qtd_erros += 1;
-            num_alt += 1;
-            console.log('Tirei 1')
+        } else if (alternativa == 'mente') {
+            mente++
+            console.log('+mente')
+            num_alt++
+
+        } else if (alternativa == 'vontade') {
+            vontade++
+            console.log('+vontade')
+            num_alt++
+
+        } else if (alternativa == 'espirito') {
+            espirito++
+            console.log('+espirito')
+            num_alt++
+        
         }
 
-        let erros = qtd_erros;
-        let acertos = qtd_acertos;
-
         if (num_alt == perguntas.length) {
-            resultadoQuiz(acertos, erros);
-            finalizarQuiz(acertos, erros);
+            resultadoQuiz(coracao, mente, vontade, espirito);
             return
         }
 
         div1.innerHTML = `
-        <h2 class="numero_quest">${perguntas[num_alt].id}</h2>
+        <h2 class="numero_quest">${num_alt + 1}</h2>
         <h2 class="titulo">${perguntas[num_alt].pergunta}</h2>
         `;
 
         div2.innerHTML = `
         <div class="botoes_alternativas">        
-            <button class="alternativas" onclick="proximaQuestao('alt_1')">${perguntas[num_alt].alt_1}</button>
-            <button class="alternativas" onclick="proximaQuestao('alt_2')">${perguntas[num_alt].alt_2}</button>
+            <button class="alternativas" onclick="proximaQuestao('coracao')">${perguntas[num_alt].alt_1}</button>
+            <button class="alternativas" onclick="proximaQuestao('mente')">${perguntas[num_alt].alt_2}</button>
         </div>
         <div class="botoes_alternativas">         
-            <button class="alternativas" onclick="proximaQuestao('alt_3')">${perguntas[num_alt].alt_3}</button>
-            <button class="alternativas" onclick="proximaQuestao('alt_4')">${perguntas[num_alt].alt_4}</button>
+            <button class="alternativas" onclick="proximaQuestao('vontade')">${perguntas[num_alt].alt_3}</button>
+            <button class="alternativas" onclick="proximaQuestao('espirito')">${perguntas[num_alt].alt_4}</button>
         </div>
         `;
     }
 
-    async function resultadoQuiz(acertos, erros) {
-        console.log("QTD Acertos: ", acertos);
-        console.log("QTD Erros: ", erros);
+    async function resultadoQuiz(coracao, mente, vontade, espirito) {
+        console.log("QTD Coracao: ", coracao);
+        console.log("QTD Mente: ", mente);
+        console.log("QTD Vontade: ", vontade);
+        console.log("QTD Espirito: ", espirito);
 
         let nome = sessionStorage.NOME_USUARIO;
 
         let perguntas = await receberPerguntas();
-
-        let porcentagem = (acertos * 100) / perguntas.length;
 
         container.classList.add('container-resultados');
 
@@ -220,7 +228,8 @@
         let main = document.getElementById('main-background');
         console.log("QTD_ACERTOS: ", acertos);
 
-        main.innerHTML += `<button class="btn-continuar">Continuar</button>`
+
+        main.innerHTML += `<a href="./dashboard.html" class="btn-continuar" onclick="finalizarQuiz(${acertos}, ${erros})">Continuar</a>`
 
         if (porcentagem >= 70) {
             let acertos = document.getElementById('id_acertos');
@@ -232,14 +241,12 @@
     }
 
     async function finalizarQuiz(acertos, erros) {
-        let id_usuario = sessionStorage.ID_USUARIO;
-        console.log("Id do Usuário: ", id_usuario);
+        console.log("Entrei no finalizar quiz!!");
 
-        let retornoQuiz = await fetch('../quiz/listarQuiz');
-        let retornoQuizConvertido = retornoQuiz.json();
-        let quiz = await retornoQuizConvertido;
+        console.log("ACERTOS: ", acertos);
+        console.log("ERROS: ", erros);
 
-        let id_quiz = quiz[0].id_quiz;
+        let quiz = await fetch('../quiz/listarQuiz');
 
         fetch("/usuario_quiz/cadastrar", {
             method: "POST",
@@ -247,8 +254,6 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                iDquizServer: id_quiz,
-                usuarioServer: id_usuario,
                 errosServer: acertos,
                 acertosServer: erros
             }),

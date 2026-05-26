@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/escolher_quiz.css   ">
+    <link rel="stylesheet" href="../css/menu-hamburguer.css">
+    <link rel="stylesheet" href="../css/gerais.css">
+
+    <script src="../js/sessao.js"></script>
+
+    <title>Steven Verse | Quiz</title>
+</head>
+
+
+<body onload="receberQuiz(), validarSessao()">
+
+    <div class="header-left dash-header" id="header">
+
+        <div class="menu" onclick="abrirMenu()">
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+        </div>
+
+        <div class="itens-nav">
+            <div class="btn-nav">
+                <a href="cards.html">
+                    <img src="../assets/icon/inicio.svg" alt="">
+                    <h3 class="textos-nav esconder">Início</h3>
+                </a>
+            </div>
+            <div class="separacao-itens"></div>
+            <div class="btn-nav">
+                <a href="./dashboard.html">
+                    <img src="../assets/icon/dashboard.svg" alt="">
+                    <h3 class="textos-nav esconder">Dashboard</h3>
+                </a>
+            </div>
+            <div class="separacao-itens"></div>
+            <div class="btn-nav">
+                <a href="./escolher_quizes.html">
+                    <img src="../assets/icon/quiz.svg" alt="">
+                    <h3 class="textos-nav esconder">Quiz</h3>
+                </a>
+            </div>
+            <div class="separacao-itens"></div>
+            <div class="btn-nav">
+                <a href="./mural.html">
+                    <img src="../assets/icon/forum.svg" alt="">
+                    <h3 class="textos-nav esconder">Fórum</h3>
+                </a>
+            </div>
+            <div class="separacao-itens"></div>
+            <div class="btn-nav">
+                <a href="./sorteador.html">
+                    <img src="../assets/icon/musicas.svg" alt="">
+                    <h3 class="textos-nav esconder">Sorteador</h3>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="btn-logout" onclick="limparSessao()">
+            <img src="./../assets/icon/sair.svg" alt="">
+        </div>
+
+    </div>
+
+    <main class="bg-color">
+        <a href="quiz.html" class="container">
+            <div id="elemento1" class="container-titulo">
+                <h2 class="titulo">Trivia</h2>
+            </div>
+            <div class="container-content">
+                <div class="content-textos">
+                    <div class="content-textos-div">
+                        <h2 class="titulo" id="id_titulo_trivia">Titulo</h2>
+                        <p class="descricao" id="id_desc_trivia">Descrição</p>
+                    </div>
+                </div>
+                <div class="imagem trivia"></div>
+            </div>
+        </a>
+
+        <a href="quiz_personalidade.html" class="container">
+            <div class="container-titulo">
+                <h2 class="titulo">Personalidade</h2>
+            </div>
+            <div class="container-content">
+                <div class="content-textos">
+                    <div class="content-textos-div">
+                        <h2 class="titulo" id="id_titulo_personalidade">Titulo</h2>
+                        <p class="descricao" id="id_desc_personalidade">Descrição</p>
+                    </div>
+                </div>
+                <div class="imagem personalidade"></div>
+            </div>
+        </a>
+    </main>
+
+</body>
+<script>
+
+    async function receberQuiz() {
+        
+        // Código para receber quiz
+        const retornoQuiz = await fetch('../quiz/listarQuiz');
+        const retornoQuizConvertido = await retornoQuiz.json();
+        const quiz = retornoQuizConvertido;
+
+        console.log("Retorno Quiz: ", retornoQuizConvertido);
+
+        id_titulo_trivia.innerHTML = `${quiz[0].titulo}`;
+
+        id_desc_trivia.innerHTML = `${quiz[0].descricao}`;
+
+        id_titulo_personalidade.innerHTML = `${quiz[1].titulo}`;
+
+        id_desc_personalidade.innerHTML = `${quiz[1].descricao}`;
+
+        return quiz;
+    }
+
+</script>
+
+</html>

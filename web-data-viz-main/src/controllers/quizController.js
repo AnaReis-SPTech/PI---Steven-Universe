@@ -3,7 +3,7 @@ var quizModel = require("../models/quizModel");
 
 function listarQuiz(req, res) {
     quizModel.listarQuiz().then(function(resultado){
-        // precisamos informar que o resultado voltará para o front-end como uma resposta em json
+
         console.log("Puxei os quizes" + resultado)
         res.status(200).json(resultado);
     }).catch(function(erro){

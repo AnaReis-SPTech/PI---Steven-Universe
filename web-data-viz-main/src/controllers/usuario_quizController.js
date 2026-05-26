@@ -3,6 +3,8 @@ var usuario_quizModel = require("../models/usuario_quizModel");
 function cadastrar(req, res) {
     var erros = req.body.errosServer;
     var acertos = req.body.acertosServer;
+    var id_usuario = req.body.usuarioServer;
+    var id_quiz = req.body.iDquizServer;
 
     if (erros == undefined) {
 
@@ -14,7 +16,7 @@ function cadastrar(req, res) {
 
     } else {
 
-        usuario_quizModel.cadastrar(acertos, erros)
+        usuario_quizModel.cadastrar(acertos, erros, id_usuario, id_quiz)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -30,12 +32,7 @@ function cadastrar(req, res) {
                 }
             );
     }
-
-    usuario_quizModel.cadastrar(acertos, erros).then(function (resposta) {
-        res.status(200).send("Resultado criado com sucesso");
-    }).catch(function (erro) {
-        res.status(500).json(erro.sqlMessage);
-    })
+    
 }
 
 module.exports = {
