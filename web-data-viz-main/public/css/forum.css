@@ -1,0 +1,120 @@
+.janela {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.dash-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    margin-left: 5%;
+    width: 70vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.enviar-mensagem {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: baseline;
+    width: 28%;
+    height: 70%;
+    gap: 8%;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20vh;
+}
+
+.titulo h1 {
+    font-size: 64px;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.titulo h1 span {
+    color: var(--terciaria-azul);
+}
+
+.titulo p {
+    font-size: 24px;
+}
+
+.mensagens {
+    margin-left: 50%;
+}
+
+.div-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    width: 27vw;
+    
+}
+.div-form form label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.label-mensagem {
+    font-family: var(--titulo-gluten);
+    font-size: 24px;
+}
+
+.ipt-titulo {
+    width: 100%;
+    height: 4vh;
+    border-radius: 50px;
+    border: 2px solid black;
+    padding: 0px 3%;
+    font-size: 20px;
+}
+
+.ipt-mensagem {
+    width: 100%;
+    height: 25vh;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 10px 3%;
+    font-size: 16px;
+}
+
+.btn-enviar {
+    background-color: var(--terciaria-azul);
+    width: 13vw;
+    height: 5vh;
+    font-size: 24px;
+    color: white;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    border: none;
+    font-weight: 600;
+    transition: all ease-in-out 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: white;
+    color: var(--terciaria-azul);
+    border: 3px solid var(--terciaria-azul);
+    transform: scale(1.1);
+}
