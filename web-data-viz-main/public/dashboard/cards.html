@@ -21,7 +21,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), receberMaiorAtributo()">
 
     <div class="janela">
 
@@ -107,32 +107,15 @@
                     </div>
 
                     <div class="infos-personagem"> <!-- Colunm -->
-                        <h3>Seu personagem</h3>
+                        <h3 id="id_verifica_resultado">Seu personagem</h3>
                         <div class="personagem-atributos"> <!-- Row -->
-                            <div class="imagem-favorito"></div>
-                            <div class="box-atributos">
-                                <div class="atributo">
-                                    <h3>Carisma</h3>
-                                    <p>10</p>
-                                </div>
-                                <div class="atributo">
-                                    <h3>Sabedoria</h3>
-                                    <p>7</p>
-                                </div>
-                                <div class="atributo">
-                                    <h3>Força</h3>
-                                    <p>5</p>
-                                </div>
-                                <div class="atributo">
-                                    <h3>Intelecto</h3>
-                                    <p>7</p>
-                                </div>
-                            </div>
+                            <div class="imagem-favorito" id="img_personagem"></div>
+                            <div class="box-atributos" id="id_atributos"></div>
                         </div>
                     </div>
 
                 </div>
-                
+
             </div>
             <div class="imagem"></div>
         </div>
@@ -140,36 +123,94 @@
     </div>
 
 </body>
-
+<script src="../js/menu_hamburguer.js"></script>
 <script>
-    let sem_alteracoes = false;
+    var idUsuario = sessionStorage.ID_USUARIO;
 
-    function abrirMenu() {
-        let elementos = document.getElementsByClassName('textos-nav');
-        let header = document.getElementById('header');
+    async function receberMaiorAtributo() {
+        // Código para receber maior atributo do usuário
+        // var idUsuario = sessionStorage.ID_USUARIO;
+        const retornoMaiorAtributo = await fetch(`/resultQuiz/listarMaiorAtributo/${idUsuario}`);
+        const retornoMaiorAtributoConvertido = await retornoMaiorAtributo.json();
+        const MaiorAtributo = retornoMaiorAtributoConvertido;
 
-        if (sem_alteracoes) {
-            console.log('ENTREI IF')
+        console.log("Retorno MaiorAtributo: ", MaiorAtributo);
 
-            header.classList.remove('header-aberto');
+        mostrarAtributos(MaiorAtributo);
 
-            for (let i = 0; i < elementos.length; i++) {
-                elementos[i].classList.add('esconder');
-            }
-            sem_alteracoes = false;
+    }
 
-        } else if (!sem_alteracoes) {
-            console.log('ENTREI ELSE IF')
+    function mostrarAtributos(MaiorAtributo) {
 
-            header.classList.add('header-aberto');
-
-            setTimeout(() => {
-                for (let i = 0; i < elementos.length; i++) {
-                    elementos[i].classList.remove('esconder');
-                }
-            }, 300);
-            sem_alteracoes = true;
+        if (MaiorAtributo.length == 0) {
+            id_atributos.innerHTML = `Faça o quiz de personalidade para receber atributos e saber seu personagem!`;
+            return
         }
+
+        let coracao = parseInt(MaiorAtributo[0].qtd_coracao);
+        let mente = parseInt(MaiorAtributo[0].qtd_mente);
+        let vontade = parseInt(MaiorAtributo[0].qtd_vontade);
+        let espirito = parseInt(MaiorAtributo[0].qtd_espirito);
+
+        let imagemPersonagem = document.getElementById('img_personagem');
+
+        id_atributos.innerHTML = `
+            <div class="atributo">
+                <h3>Coracao</h3>
+                <p id="id_coracao">10</p>
+            </div>
+            <div class="atributo">
+                <h3>Mente</h3>
+                <p id="id_mente">7</p>
+            </div>
+            <div class="atributo">
+                <h3>Vontade</h3>
+                <p id="id_vontade">5</p>
+            </div>
+            <div class="atributo">
+                <h3>Espirito</h3>
+                <p id="id_espirito">7</p>
+            </div>
+        `;
+
+        id_coracao.innerHTML = `${coracao}`;
+        id_mente.innerHTML = `${mente}`;
+        id_vontade.innerHTML = `${vontade}`;
+        id_espirito.innerHTML = `${espirito}`;
+
+        let personagem = '';
+
+        if ((coracao * 3) >= (mente + vontade + espirito) && (mente * 2) > (espirito + vontade)) {
+            // Connie
+            personagem = 'connie';
+
+        } else if ((coracao * 3) >= (mente + vontade + espirito)) {
+            // Steven
+            personagem = 'steven';
+
+        } else if ((mente * 3) >= (coracao + vontade + espirito) && (espirito * 2) > (coracao + vontade)) {
+            // Peridot
+            personagem = 'peridot';
+
+        } else if ((mente * 3) >= (coracao + vontade + espirito)) {
+            // Pérola
+            personagem = 'perola';
+
+        } else if ((espirito * 3) >= (coracao + vontade + mente) && (vontade * 2) > (coracao + mente)) {
+            // Lápis Lazule
+            personagem = 'lapis';
+
+        } else if ((espirito * 3) >= (coracao + vontade + mente)) {
+            // Ametista
+            personagem = 'ametista';
+
+        } else if ((vontade * 3) >= (coracao + espirito + mente)) {
+            // Garnet
+            personagem = 'garnet';
+
+        }
+
+        imagemPersonagem.classList.add(`${personagem}`);
     }
 </script>
 

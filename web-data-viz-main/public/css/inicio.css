@@ -113,12 +113,9 @@
 }
 
 .imagem-favorito {
-    background-image: url(./../assets/imgs/simulador-steven.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 180px;
-    height: 100%;
 }
 
 .box-atributos {
@@ -140,4 +137,44 @@
     font-size: 16px;
 }
 
-.atributo 
+.steven {
+    background-image: url(./../assets/imgs/quiz-personalidade-steven.svg);
+    width: 180px;
+    height: 100%;
+}
+
+.peridot {
+    background-image: url(./../assets/imgs/quiz-personalidade-peridot.svg);
+    width: 180px;
+    height: 100%;
+}
+
+.connie {
+    background-image: url(./../assets/imgs/quiz-personalidade-connie.svg);
+    width: 180px;
+    height: 100%;
+}
+
+.garnet {
+    background-image: url(./../assets/imgs/quiz-personalidade-garnet.svg);
+    width: 180px;
+    height: 100%;
+}
+
+.perola {
+    background-image: url(./../assets/imgs/quiz-personalidade-perola.svg);
+    width: 180px;
+    height: 100%;
+}
+
+.ametista {
+    background-image: url(./../assets/imgs/quiz-personalidade-ametista.svg);
+    width: 180px;
+    height: 100%;
+}
+
+.lapis {
+    background-image: url(./../assets/imgs/quiz-personalidade-lapis.svg);
+    width: 180px;
+    height: 100%;
+}

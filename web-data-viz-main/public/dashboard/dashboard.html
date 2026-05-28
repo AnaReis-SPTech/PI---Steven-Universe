@@ -123,6 +123,7 @@
 
 
 </body>
+<script src="../js/menu_hamburguer.js"></script>
 <script>
     var idUsuario = sessionStorage.ID_USUARIO;
 
@@ -358,22 +359,22 @@
         if (porcentagem < 0) {
 
             porcentagem = porcentagem * -1;
-            msgPercent = `${porcentagem} menor`;
+            msgPercent = `${porcentagem.toFixed(0)}% menor que a dos outros.`;
 
         } else if (porcentagem == 0) {
 
-            msgPercent = `${porcentagem} igual`;
+            msgPercent = `Igual a dos outros.`;
 
         } else {
 
-            msgPercent = `${porcentagem} maior`;
+            msgPercent = `${porcentagem.toFixed(0)}% maior que a dos outros.`;
 
         }
         
         kpi_tentativas.innerHTML = `
             <h2>qtd de tentativas</h2>
             <h1>${tentativasUser}</h1>
-            <p>${msgPercent} que os outros</p>
+            <p>${msgPercent}</p>
         `;
 
     }
