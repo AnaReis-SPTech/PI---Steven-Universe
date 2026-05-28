@@ -220,7 +220,7 @@
         let main = document.getElementById('main-background');
         console.log("QTD_ACERTOS: ", acertos);
 
-        main.innerHTML += `<button class="btn-continuar">Continuar</button>`
+        main.innerHTML += `<a class="btn-continuar" href='./dashboard.html'>Continuar</a>`
 
         if (porcentagem >= 70) {
             let acertos = document.getElementById('id_acertos');
@@ -247,10 +247,10 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                iDquizServer: id_quiz,
+                acertosServer: acertos,
+                errosServer: erros,
                 usuarioServer: id_usuario,
-                errosServer: acertos,
-                acertosServer: erros
+                iDquizServer: id_quiz
             }),
         })
             .then(function (resposta) {

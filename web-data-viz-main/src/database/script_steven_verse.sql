@@ -47,7 +47,12 @@ REFERENCES quiz (id),
 dt_inicio DATE NOT NULL DEFAULT (CURDATE()),
 qtd_acertos INT,
 qtd_erros INT,
-personagem VARCHAR(45)
+
+personagem VARCHAR(45),
+coracao INT,
+mente INT,
+vontade INT,
+espirito INT
 );
 
 CREATE TABLE perguntas (
@@ -83,9 +88,81 @@ INSERT INTO perguntas (pergunta, alt_1, alt_2, alt_3, alt_4, alt_correta, fk_qui
 ('O que a Diamante Rosa fez com Bismuto', 'Matou-a', 'A levou de volta ao planeta natal', 'Prendeu-a em uma bolha', 'Estilhaçou-a', 'alt_3', 1),
 ('Qual o nome de Pérola em "Tacada Certeira?"', 'Pearl', 'Earl', 'Bob', 'Rose', 'alt_2', 1);
 
+INSERT INTO quiz (titulo, tipo, descricao) VALUES
+('Quem você seria em Steven Universo?', 'Personalidade', 'Com esse quiz você pode descobrir quem você seria em Steven Universo a partir de seus atributos!');
+
+INSERT INTO perguntas (pergunta, alt_1, alt_2, alt_3, alt_4, fk_quiz) VALUES
+('O que você faz em um momento ruim?', 'Tento entender o lado do outro', 'Analiso os fatos e procuro uma solução lógica', 'Mantenho a calma para apoiar quem amo', 'Costumo agir como a emoção me manda na hora', 2),
+('Como você lida com seus sentimentos?', 'Falo abertamente sobre eles', 'Guardo para mim e demoro me abrir', 'Tento processar tudo de forma sistemática, as vezes até demais', 'Desabafo com quem tenho maior confiança', 2),
+('Qual qualidade você mais valoriza em si?', 'Minha força de vontade para aprender e evoluir', 'Meu foco em proteger e cuidar de quem eu amo', 'Minha liberdade em não esconder quem sou', 'Minha capacidade de enxergar o lado bom da vida e das pessoas', 2),
+('Quando faço trabalho em equipe, qual papel você costumo ter?', 'Quem une o grupo e garante que todos estejam bem', 'O que planeja os passos, estuda os riscos', 'O que resolve os problemas com sagacidade', 'O que executa as tarefas do próprio jeito, com originalidade', 2),
+('Como você reage quando comete um erro?', 'Peço desculpas e tento consertar o dano emocional', 'Tento disfarçar com piadas ou mudo de assunto', 'Fico muito frustrado comigo mesmo e reviso o que fiz de errado', 'Absorvo o impacto em silêncio', 2),
+('Qual é a sua maior ambição?', 'Ver todos que eu amo vivendo em paz', 'Provar o meu valor e ser mestra em alguma habilidade ou área', 'Poder viver a vida nos meus próprios termos, sem amarras do passado.', 'Cumprir meu dever com excelência e honrar o legado de quem veio antes', 2),
+('O que mais te tira do sério no comportamento de outras pessoas?', 'Gente que se acha superior e desvaloriza a inteligência alheia', 'Crueldade ou falta de empatia com quem não pode se defender', 'Falta de compromisso, bagunça crônica e irresponsabilidade com horários', 'Cobranças excessivas ou pessoas tentando controlar cada passo meu', 2),
+('Qual é a sua forma ideal de passar o tempo livre?', 'Focando em hobbies que me tornem mais preparado ou inteligente', 'Reunindo amigos, comendo bobagens, jogando videogame ou curtindo uma festa', 'Ficar totalmente sozinho em um espaço calmo para processar meus pensamentos', 'Relaxar em um ambiente pacífico, de preferência na natureza ou com quem amo', 2),
+('Quando alguém que você gosta está triste, o que você faz?', 'Escuto com paciência e dou conselhos baseados em lógica e sabedoria', 'Ofereço ajuda para resolver o problema técnico ou físico que causou a tristeza.', 'Dou carinho, valido os sentimentos dela e tento fazê-la sorrir', 'Tento distrair a pessoa tirando-a de casa ou fazendo palhaçadas para aliviar o clima', 2),
+('Como você costuma lidar com mudanças na sua vida?', 'Sinto muita dificuldade em desapegar da rotina antiga e sofro com a transição', 'Encaro como um desafio científico ou uma oportunidade de aprender coisas novas', 'Entendo que ciclos começam e terminam, mantendo o foco no quadro geral', 'Deixo as coisas acontecerem e vou me moldando conforme o ambiente muda', 2);
+
 SELECT * FROM usuario;
 SELECT * FROM mensagem;
 SELECT * FROM usuario_quiz;
+
+-- SELECT para o ranking do quiz de trivia
+SELECT
+	u.nome_usuario,
+    TRUNCATE(AVG(uq.qtd_acertos), 1) AS m_acertos
+FROM usuario_quiz AS uq
+JOIN usuario AS u
+ON u.id = uq.fk_usuario
+GROUP BY u.nome_usuario;
+
+-- SELECT para maior atributo da pessoa
+-- Completar com if's no back-end
+SELECT
+	u.nome_usuario,
+    SUM(uq.coracao),
+    SUM(uq.mente),
+    SUM(uq.vontade),
+	SUM(uq.espirito)
+FROM usuario AS u
+JOIN usuario_quiz AS uq
+ON u.id = uq.fk_usuario
+GROUP BY uq.fk_usuario;
+
+-- SELECT para personagem mais sorteado
+-- No back-end fazer distinção de qual foi o maior
+SELECT
+	u.id AS idUsuario,
+	uq.personagem AS personagem,
+	COUNT(uq.personagem) AS contagem
+FROM usuario_quiz AS uq
+JOIN usuario AS u
+ON u.id = uq.fk_usuario
+GROUP BY uq.personagem, u.id;
+
+-- SELECT para número de tentativas em comparação aos outros usuários
+-- Da pessoa
+SELECT
+	u.nome_usuario,
+    COUNT(uq.fk_usuario)
+FROM usuario_quiz AS uq
+JOIN usuario AS u
+ON u.id = uq.fk_usuario
+WHERE fk_quiz = 2
+GROUP BY uq.fk_usuario;
+
+-- Dos outros
+SELECT
+    AVG(contagem) AS media_todos
+FROM (
+	SELECT
+		fk_quiz,
+		COUNT(fk_usuario) AS contagem
+	FROM usuario_quiz
+    GROUP BY fk_quiz
+) AS uq
+WHERE fk_quiz = 2
+GROUP BY fk_quiz;
 
 -- Select listarPerguntas() perguntas
 -- SELECT id, pergunta, alt_1, alt_2, alt_3, alt_4, alt_correta, fk_quiz FROM perguntas WHERE fk_quiz = 1;
@@ -94,7 +171,7 @@ SELECT * FROM usuario_quiz;
 -- SELECT id, titulo, tipo, descricao FROM quiz;
 
 -- Insert para cadastrar() usuario_quiz resultados
--- INSERT INTO usuario_quiz (qtd_acertos, qtd_erros, fk_usuario, fk_quiz) VALUES ( 9, 1, 1, 1);
+INSERT INTO usuario_quiz (coracao, mente, vontade, espirito, personagem, fk_usuario, fk_quiz) VALUES ( 9, 1, 0, 0, 'peridot', 1, 2);
 
 SELECT id, nome_usuario AS nome, email, senha , nome_completo, TIMESTAMPDIFF(YEAR, dt_nasc, CURDATE()) AS idade FROM usuario WHERE email = '${email}' AND senha = '${senha}';
 

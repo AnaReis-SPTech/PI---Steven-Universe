@@ -6,10 +6,10 @@ function listar() {
         SELECT 
             m.id AS idMensagem,
             m.titulo,
-            m.mensagem,
+            m.mensagem AS msgforum,
             m.fk_usuario,
             u.id AS idUsuario,
-            u.nome_usuario,
+            u.nome_usuario AS nome,
             u.email,
             u.senha
         FROM mensagem AS m
@@ -24,12 +24,12 @@ function pesquisarMensagem(texto) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pesquisarDescricao()");
     var instrucaoSql = `
         SELECT 
-            m.id AS idAviso,
+            m.id AS idMensagem,
             m.titulo,
-            m.mensagem,
+            m.mensagem AS msgforum,
             m.fk_usuario,
             u.id AS idUsuario,
-            u.nome_usuario,
+            u.nome_usuario AS nome,
             u.email,
             u.senha
         FROM mensagem AS m
@@ -47,10 +47,10 @@ function listarPorUsuario(idUsuario) {
         SELECT 
             m.id AS idMensagem,
             m.titulo,
-            m.mensagem,
+            m.mensagem AS msgforum,
             m.fk_usuario,
             u.id AS idUsuario,
-            u.nome,
+            u.nome_usuario AS nome,
             u.email,
             u.senha
         FROM mensagem AS m

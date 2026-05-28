@@ -1,8 +1,10 @@
 const musicas = [
         {
             'titulo': 'Paz na Terra',
+            // Descrição comentada
+            // "Paz na Terra (e Muito Amor)" (originalmente Peace and Love (On the Planet Earth)) é uma música fofa e reflexiva do episódio "Poderia Ter Sido Ótimo" de Steven Universo. Cantada por Steven e Peridot, a música celebra a união, a aceitação da vida no Planeta Terra e a apreciação pelas pequenas coisas, marcando um passo importante na redenção da Peridot.
 
-            'descricao': '"Paz na Terra (e Muito Amor)" (originalmente Peace and Love (On the Planet Earth)) é uma música fofa e reflexiva do episódio "Poderia Ter Sido Ótimo" de Steven Universo. Cantada por Steven e Peridot, a música celebra a união, a aceitação da vida no Planeta Terra e a apreciação pelas pequenas coisas, marcando um passo importante na redenção da Peridot.',
+            'descricao': '',
 
             'linkMusica': 'https://www.youtube.com/embed/tia_UIVR-Ww?si=VlFpowCVFIBppCUe?autoplay=1&mute=1',
 
@@ -10,8 +12,10 @@ const musicas = [
         },
         {
             'titulo': 'Biscoito Gatinho',
+            // Descrição comentada
+            // "Biscoito Gatinho" (Cookie Cat) é a música de abertura do primeiro episódio de Steven Universo, "O Brilho da Pedra", cantada por Steven para celebrar seu sanduíche de sorvete favorito. A letra, escrita por Rebecca Sugar e Jeff Liu, é uma paródia divertida e dramática que descreve o biscoito como um "refugiado de uma guerra estelar" que "deixou a família pra trás".
 
-            'descricao': '"Biscoito Gatinho" (Cookie Cat) é a música de abertura do primeiro episódio de Steven Universo, "O Brilho da Pedra", cantada por Steven para celebrar seu sanduíche de sorvete favorito. A letra, escrita por Rebecca Sugar e Jeff Liu, é uma paródia divertida e dramática que descreve o biscoito como um "refugiado de uma guerra estelar" que "deixou a família pra trás".',
+            'descricao': '',
 
             'linkMusica': 'https://www.youtube.com/embed/BMaXMH5Y4os?si=dijBqa94NQ0nJMT4',
 
@@ -19,8 +23,10 @@ const musicas = [
         },
         {
             'titulo': 'Nós Somos As Cristal Gems',
+            // Descrição comentada
+            // A música de abertura de Steven Universo, intitulada "Nós Somos as Crystal Gems" ("We Are the Crystal Gems" em inglês), é um tema pop cativante e enérgico que introduz os protagonistas e a premissa da série. Cantada inicialmente por Steven no episódio piloto, ela estabelece o tom de aventura, amizade e proteção do planeta Terra contra ameaças.
 
-            'descricao': 'A música de abertura de Steven Universo, intitulada "Nós Somos as Crystal Gems" ("We Are the Crystal Gems" em inglês), é um tema pop cativante e enérgico que introduz os protagonistas e a premissa da série. Cantada inicialmente por Steven no episódio piloto, ela estabelece o tom de aventura, amizade e proteção do planeta Terra contra ameaças.',
+            'descricao': '',
 
             'linkMusica': 'https://www.youtube.com/embed/B-G4BNVLuSU?si=pbZzXaoPhhQSWO6i',
 
@@ -28,8 +34,10 @@ const musicas = [
         },
         {
             'titulo': 'Pra que sentimento, Azul?',
+            // Descrição comentada
+            // "Pra Que Sentimento (Azul)" (What's the Use of Feeling (Blue)?) é uma música de Steven Universo (episódio "Isso é Tudo") cantada por Diamante Amarelo para Diamante Azul. Ela questiona a utilidade do luto e das emoções, focando na necessidade de repressão, ordem e utilidade funcional das Gems no Planeta Natal.
 
-            'descricao': `"Pra Que Sentimento (Azul)" (What's the Use of Feeling (Blue)?) é uma música de Steven Universo (episódio "Isso é Tudo") cantada por Diamante Amarelo para Diamante Azul. Ela questiona a utilidade do luto e das emoções, focando na necessidade de repressão, ordem e utilidade funcional das Gems no Planeta Natal.`,
+            'descricao': ``,
 
             'linkMusica': 'https://www.youtube.com/embed/C87M9FNsbw4?si=Wrdi7df7JfITxYvl',
 
@@ -37,8 +45,10 @@ const musicas = [
         },
         {
             'titulo': 'É mais forte que você',
+            // Descrição comentada
+            //"É Mais Forte Que Você" (Stronger Than You) é o clímax musical de Steven Universo, cantada por Garnet no episódio "Libertador" (Jail Break) ao enfrentar Jasper. A música celebra o amor, a estabilidade da união entre Rubi e Safira, e o empoderamento, provando que o amor é mais forte que a força bruta e o preconceito.
 
-            'descricao': '"É Mais Forte Que Você" (Stronger Than You) é o clímax musical de Steven Universo, cantada por Garnet no episódio "Libertador" (Jail Break) ao enfrentar Jasper. A música celebra o amor, a estabilidade da união entre Rubi e Safira, e o empoderamento, provando que o amor é mais forte que a força bruta e o preconceito.',
+            'descricao': '',
 
             'linkMusica': 'https://www.youtube.com/embed/ECt6xk3eEbU?si=EevRP1Ta9MKmg8hh',
 

@@ -1,8 +1,8 @@
 var usuario_quizModel = require("../models/usuario_quizModel");
 
 function cadastrar(req, res) {
-    var erros = req.body.errosServer;
     var acertos = req.body.acertosServer;
+    var erros = req.body.errosServer;
     var id_usuario = req.body.usuarioServer;
     var id_quiz = req.body.iDquizServer;
 

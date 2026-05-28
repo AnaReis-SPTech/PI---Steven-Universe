@@ -20,6 +20,10 @@
     background-color: black;
 }
 
+
+
+
+
 /* Estilização do Início */
 main {
     width: 100%;
@@ -126,6 +130,10 @@ main {
     height: 35%;
 }
 
+
+
+
+
 /* Estilização das perguntas */
 .container-p-titulo {
     display: flex;
@@ -195,6 +203,10 @@ main {
     height: 70%;
 }
 
+
+
+
+
 /* Estilização dos resultados */
 .container-resultados {
     width: 75%;
@@ -234,6 +246,34 @@ main {
 
 .url-imagem-negativo {
     background-image: url(../assets/imgs/quiz-results-zerado.gif);
+}
+
+.url-imagem-connie {
+    background-image: url(../assets/imgs/quiz-connie.gif);
+}
+
+.url-imagem-steven {
+    background-image: url(../assets/imgs/quiz-steven.gif);
+}
+
+.url-imagem-perola {
+    background-image: url(../assets/imgs/quiz-perola.gif);
+}
+
+.url-imagem-lapis {
+    background-image: url(../assets/imgs/quiz-lapis.gif);
+}
+
+.url-imagem-peridot {
+    background-image: url(../assets/imgs/quiz-peridot.gif);
+}
+
+.url-imagem-ametista {
+    background-image: url(../assets/imgs/quiz-ametista.gif);
+}
+
+.url-imagem-garnet {
+    background-image: url(../assets/imgs/quiz-garnet.gif);
 }
 
 .content-resultados {
@@ -378,6 +418,8 @@ main {
     left: 75.5%;
     font-weight: 700;
     transition: all ease-in-out 0.3s;
+    color: black;
+    text-decoration: none;
 }
 
 .btn-continuar:hover {
@@ -392,4 +434,171 @@ main {
     font-size: 80px;
     font-family: var(--titulo-gluten);
     font-weight: 700;
+}
+
+
+
+
+
+/* Estilização dos resultados do quiz de personalidade */
+
+
+.content-texto-personalidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: var(--titulo-gluten);
+    max-width: 25%;
+    text-align: center;
+}
+
+.content-texto-personalidade h3 {
+    max-width: 80%;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.content-texto-personalidade h1 {
+    font-size: 64px;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding-top: 5%;
+}
+
+.content-texto-personalidade p {
+    font-size: 24px;
+    font-family: var(--paragrafo-fredoka);
+    padding: 15% 0px;
+}
+
+.content-resultados-personalidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    height: 95%;
+    color: white;
+    background-color: var(--secundaria-rosa);
+    transition: all ease-in-out 0.3s;
+}
+
+.content-resultados-personalidade:hover {
+    transform: scale(1.05);
+}
+
+.content-resultados-personalidade button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 13%;
+    border: 5px solid black;
+    background-color: white;
+    font-family: var(--titulo-gluten);
+    text-transform: uppercase;
+    font-size: 24px;
+    transition: all ease-in-out 0.3s;
+}
+
+.content-resultados-personalidade button:hover {
+    background-color: black;
+    color: white;
+}
+
+.imagem-personagem {
+    display: flex;
+    flex-direction: column;
+    background-position: baseline;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 55%;
+}
+
+.garnet {
+    background-image: url(./../assets/imgs/quiz-personalidade-garnet.svg);
+}
+.steven {
+    background-image: url(./../assets/imgs/quiz-personalidade-steven.svg);
+}
+.connie {
+    background-image: url(./../assets/imgs/quiz-personalidade-connie.svg);
+}
+.perola {
+    background-image: url(./../assets/imgs/quiz-personalidade-perola.svg);
+}
+.peridot {
+    background-image: url(./../assets/imgs/quiz-personalidade-peridot.svg);
+}
+.lapis {
+    background-image: url(./../assets/imgs/quiz-personalidade-lapis.svg);
+}
+.ametista {
+    background-image: url(./../assets/imgs/quiz-personalidade-ametista.svg);
+}
+
+.cor-garnet {
+    background-color: var(--secundaria-rosa);
+}
+.cor-steven {
+    background-color: var(--secundaria-rosa);
+}
+.cor-connie {
+    background-color: white;
+    border: 4px solid black;
+    color: black;
+}
+.cor-perola {
+    background-color: rgb(26, 113, 172);
+}
+.cor-peridot {
+    background-color: rgb(31, 194, 140);
+}
+.cor-lapis {
+     background-color: var(--terciaria-azul);
+}
+.cor-ametista {
+    background-color: rgb(95, 37, 170);
+}
+
+.atributo-imagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 97%;
+}
+
+.resultado-personalidade {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    margin-top: 13%;
+}
+
+.atributos {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+}
+
+.atributos h3 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: var(--titulo-gluten);
+}
+
+.atributos h4 {
+    font-size: 24px;
+    font-family: var(--titulo-gluten);
+}
+
+.right {
+    align-items: end;
 }

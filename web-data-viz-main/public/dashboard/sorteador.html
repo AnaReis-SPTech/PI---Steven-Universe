@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="./assets/icon/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="./../css/simulador.css">
     <link rel="stylesheet" href="./../css/gerais.css">
+    <link rel="stylesheet" href="./../css/menu-hamburguer.css">
 
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
@@ -19,8 +20,56 @@
 </head>
 
 <body onload="validarSessao()">
-    <div class="voltar">
-        <a onclick="history.go(-1)"><</a>
+<div class="header-left dash-header" id="header">
+
+        <div class="menu" onclick="abrirMenu()">
+            <div class="linha"></div>
+            <div class="linha"></div>
+            <div class="linha"></div>
+        </div>
+
+        <div class="itens-nav">
+            <div class="btn-nav">
+                <a href="cards.html">
+                    <img src="../assets/icon/inicio.svg" alt="">
+                    <h3 class="textos-nav esconder">Início</h3>
+                </a>
+            </div>
+            <div class="separacao-itens"></div>
+            <div class="btn-nav">
+                <a href="./dashboard.html">
+                    <img src="../assets/icon/dashboard.svg" alt="">
+                    <h3 class="textos-nav esconder">Dashboard</h3>
+                </a>
+            </div>
+            <div class="separacao-itens"></div>
+            <div class="btn-nav">
+                <a href="./escolher_quizes.html">
+                    <img src="../assets/icon/quiz.svg" alt="">
+                    <h3 class="textos-nav esconder">Quiz</h3>
+                </a>
+            </div>
+            <div class="separacao-itens"></div>
+            <div class="btn-nav">
+                <a href="./mural.html">
+                    <img src="../assets/icon/forum.svg" alt="">
+                    <h3 class="textos-nav esconder">Fórum</h3>
+                </a>
+            </div>
+            <div class="separacao-itens"></div>
+            <div class="btn-nav">
+                <a href="./sorteador.html">
+                    <img src="../assets/icon/musicas.svg" alt="">
+                    <h3 class="textos-nav esconder">Sorteador</h3>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="btn-logout" onclick="limparSessao()">
+            <img src="./../assets/icon/sair.svg" alt="">
+        </div>
+
     </div>
     <main> <!-- row -->
         <div class="quadrado extremo"></div>
@@ -60,9 +109,6 @@
                 </div>
 
             </div>
-
-            <p>Cadastre-se no <span>Steven Verse</span> para conseguir sortear músicas diariamente, sem limitações!</p>
-
         </div>
 
         <div class="quadrado extremo"></div>

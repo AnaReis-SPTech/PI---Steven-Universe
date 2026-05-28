@@ -20,6 +20,7 @@
     </div>
 
     <main id="main-background" class="bg-color">
+
         <div class="container" id="container">
             <div id="elemento1" class="container-titulo">
                 <h2 class="titulo">quiz</h2>
@@ -35,15 +36,18 @@
                 <div class="imagem"></div>
             </div>
         </div>
+
     </main>
 </body>
 
 </html>
 <script>
+    // Variáveis feitas para manipular o html
     let div1 = document.getElementById('elemento1');
     let div2 = document.getElementById('elemento2');
     let container = document.getElementById('container');
 
+    // Função que recebe o quiz do banco de dados
     async function receberQuiz() {
         // Código para receber quiz
         const retornoQuiz = await fetch('../quiz/listarQuiz');
@@ -57,8 +61,7 @@
         id_desc.innerHTML = `${quiz[1].descricao}`;
     }
 
-
-
+    // Função que recebe as perguntas do banco de dados
     async function receberPerguntas() {
 
         // Código para receber perguntas
@@ -72,23 +75,26 @@
     }
 
 
-
+    // Função que inicia o quiz
     async function iniciarQuiz() {
 
         let perguntas = await receberPerguntas();
 
         let fundo = document.getElementById('main-background');
 
+        // Faz o fundo ficar branco
         fundo.classList.remove('bg-color');
 
-
+        // Pega os elementos pela classe
         let div1 = document.getElementById('elemento1');
         let div2 = document.getElementById('elemento2');
         let container = document.getElementById('container');
 
+        // Faz o container se ajustar ao desaign das perguntas
         div1.classList.remove('container-titulo');
         div1.classList.add('container-p-titulo');
 
+        // Título e número da 1° questão
         div1.innerHTML = `
             <h2 class="numero_quest">${num_alt + 1}</h2>
             <h2 class="titulo">${perguntas[0].pergunta}</h2>
@@ -98,33 +104,39 @@
 
         div2.classList.add('content-alt');
 
+        // Printa as alternativas
         div2.innerHTML = `
             <div class="botoes_alternativas">        
-                <button class="alternativas" onclick="proximaQuestao('coracao')">${perguntas[1].alt_1}</button>
-                <button class="alternativas" onclick="proximaQuestao('mente')">${perguntas[1].alt_2}</button>
+                <button class="alternativas" onclick="proximaQuestao('coracao')">${perguntas[0].alt_1}</button>
+                <button class="alternativas" onclick="proximaQuestao('mente')">${perguntas[0].alt_2}</button>
             </div>
             <div class="botoes_alternativas">         
-                <button class="alternativas" onclick="proximaQuestao('vontade')">${perguntas[1].alt_3}</button>
-                <button class="alternativas" onclick="proximaQuestao('espirito')">${perguntas[1].alt_4}</button>
+                <button class="alternativas" onclick="proximaQuestao('vontade')">${perguntas[0].alt_3}</button>
+                <button class="alternativas" onclick="proximaQuestao('espirito')">${perguntas[1 + 0].alt_4}</button>
             </div>
         `;
     }
 
+    // Variável que controla o número da alternativa
     let num_alt = 0;
 
+    // Variáveis dos atributos do quiz
     let coracao = 0;
     let mente = 0;
     let vontade = 0;
     let espirito = 0;
+    let personagem = '';
 
+    // Função que continua as questões
     async function proximaQuestao(alternativa) {
-        
+
         let perguntas = await receberPerguntas();
         console.log("Número da Alternativa: ", num_alt + 1);
-        
+
         let div1 = document.getElementById('elemento1');
         let div2 = document.getElementById('elemento2');
-        
+
+        // Pontua os atributos de acordo com a resposta da questão
         if (alternativa == 'coracao') {
             coracao++
             console.log('+coracao')
@@ -134,7 +146,6 @@
             mente++
             console.log('+mente')
             num_alt++
-
         } else if (alternativa == 'vontade') {
             vontade++
             console.log('+vontade')
@@ -144,11 +155,58 @@
             espirito++
             console.log('+espirito')
             num_alt++
-        
+
         }
 
+        // Verifica se chegou na última pergunta, se sim ativa a função finalizarQuiz()
         if (num_alt == perguntas.length) {
-            resultadoQuiz(coracao, mente, vontade, espirito);
+
+            if ((coracao * 3) > (mente + vontade + espirito) && (mente * 2) > (espirito + vontade)) {
+                // Connie
+                console.log('SEU RESULTADO É CONNIE');
+                personagem = 'connie';
+                mensagem_personagem = 'O equilíbrio entre a emoção e a sabedoria, além de ser totalmente leal!';
+
+            } else if ((coracao * 3) > (mente + vontade + espirito)) {
+                // Steven
+                console.log('SEU RESULTADO É STEVEN');
+                personagem = 'steven';
+                mensagem_personagem = 'Coração mole e extremamente empático, o mediador da maioria dos conflitos!';
+
+            } else if ((mente * 3) > (coracao + vontade + espirito) && (espirito * 2) > (coracao + vontade)) {
+                // Peridot
+                console.log('SEU RESULTADO É PERIDOT');
+                personagem = 'peridot';
+                mensagem_personagem = 'Disvertida, livre e pragmática, entender seus sentimentos pode ser difícil, mas você consegue!';
+
+            } else if ((mente * 3) > (coracao + vontade + espirito)) {
+                // Pérola
+                console.log('SEU RESULTADO É PÉROLA');
+                personagem = 'perola';
+                mensagem_personagem = 'Extremamente perspicaz e metódica, você pode até tentar ser perfeito, mas lembre-se de ser você!';
+
+            } else if ((espirito * 3) > (coracao + vontade + mente) && (vontade * 2) > (coracao + mente)) {
+                // Lápis Lazule
+                console.log('SEU RESULTADO É LÁPIS');
+                personagem = 'lapis';
+                mensagem_personagem = 'Já sofreu muito e ficou fria, é por isso que a liberdade e sua intuição é o que move!';
+
+            } else if ((espirito * 3) > (coracao + vontade + mente)) {
+                // Ametista
+                console.log('SEU RESULTADO É AMETISTA');
+                personagem = 'ametista';
+                mensagem_personagem = 'Pode ser difícil se aceitar em um mundo repleto de falsos perfeitos, mas sua perfeição vem de dentro!';
+
+            } else if ((vontade * 3) > (coracao + espirito + mente)) {
+                // Garnet
+                console.log('SEU RESULTADO É GARNET');
+                personagem = 'garnet';
+                mensagem_personagem = 'Você é forte, tem vontade e sua intuição nunca falha!';
+
+            }
+
+            resultadoQuiz(coracao, mente, vontade, espirito, personagem);
+            finalizarQuiz(coracao, mente, vontade, espirito, personagem);
             return
         }
 
@@ -157,6 +215,7 @@
         <h2 class="titulo">${perguntas[num_alt].pergunta}</h2>
         `;
 
+        // Printa as alternativas de acordo com o número da questão
         div2.innerHTML = `
         <div class="botoes_alternativas">        
             <button class="alternativas" onclick="proximaQuestao('coracao')">${perguntas[num_alt].alt_1}</button>
@@ -169,11 +228,13 @@
         `;
     }
 
-    async function resultadoQuiz(coracao, mente, vontade, espirito) {
+    // Função que mostra a tela de resultados
+    async function resultadoQuiz(coracao, mente, vontade, espirito, personagem) {
         console.log("QTD Coracao: ", coracao);
         console.log("QTD Mente: ", mente);
         console.log("QTD Vontade: ", vontade);
         console.log("QTD Espirito: ", espirito);
+        console.log("PERSONAGEM: ", personagem);
 
         let nome = sessionStorage.NOME_USUARIO;
 
@@ -181,81 +242,85 @@
 
         container.classList.add('container-resultados');
 
-        let classeCor = '';
-        let gifResultado = '';
-        let fraseFinal = '';
+        container.classList.remove('container-alt');
+        let fundo = document.getElementById('main-background');
 
-        if (porcentagem >= 70) {
-            fraseFinal = `Pérola ficaria orgulhosa de você <span>${nome}</span>! Continue assim, seu resultado é fruto do seu esforço.`;
-            classeCor = 'resultado-positivo';
-            gifResultado = 'positivo';
-        } else if (porcentagem >= 50) {
-            fraseFinal = `Seu resultado foi mediano. Mas continue tentando e nunca desista de melhorar <span>${nome}</span>!`;
-            gifResultado = 'comum';
-            classeCor = 'resultado-comum';
-        } else {
-            fraseFinal = `Tudo bem errar, os erros lhe mostram que existe espaço pra melhorar, continue tentando <span>${nome}</span>!`;
-            gifResultado = 'negativo';
-            classeCor = 'resultado-negativo';
-        }
+        // Exibe os resultados
+        fundo.innerHTML = `
+        <div class="container container-resultados" id="container">
 
-        container.innerHTML = `
-        <div class="container-gif">
-                <div class="gif url-imagem-${gifResultado}"></div>
+            <div class="container-gif">
+                <div class="gif url-imagem-${personagem}"></div>
             </div>
-            <div class="content-resultados">
-                <h2 class="resultados-titulo">${fraseFinal}</h2>
-                <div class="resultados-cards">
-                    <div class="card card-erros">
-                        <h3>erros</h3>
-                        <div class="resultados-imagem ametista"></div>
-                        <p>Os erros podem ser difíceis de aceitar, mas para evoluir é preciso aceitar seus ‘defeitos’.</p>
+
+            <div class="content-texto-personalidade">
+
+                <h3>Seu personagem é</h3>
+                <h1>${personagem}</h1>
+                <p>${mensagem_personagem}</p>
+
+            </div>
+
+            <div class="content-resultados-personalidade cor-${personagem}">
+
+                <div class="atributo-imagem">
+                    <div class="resultado-personalidade">
+        
+                        <div class="atributos">
+                            <h3>Coração</h3>
+                            <h3>Mente</h3>
+                            <h3>Vontade</h3>
+                            <h3>Espírito</h3>
+                        </div>
+                        <div class="atributos right">
+                            <h4>${coracao}</h4>
+                            <h4>${mente}</h4>
+                            <h4>${vontade}</h4>
+                            <h4>${espirito}</h4>
+                        </div>
                     </div>
-                    <div class="card-central">
-                        <div id="id_acertos" class="resultados">${acertos}</div>
-                        <div id="id_porcentagem" class="${classeCor}">${porcentagem}%</div>
-                        <div id="id_erros" class="resultados">${erros}</div>
-                    </div>
-                    <div class="card card-acertos">
-                        <h3>acertos</h3>
-                        <div class="resultados-imagem perola"></div>
-                        <p>Parabéns, seus acertos são o símbolo do seu esforço. Pode descansar agora.</p>
-                    </div>
+        
+                    <div class="imagem-personagem ${personagem}"></div>
                 </div>
+
+                <button onclick="location.reload()"> Refazer teste </button>
+
             </div>
+        </div>
         `;
 
         let main = document.getElementById('main-background');
-        console.log("QTD_ACERTOS: ", acertos);
 
 
-        main.innerHTML += `<a href="./dashboard.html" class="btn-continuar" onclick="finalizarQuiz(${acertos}, ${erros})">Continuar</a>`
+        main.innerHTML += `<a href="./dashboard.html" class="btn-continuar")">Continuar</a>`
 
-        if (porcentagem >= 70) {
-            let acertos = document.getElementById('id_acertos');
-            acertos.classList.add('classe-destaque');
-        } else if (porcentagem < 50) {
-            let erros = document.getElementById('id_erros');
-            erros.classList.add('classe-destaque');
-        }
     }
 
-    async function finalizarQuiz(acertos, erros) {
-        console.log("Entrei no finalizar quiz!!");
+    // Função que envia os dados finais ao banco de dados
+    async function finalizarQuiz(coracao, mente, vontade, espirito, personagem) {
 
-        console.log("ACERTOS: ", acertos);
-        console.log("ERROS: ", erros);
+        let id_usuario = sessionStorage.ID_USUARIO;
+        console.log("Id do Usuário: ", id_usuario);
 
-        let quiz = await fetch('../quiz/listarQuiz');
+        let retornoQuiz = await fetch('../quiz/listarQuiz');
+        let retornoQuizConvertido = retornoQuiz.json();
+        let quiz = await retornoQuizConvertido;
 
-        fetch("/usuario_quiz/cadastrar", {
+        let id_quiz = quiz[1].id_quiz;
+
+        fetch("/usuario_quizP/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                errosServer: acertos,
-                acertosServer: erros
+                iDquizServer: id_quiz,
+                usuarioServer: id_usuario,
+                coracaoServer: coracao,
+                menteServer: mente,
+                vontadeServer: vontade,
+                espiritoServer: espirito,
+                personagemServer: personagem
             }),
         })
             .then(function (resposta) {

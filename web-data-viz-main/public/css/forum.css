@@ -118,3 +118,108 @@
     border: 3px solid var(--terciaria-azul);
     transform: scale(1.1);
 }
+
+.mensagens {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.mensagens h1 {
+    font-family: var(--titulo-gluten);
+    margin-bottom: 25px;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.div-results {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    gap: 3vh;
+}
+
+.publicacao {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+    border: 4px solid black;
+    padding: 4%;
+    transition: all ease-in-out 0.3s;
+}
+
+.publicacao:hover {
+    transform: scale(1.05);
+}
+
+.publicacao span, .publicacao div {
+    font-family: var(--titulo-gluten);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.publicacao .publicacao-mensagem {
+    font-family: var(--paragrafo-fredoka);
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.publicacao .publicacao-titulo {
+    font-family: var(--paragrafo-fredoka);
+    font-weight: 300;
+    font-size: 28px;
+}
+
+.publicacao .publicacao-nome {
+    color: var(--terciaria-azul);
+}
+
+.div-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    gap: 20px;
+}
+
+.publicacao-btn-editar, .publicacao-btn-deletar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 5vw;
+    height: 3vh;
+    font-family: var(--titulo-gluten);
+    background-color: white;
+    font-size: 16px;
+    border: 3px solid var(--terciaria-azul);
+    color: var(--terciaria-azul);
+    transition: all ease-in-out 0.3s;
+}
+
+.publicacao-btn-editar:hover, .publicacao-btn-deletar:hover {
+    transform: scale(1.05);
+    background-color: var(--terciaria-azul);
+    color: white;
+}
