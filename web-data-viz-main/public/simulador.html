@@ -134,13 +134,13 @@
         }
     ]
 
+    let limite_sorteio = 0;
+
     function sortear_musica() {
         let min = 0;
         let max = 4;
         let numero = parseInt(Math.random() * (max - min + 1) + min);
         let element = document.getElementById('fazer_transicao');
-        
-        console.log(numero);
         
         for (let i = 0; i < musicas.length; i++) {
 
@@ -150,7 +150,6 @@
             }, 300);
 
             let personagens = musicas[i].personagens;
-            console.log(musicas[i].personagens);
             
             
             if (numero == i) {
@@ -159,18 +158,23 @@
                 id_descricao.innerHTML = `${musicas[i].descricao}`;
                 
                 document.getElementById('id_musica').src = `${musicas[i].linkMusica}`;
-                console.log(musicas[i].linkMusica);
 
                 for (let j = 0; j < personagens.length; j++) {
                     
                     id_personagens.innerHTML += `${musicas[i].personagens[j]}`;
-                    console.log(personagens[j]);
                     
                 }
+
             }
             
         }
-
+        
+        if (limite_sorteio == 5) {
+            window.location = 'login.html';
+        }
+        
+        limite_sorteio++
+        
     }
 </script>
 

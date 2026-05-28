@@ -1,0 +1,200 @@
+.container-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5% 3% 5% 12%;
+}
+
+.content-dash-titulo {
+    font-family: var(--titulo-gluten);
+    width: 100%;
+}
+
+.content-dash-titulo p {
+    font-size: 28px;
+}
+
+.content-dash-titulo h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.content-dash-quizes {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 85%;
+    justify-content: space-between;
+}
+
+.box-trivia {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 48%;
+    justify-content: flex-end;
+    gap: 5%;
+}
+
+.box-trivia h2, .box-personalidade h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: var(--titulo-gluten);
+    font-size: 42px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.box-trivia-ranking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 70%;
+    border: 4px solid black;
+    background-color: white;
+}
+
+.box-trivia-ranking h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 5vh;
+    background-color: black;
+    color: white;
+    font-family: var(--titulo-gluten);
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.div-ranking {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: baseline;
+    width: 100%;
+    height: 42vh;
+}
+
+.ranking-titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3% 2%;
+}
+
+.ranking-titulo p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32%;
+    font-family: var(--titulo-gluten);
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.ranking-pessoa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: auto;
+    padding: 0% 2%;
+}
+
+.ranking-pessoa .pessoa {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1% 0px;
+}
+
+.ranking-pessoa .pessoa p {
+    width: 30%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.usuario-ranking {
+    background-color: var(--terciaria-azul);
+    color: white;
+}
+
+.box-personalidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 48%;
+    gap: 5%;
+}
+
+.box-kpis {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15%;
+    width: 30%;
+    height: 150px;
+}
+
+.kpi h1 {
+    font-size: 34px;
+    font-family: var(--titulo-gluten);
+}
+
+.kpi h2 {
+    font-size: 16px;
+}
+
+.kpi-atributo {
+    background-color: var(--terciaria-azul);
+    color: white;
+}
+
+.kpi-personagem {
+    background-color: var(--secundaria-rosa);
+    color: white;
+}
+
+.kpi-tentativas {
+    background-color: var(--primaria-amarelo);
+    color: black;
+}
+
+.grafico-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+    padding: 2%;
+    border: 4px solid black;
+}

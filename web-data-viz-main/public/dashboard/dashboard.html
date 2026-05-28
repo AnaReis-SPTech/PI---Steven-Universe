@@ -9,9 +9,11 @@
     <title>AquaTech | Dashboards</title>
 
     <link rel="stylesheet" href="./../css/gerais.css">
-    <script src="../js/sessao.js"></script>
-    <link rel="stylesheet" href="./../css/menu-hamburguer.css"/>
+    <link rel="stylesheet" href="./../css/menu-hamburguer.css" />
+    <link rel="stylesheet" href="./../css/dashboard.css">
+
     <script src="./../js/alerta.js"></script>
+    <script src="./../js/sessao.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -20,14 +22,10 @@
 
     <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
-<!-- <body onload=" atualizarFeed()"> -->
-
-<body onload="validarSessao(), atualizacaoPeriodica()">
+<body
+    onload="validarSessao(), receberTentativasKPI(), receberMaiorAtributo(), receberMaiorPersonagem(), receberRanking(), receberGrafico()">
 
     <div class="janela">
 
@@ -83,7 +81,303 @@
 
         </div>
 
+        <div class="container-dashboard">
+            <div class="content-dash-titulo">
+                <p>Veja seus dados a partir da</p>
+                <h1>dashboard</h1>
+            </div>
+            <div class="content-dash-quizes">
+
+                <div class="box-trivia">
+                    <h2>Trivia</h2>
+                    <div class="box-trivia-ranking">
+                        <h3>Ranking de acertos</h3>
+                        <div class="div-ranking"> <!-- colunm -->
+                            <div class="ranking-titulo"> <!-- row -->
+                                <p>usuário</p>
+                                <p>posição</p>
+                                <p>média</p>
+                            </div>
+                            <div id="id_ranking" class="ranking-pessoa"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-personalidade">
+                    <h2>Personalidade</h2>
+                    <div class="box-kpis">
+                        <div class="kpi kpi-atributo" id="kpi_atributo">
+                        </div>
+                        <div class="kpi kpi-personagem" id="kpi_personagem">
+                        </div>
+                        <div class="kpi kpi-tentativas" id="kpi_tentativas">
+                        </div>
+                    </div>
+                    <div class="grafico-chart">
+                        <canvas id="graficoBarras"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
 </body>
+<script>
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    async function receberMaiorAtributo() {
+        // Código para receber maior atributo do usuário
+        // var idUsuario = sessionStorage.ID_USUARIO;
+        const retornoMaiorAtributo = await fetch(`/resultQuiz/listarMaiorAtributo/${idUsuario}`);
+        const retornoMaiorAtributoConvertido = await retornoMaiorAtributo.json();
+        const MaiorAtributo = retornoMaiorAtributoConvertido;
+
+        console.log("Retorno MaiorAtributo: ", MaiorAtributo);
+
+        KPImaiorAtributo(MaiorAtributo);
+
+    }
+
+    async function receberMaiorPersonagem() {
+        // Código para receber o personagem mais caído
+        // var idUsuario = sessionStorage.ID_USUARIO;
+        const retornoMaiorPersonagem = await fetch(`/resultQuiz/listarMaiorPersonagem/${idUsuario}`);
+        const retornoMaiorPersonagemConvertido = await retornoMaiorPersonagem.json();
+        const MaiorPersonagem = retornoMaiorPersonagemConvertido;
+
+        console.log("Retorno MaiorPersonagem: ", MaiorPersonagem);
+
+        KPImaiorPersonagem(MaiorPersonagem);
+
+    }
+
+    async function receberTentativasKPI() {
+        // Código para receber quiz
+        // var idUsuario = sessionStorage.ID_USUARIO;
+        const retornoUsuarioTentativas = await fetch(`/resultQuiz/listarUsuarioTentativas/${idUsuario}`);
+        const retornoUsuarioTentativasConvertido = await retornoUsuarioTentativas.json();
+        const UsuarioTentativas = retornoUsuarioTentativasConvertido;
+
+        console.log("Retorno UsuarioTentativas: ", UsuarioTentativas);
+
+        const retornoGeralTentativas = await fetch(`/resultQuiz/listarGeralTentativas`);
+        const retornoGeralTentativasConvertido = await retornoGeralTentativas.json();
+        const GeralTentativas = retornoGeralTentativasConvertido;
+
+        console.log("Retorno GeralTentativas: ", GeralTentativas);
+
+        KPItentativas(GeralTentativas, UsuarioTentativas);
+    }
+
+    async function receberRanking() {
+        // Código para receber quiz
+        // var idUsuario = sessionStorage.ID_USUARIO;
+        const retornoRanking = await fetch(`/resultQuiz/listarRanking`);
+        const retornoRankingConvertido = await retornoRanking.json();
+        const Ranking = retornoRankingConvertido;
+
+        console.log("Retorno Ranking: ", Ranking);
+
+        gerarRanking(Ranking);
+
+    }
+
+    async function receberGrafico() {
+        // Código para receber atributos
+        const retornoGraficoGerais = await fetch(`/resultQuiz/listarGraficoGerais`);
+        const retornoGraficoGeraisConvertido = await retornoGraficoGerais.json();
+        const GraficoGerais = retornoGraficoGeraisConvertido;
+
+        console.log("Retorno GraficoGerais: ", GraficoGerais);
+
+        // Código para receber atributos do usuário
+
+        let idUsuario = sessionStorage.ID_USUARIO;
+
+        const retornoGraficoUsuario = await fetch(`/resultQuiz/listarGraficoUsuario/${idUsuario}`);
+        const retornoGraficoUsuarioConvertido = await retornoGraficoUsuario.json();
+        const GraficoUsuario = retornoGraficoUsuarioConvertido;
+
+        console.log("Retorno GraficoUsuario: ", GraficoUsuario);
+
+        gerarGrafico(GraficoGerais, GraficoUsuario);
+    }
+
+    function gerarGrafico(GraficoGerais, GraficoUsuario) {
+
+        const grafico = document.getElementById('graficoBarras');
+
+        new Chart(grafico, {
+            type: 'bar',
+            data: {
+                labels: ['Coração', 'Mente', 'Vontade', 'Espirito'],
+                datasets: [{
+                    label: 'Geral',
+                    data: [GraficoGerais[0].qtd_coracao, GraficoGerais[0].qtd_mente, GraficoGerais[0].qtd_vontade, GraficoGerais[0].qtd_espirito],
+                    backgroundColor: 'black',
+                    borderWidth: 1
+                }, {
+                    label: 'Você',
+                    data: [GraficoUsuario[0].qtd_coracao, GraficoUsuario[0].qtd_mente, GraficoUsuario[0].qtd_vontade, GraficoUsuario[0].qtd_espirito],
+                    backgroundColor: '#0F75BC',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 10
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Média de atributos',
+                        font: {
+                            family: 'Gluten, cursive',
+                            size: 24,
+                            weigth: 600
+                        },
+                        color: 'black'
+                    }
+                }
+            }
+        });
+        
+    }
+
+    function gerarRanking(ranking) {
+        let idUsuario = sessionStorage.ID_USUARIO;
+
+        for (let i = 0; i < ranking.length; i++) {
+
+            if (ranking[i].id == idUsuario) {
+
+                id_ranking.innerHTML += `
+                    <div class="pessoa usuario-ranking">
+                        <p>${ranking[i].nome_usuario}</p>
+                        <p>${i+1}°</p>
+                        <p>${ranking[i].m_acertos}</p>
+                    </div>
+                `;
+
+            } else {
+
+                id_ranking.innerHTML += `
+                    <div class="pessoa">
+                        <p>${ranking[i].nome_usuario}</p>
+                        <p>${i+1}°</p>
+                        <p>${ranking[i].m_acertos}</p>
+                    </div>
+                `;
+
+            }
+
+        }
+
+    }
+
+    function KPImaiorAtributo(MaiorAtributo) {
+
+        let coracao = MaiorAtributo[0].qtd_coracao;
+        let mente = MaiorAtributo[0].qtd_mente;
+        let vontade = MaiorAtributo[0].qtd_vontade;
+        let espirito = MaiorAtributo[0].qtd_espirito;
+
+        let atributos = [
+            {
+                'nome': 'coracao',
+                'valor': `${coracao}`
+            },
+            {
+                'nome': 'mente',
+                'valor': `${mente}`
+            },
+            {
+                'nome': vontade,
+                'valor': `${vontade}`
+            },
+            {
+                'nome': 'espirito',
+                'valor': `${espirito}`
+            }
+        ];
+
+        let maiorAtributo = atributos[0];
+
+        for (let i = 0; i < atributos.length; i++) {
+            
+            if (atributos[i].valor > maiorAtributo) {
+                maiorAtributo = atributos[i];
+            }
+            
+        }
+
+        kpi_atributo.innerHTML = `
+                <h2>Seu maior atributo</h2>
+                <h1>${maiorAtributo.nome}</h1>
+                <p>A pontuação total foi ${maiorAtributo.valor}</p>
+        `;
+
+    }
+
+    function KPImaiorPersonagem(MaiorPersonagem) {
+
+        let vezes = '';
+
+        if (MaiorPersonagem[0].contagem == 1) {
+            vezes = `${MaiorPersonagem[0].contagem} vez`;
+        } else {
+            vezes = `${MaiorPersonagem[0].contagem} vezes`;
+        }
+        
+        kpi_personagem.innerHTML = `
+            <h2>Personagem mais sorteado</h2>
+            <h1>${MaiorPersonagem[0].personagem}</h1>
+            <p>Foi seu resultado ${vezes}</p>
+        
+        `;
+    }
+
+    function KPItentativas(GeralTentativas, UsuarioTentativas) {
+
+        let tentativasUser = UsuarioTentativas[0].UserTentativas;
+        let mediaGeral = GeralTentativas[0].media_todos;
+
+        console.log(mediaGeral);
+        
+
+        let porcentagem = '#ERRO';
+        let msgPercent = '';
+
+        porcentagem = ((tentativasUser - mediaGeral) / mediaGeral) * 100;
+
+        if (porcentagem < 0) {
+
+            porcentagem = porcentagem * -1;
+            msgPercent = `${porcentagem} menor`;
+
+        } else if (porcentagem == 0) {
+
+            msgPercent = `${porcentagem} igual`;
+
+        } else {
+
+            msgPercent = `${porcentagem} maior`;
+
+        }
+        
+        kpi_tentativas.innerHTML = `
+            <h2>qtd de tentativas</h2>
+            <h1>${tentativasUser}</h1>
+            <p>${msgPercent} que os outros</p>
+        `;
+
+    }
+
+</script>
 
 </html>

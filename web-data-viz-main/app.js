@@ -23,6 +23,7 @@ var quizRouter = require("./src/routes/quiz");
 var perguntasPRouter = require("./src/routes/perguntasP");
 var usuario_quizRouter = require("./src/routes/usuario_quiz");
 var usuario_quizPRouter = require("./src/routes/usuario_quizP");
+var resultQuizRouter = require("./src/routes/resultQuiz");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -38,6 +39,7 @@ app.use("/quiz", quizRouter);
 app.use("/perguntasP", perguntasPRouter);
 app.use("/usuario_quiz", usuario_quizRouter);
 app.use("/usuario_quizP", usuario_quizPRouter);
+app.use("/resultQuiz", resultQuizRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

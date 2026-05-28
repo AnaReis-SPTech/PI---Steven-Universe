@@ -110,27 +110,28 @@ SELECT * FROM usuario_quiz;
 -- SELECT para o ranking do quiz de trivia
 SELECT
 	u.nome_usuario,
-    TRUNCATE(AVG(uq.qtd_acertos), 1) AS m_acertos
+    TRUNCATE(AVG(uq.qtd_acertos), 0) AS m_acertos
 FROM usuario_quiz AS uq
 JOIN usuario AS u
 ON u.id = uq.fk_usuario
-GROUP BY u.nome_usuario;
+GROUP BY u.nome_usuario
+HAVING m_acertos IS NOT NULL;
 
 -- SELECT para maior atributo da pessoa
 -- Completar com if's no back-end
 SELECT
 	u.nome_usuario,
-    SUM(uq.coracao),
-    SUM(uq.mente),
-    SUM(uq.vontade),
-	SUM(uq.espirito)
+    SUM(uq.coracao) AS qtd_coracao,
+    SUM(uq.mente) AS qtd_mente,
+    SUM(uq.vontade) AS qtd_vontade,
+	SUM(uq.espirito) AS qtd_espirito
 FROM usuario AS u
 JOIN usuario_quiz AS uq
 ON u.id = uq.fk_usuario
+WHERE u.id = 1
 GROUP BY uq.fk_usuario;
 
 -- SELECT para personagem mais sorteado
--- No back-end fazer distinção de qual foi o maior
 SELECT
 	u.id AS idUsuario,
 	uq.personagem AS personagem,
@@ -138,7 +139,10 @@ SELECT
 FROM usuario_quiz AS uq
 JOIN usuario AS u
 ON u.id = uq.fk_usuario
-GROUP BY uq.personagem, u.id;
+WHERE u.id = 1
+GROUP BY uq.personagem, u.id
+ORDER BY contagem DESC
+LIMIT 1;
 
 -- SELECT para número de tentativas em comparação aos outros usuários
 -- Da pessoa
@@ -149,6 +153,7 @@ FROM usuario_quiz AS uq
 JOIN usuario AS u
 ON u.id = uq.fk_usuario
 WHERE fk_quiz = 2
+AND fk_usuario = 1
 GROUP BY uq.fk_usuario;
 
 -- Dos outros

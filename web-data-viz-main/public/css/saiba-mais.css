@@ -250,8 +250,8 @@ main {
 .foto {
     width: 280px;
     height: 280px;
-    background-color: #759cb848;
-    background-image: url(../assets/imgs/footer-background.svg);
+    background-color: #e29ecb;
+    background-image: url(../assets/imgs/sobre-mim-foto.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -271,6 +271,7 @@ main {
 
 .content3 .textos .frase {
     font-size: 18px;
+    max-width: 11vw;
 }
 
 .titulo {
