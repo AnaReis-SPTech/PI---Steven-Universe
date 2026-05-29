@@ -103,7 +103,7 @@
                     </div>
                 </div>
 
-                <div class="box-personalidade">
+                <div class="box-personalidade" id="box_personalidade">
                     <h2>Personalidade</h2>
                     <div class="box-kpis">
                         <div class="kpi kpi-atributo" id="kpi_atributo">
@@ -117,7 +117,6 @@
                         <canvas id="graficoBarras"></canvas>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -282,6 +281,9 @@
     }
 
     function KPImaiorAtributo(MaiorAtributo) {
+        if (MaiorAtributo.length == 0) {
+            kpi_atributo.innerHTML = `Faça o quiz de personalidade para desbloquear essa KPI.`;
+        }
 
         let coracao = MaiorAtributo[0].qtd_coracao;
         let mente = MaiorAtributo[0].qtd_mente;
@@ -323,9 +325,13 @@
                 <p>A pontuação total foi ${maiorAtributo.valor}</p>
         `;
 
+
     }
 
     function KPImaiorPersonagem(MaiorPersonagem) {
+        if (MaiorPersonagem.length == 0) {
+            kpi_personagem.innerHTML = `Faça o quiz de personalidade para desbloquear essa KPI.`;
+        }
 
         let vezes = '';
 
@@ -341,9 +347,13 @@
             <p>Foi seu resultado ${vezes}</p>
         
         `;
+
     }
 
     function KPItentativas(GeralTentativas, UsuarioTentativas) {
+        if (UsuarioTentativas.length == 0) {
+            kpi_tentativas.innerHTML = `Faça o quiz de personalidade para desbloquear essa KPI.`;
+        }
 
         let tentativasUser = UsuarioTentativas[0].UserTentativas;
         let mediaGeral = GeralTentativas[0].media_todos;
@@ -376,6 +386,7 @@
             <h1>${tentativasUser}</h1>
             <p>${msgPercent}</p>
         `;
+
 
     }
 

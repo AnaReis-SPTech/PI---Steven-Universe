@@ -115,7 +115,9 @@ FROM usuario_quiz AS uq
 JOIN usuario AS u
 ON u.id = uq.fk_usuario
 GROUP BY u.nome_usuario
-HAVING m_acertos IS NOT NULL;
+HAVING m_acertos IS NOT NULL
+ORDER BY m_acertos DESC
+LIMIT 10;
 
 -- SELECT para maior atributo da pessoa
 -- Completar com if's no back-end
@@ -168,6 +170,35 @@ FROM (
 ) AS uq
 WHERE fk_quiz = 2
 GROUP BY fk_quiz;
+
+-- SELECT para o gráfico de barras
+-- GERAL
+SELECT
+    TRUNCATE(AVG(uq.coracao), 1) AS qtd_coracao,
+    TRUNCATE(AVG(uq.mente), 1) AS qtd_mente,
+    TRUNCATE(AVG(uq.vontade), 1) AS qtd_vontade,
+	TRUNCATE(AVG(uq.espirito), 1) AS qtd_espirito
+FROM usuario AS u
+JOIN usuario_quiz AS uq
+ON u.id = uq.fk_usuario
+WHERE uq.fk_quiz = 2
+GROUP BY uq.fk_quiz;
+
+SELECT * FROM usuario_quiz;
+
+-- USUARIO
+SELECT
+	u.id AS id,
+    TRUNCATE(AVG(uq.coracao), 1) AS qtd_coracao,
+    TRUNCATE(AVG(uq.mente), 1) AS qtd_mente,
+    TRUNCATE(AVG(uq.vontade), 1) AS qtd_vontade,
+	TRUNCATE(AVG(uq.espirito), 1) AS qtd_espirito
+FROM usuario AS u
+JOIN usuario_quiz AS uq
+ON u.id = uq.fk_usuario
+WHERE u.id = 1
+GROUP BY uq.fk_usuario;
+
 
 -- Select listarPerguntas() perguntas
 -- SELECT id, pergunta, alt_1, alt_2, alt_3, alt_4, alt_correta, fk_quiz FROM perguntas WHERE fk_quiz = 1;
