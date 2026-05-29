@@ -48,7 +48,9 @@ A partir dessa dor foi criada a ideia do Steven Verse, um site que une os dois p
 - Agora é só ir ao seu navegador e acessar o link http://localhost:3333/index.html
 <br><br>
 <hr>
+
 # Tecnologias Utilizadas
+
 <br>
 
 **Full-Stack:** [JavaScript] <br>
