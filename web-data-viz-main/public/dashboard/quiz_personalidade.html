@@ -54,8 +54,6 @@
         const retornoQuizConvertido = await retornoQuiz.json();
         const quiz = retornoQuizConvertido;
 
-        console.log("Retorno Quiz: ", retornoQuizConvertido);
-
         id_titulo.innerHTML = `${quiz[1].titulo}`;
 
         id_desc.innerHTML = `${quiz[1].descricao}`;
@@ -64,12 +62,10 @@
     // Função que recebe as perguntas do banco de dados
     async function receberPerguntas() {
 
-        // Código para receber perguntas
+        // Fetch para receber perguntas
         const retornoPerguntas = await fetch('../perguntasP/listarPerguntas');
         const retornoPerguntasConvertido = await retornoPerguntas.json();
         const perguntas = retornoPerguntasConvertido;
-
-        console.log("Retorno Peguntas: ", retornoPerguntasConvertido);
 
         return perguntas;
     }
@@ -131,7 +127,6 @@
     async function proximaQuestao(alternativa) {
 
         let perguntas = await receberPerguntas();
-        console.log("Número da Alternativa: ", num_alt + 1);
 
         let div1 = document.getElementById('elemento1');
         let div2 = document.getElementById('elemento2');
@@ -139,21 +134,17 @@
         // Pontua os atributos de acordo com a resposta da questão
         if (alternativa == 'coracao') {
             coracao++
-            console.log('+coracao')
             num_alt++
 
         } else if (alternativa == 'mente') {
             mente++
-            console.log('+mente')
             num_alt++
         } else if (alternativa == 'vontade') {
             vontade++
-            console.log('+vontade')
             num_alt++
 
         } else if (alternativa == 'espirito') {
             espirito++
-            console.log('+espirito')
             num_alt++
 
         }
@@ -163,43 +154,36 @@
 
             if ((coracao * 3) > (mente + vontade + espirito) && (mente * 2) > (espirito + vontade)) {
                 // Connie
-                console.log('SEU RESULTADO É CONNIE');
                 personagem = 'connie';
                 mensagem_personagem = 'O equilíbrio entre a emoção e a sabedoria, além de ser totalmente leal!';
 
             } else if ((coracao * 3) > (mente + vontade + espirito)) {
                 // Steven
-                console.log('SEU RESULTADO É STEVEN');
                 personagem = 'steven';
                 mensagem_personagem = 'Coração mole e extremamente empático, o mediador da maioria dos conflitos!';
 
             } else if ((mente * 3) > (coracao + vontade + espirito) && (espirito * 2) > (coracao + vontade)) {
                 // Peridot
-                console.log('SEU RESULTADO É PERIDOT');
                 personagem = 'peridot';
                 mensagem_personagem = 'Divertida, livre e pragmática, entender seus sentimentos pode ser difícil, mas você consegue!';
 
             } else if ((mente * 3) > (coracao + vontade + espirito)) {
                 // Pérola
-                console.log('SEU RESULTADO É PÉROLA');
                 personagem = 'perola';
                 mensagem_personagem = 'Extremamente perspicaz e metódica, você pode até tentar ser perfeito, mas lembre-se de ser você!';
 
             } else if ((espirito * 3) > (coracao + vontade + mente) && (vontade * 2) > (coracao + mente)) {
                 // Lápis Lazule
-                console.log('SEU RESULTADO É LÁPIS');
                 personagem = 'lapis';
                 mensagem_personagem = 'Já sofreu muito e ficou fria, é por isso que a liberdade e sua intuição é o que move!';
 
             } else if ((espirito * 3) > (coracao + vontade + mente)) {
                 // Ametista
-                console.log('SEU RESULTADO É AMETISTA');
                 personagem = 'ametista';
                 mensagem_personagem = 'Pode ser difícil se aceitar em um mundo repleto de falsos perfeitos, mas sua perfeição vem de dentro!';
 
             } else if ((vontade * 3) > (coracao + espirito + mente)) {
                 // Garnet
-                console.log('SEU RESULTADO É GARNET');
                 personagem = 'garnet';
                 mensagem_personagem = 'Você é forte, tem vontade e sua intuição nunca falha!';
 
@@ -230,11 +214,6 @@
 
     // Função que mostra a tela de resultados
     async function resultadoQuiz(coracao, mente, vontade, espirito, personagem) {
-        console.log("QTD Coracao: ", coracao);
-        console.log("QTD Mente: ", mente);
-        console.log("QTD Vontade: ", vontade);
-        console.log("QTD Espirito: ", espirito);
-        console.log("PERSONAGEM: ", personagem);
 
         let nome = sessionStorage.NOME_USUARIO;
 
@@ -300,7 +279,6 @@
     async function finalizarQuiz(coracao, mente, vontade, espirito, personagem) {
 
         let id_usuario = sessionStorage.ID_USUARIO;
-        console.log("Id do Usuário: ", id_usuario);
 
         let retornoQuiz = await fetch('../quiz/listarQuiz');
         let retornoQuizConvertido = retornoQuiz.json();

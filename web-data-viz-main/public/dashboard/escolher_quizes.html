@@ -104,20 +104,17 @@
 <script>
 
     async function receberQuiz() {
-        
         // Código para receber quiz
         const retornoQuiz = await fetch('../quiz/listarQuiz');
         const retornoQuizConvertido = await retornoQuiz.json();
         const quiz = retornoQuizConvertido;
 
-        console.log("Retorno Quiz: ", retornoQuizConvertido);
-
+        // Exibe as informações do trivia
         id_titulo_trivia.innerHTML = `${quiz[0].titulo}`;
-
         id_desc_trivia.innerHTML = `${quiz[0].descricao}`;
 
+        // Exibe as informações do teste de personalidade
         id_titulo_personalidade.innerHTML = `${quiz[1].titulo}`;
-
         id_desc_personalidade.innerHTML = `${quiz[1].descricao}`;
 
         return quiz;

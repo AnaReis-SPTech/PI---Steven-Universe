@@ -13,8 +13,7 @@
     
 </head>
 
-<body onload="validarSessao(), listarInfosDeUm()">
-    <!-- <body onload="validarSessao()"> -->
+<body onload="validarSessao()">
 
     <div class="janela">
 
@@ -112,9 +111,6 @@
 </html>
 <script src="../js/menu_hamburguer.js"></script>
 <script>
-    function listarInfosDeUm() {
-        console.log("Criar função de trazer informações de post escolhido");
-    }
 
     function editar() {
         fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {

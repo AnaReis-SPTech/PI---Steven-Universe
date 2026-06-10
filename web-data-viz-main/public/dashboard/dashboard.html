@@ -12,20 +12,14 @@
     <link rel="stylesheet" href="./../css/menu-hamburguer.css" />
     <link rel="stylesheet" href="./../css/dashboard.css">
 
-    <script src="./../js/alerta.js"></script>
     <script src="./../js/sessao.js"></script>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-    <!-- scripts do Chart.js - 2022-1 -->
+    <!-- Biblioteca do Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body
-    onload="validarSessao(), receberTentativasKPI(), receberMaiorAtributo(), receberMaiorPersonagem(), receberRanking(), receberGrafico()">
+<!-- Carrega as informações necessárias no body -->
+<body onload="validarSessao(), receberTentativasKPI(), receberMaiorAtributo(), receberMaiorPersonagem(), receberRanking(), receberGrafico()">
 
     <div class="janela">
 
@@ -122,18 +116,18 @@
 
 
 </body>
+<!-- Tráz o script do menu hamburguer -->
 <script src="../js/menu_hamburguer.js"></script>
+
 <script>
+
     var idUsuario = sessionStorage.ID_USUARIO;
 
     async function receberMaiorAtributo() {
         // Código para receber maior atributo do usuário
-        // var idUsuario = sessionStorage.ID_USUARIO;
         const retornoMaiorAtributo = await fetch(`/resultQuiz/listarMaiorAtributo/${idUsuario}`);
         const retornoMaiorAtributoConvertido = await retornoMaiorAtributo.json();
         const MaiorAtributo = retornoMaiorAtributoConvertido;
-
-        console.log("Retorno MaiorAtributo: ", MaiorAtributo);
 
         KPImaiorAtributo(MaiorAtributo);
 
@@ -141,12 +135,9 @@
 
     async function receberMaiorPersonagem() {
         // Código para receber o personagem mais caído
-        // var idUsuario = sessionStorage.ID_USUARIO;
         const retornoMaiorPersonagem = await fetch(`/resultQuiz/listarMaiorPersonagem/${idUsuario}`);
         const retornoMaiorPersonagemConvertido = await retornoMaiorPersonagem.json();
         const MaiorPersonagem = retornoMaiorPersonagemConvertido;
-
-        console.log("Retorno MaiorPersonagem: ", MaiorPersonagem);
 
         KPImaiorPersonagem(MaiorPersonagem);
 
@@ -154,30 +145,23 @@
 
     async function receberTentativasKPI() {
         // Código para receber quiz
-        // var idUsuario = sessionStorage.ID_USUARIO;
         const retornoUsuarioTentativas = await fetch(`/resultQuiz/listarUsuarioTentativas/${idUsuario}`);
         const retornoUsuarioTentativasConvertido = await retornoUsuarioTentativas.json();
         const UsuarioTentativas = retornoUsuarioTentativasConvertido;
 
-        console.log("Retorno UsuarioTentativas: ", UsuarioTentativas);
-
+        // Código para receber tentativas do usuário
         const retornoGeralTentativas = await fetch(`/resultQuiz/listarGeralTentativas`);
         const retornoGeralTentativasConvertido = await retornoGeralTentativas.json();
         const GeralTentativas = retornoGeralTentativasConvertido;
-
-        console.log("Retorno GeralTentativas: ", GeralTentativas);
 
         KPItentativas(GeralTentativas, UsuarioTentativas);
     }
 
     async function receberRanking() {
         // Código para receber quiz
-        // var idUsuario = sessionStorage.ID_USUARIO;
         const retornoRanking = await fetch(`/resultQuiz/listarRanking`);
         const retornoRankingConvertido = await retornoRanking.json();
         const Ranking = retornoRankingConvertido;
-
-        console.log("Retorno Ranking: ", Ranking);
 
         gerarRanking(Ranking);
 
@@ -189,22 +173,17 @@
         const retornoGraficoGeraisConvertido = await retornoGraficoGerais.json();
         const GraficoGerais = retornoGraficoGeraisConvertido;
 
-        console.log("Retorno GraficoGerais: ", GraficoGerais);
-
-        // Código para receber atributos do usuário
-
+        // Código para receber as informações do gráfico
         let idUsuario = sessionStorage.ID_USUARIO;
-
         const retornoGraficoUsuario = await fetch(`/resultQuiz/listarGraficoUsuario/${idUsuario}`);
         const retornoGraficoUsuarioConvertido = await retornoGraficoUsuario.json();
         const GraficoUsuario = retornoGraficoUsuarioConvertido;
-
-        console.log("Retorno GraficoUsuario: ", GraficoUsuario);
 
         gerarGrafico(GraficoGerais, GraficoUsuario);
     }
 
     function gerarGrafico(GraficoGerais, GraficoUsuario) {
+        // Função que gera o gráfico de atributos
 
         const grafico = document.getElementById('graficoBarras');
 
@@ -250,12 +229,14 @@
     }
 
     function gerarRanking(ranking) {
+        // Função que gera o ranking de usuários
+
         let idUsuario = sessionStorage.ID_USUARIO;
 
         for (let i = 0; i < ranking.length; i++) {
 
             if (ranking[i].id == idUsuario) {
-
+                // If que destaca a linha com as informações do usuário atual
                 id_ranking.innerHTML += `
                     <div class="pessoa usuario-ranking">
                         <p>${ranking[i].nome_usuario}</p>
@@ -281,6 +262,7 @@
     }
 
     function KPImaiorAtributo(MaiorAtributo) {
+        // Função que exibe na tela a KPI com o maior atributo do usuário
         if (MaiorAtributo.length == 0) {
             kpi_atributo.innerHTML = `Faça o quiz de personalidade para desbloquear essa KPI.`;
         }
@@ -329,6 +311,7 @@
     }
 
     function KPImaiorPersonagem(MaiorPersonagem) {
+        // Função que exibe na tela o personagem que o usuário mais tirou no quiz de personalidade
         if (MaiorPersonagem.length == 0) {
             kpi_personagem.innerHTML = `Faça o quiz de personalidade para desbloquear essa KPI.`;
         }
@@ -351,21 +334,22 @@
     }
 
     function KPItentativas(GeralTentativas, UsuarioTentativas) {
+        // Função que exibe as métricas da quantidade de tentativas do usuário em relação aos outros
         if (UsuarioTentativas.length == 0) {
             kpi_tentativas.innerHTML = `Faça o quiz de personalidade para desbloquear essa KPI.`;
         }
 
         let tentativasUser = UsuarioTentativas[0].UserTentativas;
-        let mediaGeral = GeralTentativas[0].media_todos;
-
-        console.log(mediaGeral);
-        
+        let mediaGeral = GeralTentativas[0].media_todos;        
 
         let porcentagem = '#ERRO';
         let msgPercent = '';
 
+        // Cálculo da porcentagem a partir da fórmula da diferença
         porcentagem = ((tentativasUser - mediaGeral) / mediaGeral) * 100;
 
+
+        // Cria a mensagem de exibição
         if (porcentagem < 0) {
 
             porcentagem = porcentagem * -1;
@@ -381,6 +365,7 @@
 
         }
         
+        // Exibe a porcentagem e a quantidade de tentativas na tela
         kpi_tentativas.innerHTML = `
             <h2>qtd de tentativas</h2>
             <h1>${tentativasUser}</h1>

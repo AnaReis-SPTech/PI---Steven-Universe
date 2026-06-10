@@ -15,10 +15,6 @@
 
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body onload="validarSessao(), receberMaiorAtributo()">
@@ -128,25 +124,27 @@
     var idUsuario = sessionStorage.ID_USUARIO;
 
     async function receberMaiorAtributo() {
-        // Código para receber maior atributo do usuário
-        // var idUsuario = sessionStorage.ID_USUARIO;
+        // Código para receber do BD maior atributo do usuário
+
         const retornoMaiorAtributo = await fetch(`/resultQuiz/listarMaiorAtributo/${idUsuario}`);
         const retornoMaiorAtributoConvertido = await retornoMaiorAtributo.json();
         const MaiorAtributo = retornoMaiorAtributoConvertido;
 
-        console.log("Retorno MaiorAtributo: ", MaiorAtributo);
-
+        // Chama a função de mostrar os dados buscados
         mostrarAtributos(MaiorAtributo);
 
     }
 
     function mostrarAtributos(MaiorAtributo) {
+        // Função que mostra a KPI
 
         if (MaiorAtributo.length == 0) {
+            // Verifica se o usuário já fez o quiz alguma vez
             id_atributos.innerHTML = `Faça o quiz de personalidade para receber atributos e saber seu personagem!`;
             return
         }
 
+        // Criação das variáveis de cada atributo
         let coracao = parseInt(MaiorAtributo[0].qtd_coracao);
         let mente = parseInt(MaiorAtributo[0].qtd_mente);
         let vontade = parseInt(MaiorAtributo[0].qtd_vontade);
@@ -154,22 +152,23 @@
 
         let imagemPersonagem = document.getElementById('img_personagem');
 
+        // Insere a base do html para receber os atributos
         id_atributos.innerHTML = `
             <div class="atributo">
                 <h3>Coracao</h3>
-                <p id="id_coracao">10</p>
+                <p id="id_coracao">NULL</p>
             </div>
             <div class="atributo">
                 <h3>Mente</h3>
-                <p id="id_mente">7</p>
+                <p id="id_mente">NULL</p>
             </div>
             <div class="atributo">
                 <h3>Vontade</h3>
-                <p id="id_vontade">5</p>
+                <p id="id_vontade">NULL</p>
             </div>
             <div class="atributo">
                 <h3>Espirito</h3>
-                <p id="id_espirito">7</p>
+                <p id="id_espirito">NULL</p>
             </div>
         `;
 
@@ -180,6 +179,7 @@
 
         let personagem = '';
 
+        // Sequência de if's que mostra o personagem da pessoa na tela
         if ((coracao * 3) >= (mente + vontade + espirito) && (mente * 2) > (espirito + vontade)) {
             // Connie
             personagem = 'connie';
@@ -210,6 +210,7 @@
 
         }
 
+        // Adiciona a classe com a imagem do personagem da pessoa
         imagemPersonagem.classList.add(`${personagem}`);
     }
 </script>

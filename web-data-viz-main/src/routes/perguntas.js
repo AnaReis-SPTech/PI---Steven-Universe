@@ -6,7 +6,6 @@ var router = express.Router();
 var perguntasController = require("../controllers/perguntasController");
 
 router.get("/listarPerguntas", function (req, res) {
-    // função a ser chamada quando acessar /carros/listar
     perguntasController.listarPerguntas(req, res);
 });
 
